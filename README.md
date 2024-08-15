@@ -1,2 +1,2 @@
 # cube3d
-42 Cube3D project with Aavduli
+42 Cub3D project with Aavduli
