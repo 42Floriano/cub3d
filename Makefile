@@ -6,7 +6,7 @@
 #    By: albertini <albertini@student.42.fr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/13 12:52:36 by falberti          #+#    #+#              #
-#    Updated: 2024/08/15 13:41:22 by albertini        ###   ########.fr        #
+#    Updated: 2024/08/15 13:52:34 by albertini        ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,11 +23,15 @@ CFILES = $(addsuffix .c, $(FILES))
 OFILES = $(addsuffix .o, $(FILES))
 
 ####################################################################
-## Varguments
+## Varguments MACOS
 CC = gcc
 CFLAGS = -Werror -Wextra -Wall -I $(HEADER) -Imlx -g
 LDFLAGS = -Lmlx -lmlx -framework OpenGL -framework AppKit
 NAME = cub3d
+
+## Varguments Linux
+# CFLAGS = -Werror -Wextra -Wall -I $(HEADER) -I/usr/include -Imlx_linux -O3 -g
+# LDFLAGS = -Lmlx_linux -lmlx_Linux -L/usr/lib -Imlx_linux -lXext -lX11 -lm -lz
 
 #####################################################################
 ## Rules
