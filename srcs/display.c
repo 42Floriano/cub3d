@@ -1,24 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cub3d.c                                            :+:      :+:    :+:   */
+/*   display.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: albertini <albertini@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/15 12:53:21 by albertini         #+#    #+#             */
-/*   Updated: 2024/08/20 17:36:59 by albertini        ###   ########.fr       */
+/*   Created: 2024/08/20 15:24:44 by albertini         #+#    #+#             */
+/*   Updated: 2024/08/20 17:37:44 by albertini        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/cub3d.h"
 
-int	main(int argc, char *argv[])
+void	display()
 {
-	// glutInit(&argc, argv);
-	// glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGB);
-	// glutInitWindowSize(1024,510);
-	// glutCreateWindow("YouTube-3DSage");
-	// init();
-	// glutDisplayFunc(display);
-	// glutMainLoop();
+	// glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+	// glutSwapBuffers();
+	// // draw_map2d();
 }

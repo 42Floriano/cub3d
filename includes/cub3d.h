@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: falberti <falberti@student.42.fr>          +#+  +:+       +#+        */
+/*   By: albertini <albertini@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/24 17:46:15 by aavduli           #+#    #+#             */
-/*   Updated: 2024/08/19 13:53:51 by falberti         ###   ########.fr       */
+/*   Updated: 2024/08/20 17:22:12 by albertini        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,12 @@
 # include "libft_xl/libft.h"
 # include "keybinds.h"
 # include <stdbool.h>
+# include <GLUT/glut.h>
+
+//-----------------------------MAP----------------------------------------------
+# define MAPX  8      //map width
+# define MAPY  8      //map height
+# define MAPS 64      //map cube size
 
 
 /*
@@ -58,7 +64,11 @@ struct s_cmd
 
 
 
-//init_structs
+//init
+void	init();
+
+//display
+void	display();
 
 //safe_functions
 
