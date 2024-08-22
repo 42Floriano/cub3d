@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: albertini <albertini@student.42.fr>        +#+  +:+       +#+        */
+/*   By: aavduli <aavduli@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/24 17:46:15 by aavduli           #+#    #+#             */
-/*   Updated: 2024/08/22 16:33:06 by albertini        ###   ########.fr       */
+/*   Updated: 2024/08/22 16:44:40 by aavduli          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,42 @@ enum e_type
 
 typedef struct s_cmd	t_cmd;
 
+struct s_map
+{
+};
+
+struct s_player
+{
+	float	x;
+	float	y;
+	float	dirX;
+	float	dirY;
+	float	planeX;
+	float	planeY;
+};
+
+struct s_ray
+{
+	float	cameraX;
+	float	rayDirX;
+	float	rayDirY;
+	int		mapX;
+	int		mapY;
+	float	sideDistX;
+	float	sideDistY;
+	float	deltaDistX;
+	float	deltaDistY;
+	float	perpWallDist;
+	int		stepX;
+	int		stepY;
+	int		hit;
+	int		side;
+};
+
+struct map
+{
+	int		map[MAPX][MAPY];
+};
 struct s_cmd
 {
 	char			*str;
@@ -62,6 +98,19 @@ struct s_cmd
 	t_cmd			*prev;
 };
 
+struct s_mlx
+{
+	void	*mlx;
+	void	*win;
+};
+
+struct s_game
+{
+	t_map		map;
+	t_player	player;
+	t_ray		ray;
+	t_mlx		mlx;
+};
 
 
 //init
