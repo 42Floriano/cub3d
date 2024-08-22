@@ -6,7 +6,7 @@
 #    By: albertini <albertini@student.42.fr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/13 12:52:36 by falberti          #+#    #+#              #
-#    Updated: 2024/08/20 17:22:25 by albertini        ###   ########.fr        #
+#    Updated: 2024/08/22 16:31:20 by albertini        ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,16 +27,20 @@ CFILES = $(addsuffix .c, $(FILES))
 OFILES = $(addsuffix .o, $(FILES))
 
 ####################################################################
-## Varguments MACOS
+UNAME := $(shell uname)
 CC = gcc
-CFLAGS = -Werror -Wextra -Wall -DGL_SILENCE_DEPRECATION -I $(HEADER) -Imlx -g
-LDFLAGS = -Lmlx -lmlx -framework OpenGL -framework AppKit
 NAME = cub3d
 
-## Varguments Linux
-# CFLAGS = -Werror -Wextra -Wall -I $(HEADER) -I/usr/include -Imlx_linux -O3 -g
-# LDFLAGS = -Lmlx_linux -lmlx_Linux -L/usr/lib -Imlx_linux -lXext -lX11 -lm -lz
 
+ifeq ($(UNAME), Darwin)
+# macOS-specific settings
+CFLAGS = -Werror -Wextra -Wall -DGL_SILENCE_DEPRECATION -I $(HEADER) -Imlx -g
+LDFLAGS = -Lmlx -lmlx -framework OpenGL -framework AppKit
+else ifeq ($(UNAME), Linux)
+# Linux-specific settings
+CFLAGS = -Werror -Wextra -Wall -I $(HEADER) -I/usr/include -Imlx_linux -O3 -g
+LDFLAGS = -Lmlx_linux -lmlx_Linux -L/usr/lib -Imlx_linux -lXext -lX11 -lm -lz
+endif
 #####################################################################
 ## Rules
 

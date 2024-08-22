@@ -6,19 +6,14 @@
 /*   By: albertini <albertini@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/15 12:53:21 by albertini         #+#    #+#             */
-/*   Updated: 2024/08/20 17:36:59 by albertini        ###   ########.fr       */
+/*   Updated: 2024/08/22 16:32:10 by albertini        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/cub3d.h"
 
-int	main(int argc, char *argv[])
+int	main(int ac, char *av[])
 {
-	// glutInit(&argc, argv);
-	// glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGB);
-	// glutInitWindowSize(1024,510);
-	// glutCreateWindow("YouTube-3DSage");
-	// init();
-	// glutDisplayFunc(display);
-	// glutMainLoop();
+	(void)ac;
+	(void)av;
 }

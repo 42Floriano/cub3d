@@ -6,7 +6,7 @@
 /*   By: albertini <albertini@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/24 17:46:15 by aavduli           #+#    #+#             */
-/*   Updated: 2024/08/20 17:22:12 by albertini        ###   ########.fr       */
+/*   Updated: 2024/08/22 16:33:06 by albertini        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,8 @@ void	init();
 //display
 void	display();
 
-//safe_functions
+//m_draw
+void	draw_map2D();
 
 //freerers
 
