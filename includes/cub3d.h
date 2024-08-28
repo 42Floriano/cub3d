@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: albertini <albertini@student.42.fr>        +#+  +:+       +#+        */
+/*   By: aavduli <aavduli@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/24 17:46:15 by aavduli           #+#    #+#             */
-/*   Updated: 2024/08/22 16:33:06 by albertini        ###   ########.fr       */
+/*   Updated: 2024/08/28 13:25:51 by aavduli          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,39 +33,64 @@
 
 
 /*
- 0 = 
- 1 = 
- 2 =
- 3 = 
- 4 = 
- 5 = 
- 6 = 
- 7 = 
- 8 = 
- 9 = 
- 10 = 
+ 0 = NORTH
+ 1 = SOUTH
+ 2 = EAST
+ 3 = WEST
 */
 
-enum e_type
+enum e_direction
 {
-	typeOne,
+	NORTH,
+	SOUTH,
+	EAST,
+	WEST,
 };
 
-typedef struct s_cmd	t_cmd;
-
-struct s_cmd
+typedef struct s_texture
 {
-	char			*str;
-	int				type;
-	bool			pipe;
-	t_cmd			*next;
-	t_cmd			*prev;
-};
+	char	*no_path;
+	char	*so_path;
+	char	*we_path;
+	char	*ea_path;
+}			t_texture;
+
+typedef struct s_player
+{
+	long	x;
+	long	y;
+	long	dirx;
+	long	diry;
+	long	planex;
+	long	planey;
+}				t_player;
+
+typedef struct s_map
+{
+	char	**map;
+	char	**copy_map;
+	int		x;
+	int		y;
+	int		width;
+	int		height;
+}				t_map;
+
+typedef struct s_game
+{
+	void		*mlx;
+	void		*win;
+	int			width;
+	int			height;
+	t_cmd		*cmd;
+	t_map		*map;
+	t_player	*player;
+}				t_game;
+
 
 
 
 //init
-void	init();
+void	init_game(char *av, t_game *game);
 
 //display
 void	display();

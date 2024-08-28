@@ -1,28 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cub3d.c                                            :+:      :+:    :+:   */
+/*   struct.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aavduli <aavduli@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/15 12:53:21 by albertini         #+#    #+#             */
-/*   Updated: 2024/08/27 11:48:08 by aavduli          ###   ########.fr       */
+/*   Created: 2024/08/28 13:11:06 by aavduli           #+#    #+#             */
+/*   Updated: 2024/08/28 13:21:06 by aavduli          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/cub3d.h"
 
-int	main(int ac, char *av[])
+void	init_struct(t_game *game)
 {
-	t_game	game;
-
-	if (ac == 2)
-	{
-		init_game(av[1], &game);
-	}
-	else
-	{
-		ft_putstr_fd("Error\nInvalid number of arguments\n", 2);
-	}
-	return (0);
+	game->player.x = 0;
+	game->player.y = 0;
+	game->player.dirx = -1;
+	game->player.diry = 0;
+	game->player.planex = 0;
+	game->player.planey = 0;
+	game->map->map = NULL;
 }
