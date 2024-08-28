@@ -6,7 +6,7 @@
 /*   By: aavduli <aavduli@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/28 13:16:50 by aavduli           #+#    #+#             */
-/*   Updated: 2024/08/28 13:51:49 by aavduli          ###   ########.fr       */
+/*   Updated: 2024/08/28 13:55:37 by aavduli          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,9 @@ void	init_parsing(char *av, t_game *game)
 			game->texture->ea_path = ft_strdup(line + 2);
 		if (line[0] == 'F' || line[0] == 'C')
 			set_color(line, game);
-		else if (line[0] == '1')
-			set_map(line, game);
+		else
+			set_map(line, game, fd);
 	}
+	close(fd);
+	free(line);
 }
