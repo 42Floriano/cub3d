@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: albertini <albertini@student.42.fr>        +#+  +:+       +#+        */
+/*   By: aavduli <aavduli@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/24 17:46:15 by aavduli           #+#    #+#             */
-/*   Updated: 2024/08/22 16:33:06 by albertini        ###   ########.fr       */
+/*   Updated: 2024/09/02 14:46:50 by aavduli          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,6 @@
 # include "libft_xl/libft.h"
 # include "keybinds.h"
 # include <stdbool.h>
-# include <GLUT/glut.h>
 
 //-----------------------------MAP----------------------------------------------
 # define MAPX  8      //map width
