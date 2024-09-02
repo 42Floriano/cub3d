@@ -6,7 +6,7 @@
 /*   By: aavduli <aavduli@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: Invalid date        by                   #+#    #+#             */
-/*   Updated: 2024/09/02 14:30:37 by aavduli          ###   ########.fr       */
+/*   Updated: 2024/09/02 14:33:48 by aavduli          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 # include <fcntl.h>
 # include <errno.h>
 # include <math.h>
-# include "mlx.h"
+# include "../mlx.h"
 # include "libft_xl/libft.h"
 # include "keybinds.h"
 # include <stdbool.h>
