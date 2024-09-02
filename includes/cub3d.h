@@ -6,7 +6,7 @@
 /*   By: falberti <falberti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/24 17:46:15 by aavduli           #+#    #+#             */
-/*   Updated: 2024/08/19 13:53:51 by falberti         ###   ########.fr       */
+/*   Updated: 2024/09/02 14:33:53 by falberti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,11 @@
 # include "libft_xl/libft.h"
 # include "keybinds.h"
 # include <stdbool.h>
+
+# define mapWidth 24
+# define mapHeight 24
+# define screenWidth 640
+# define screenHeight 480
 
 
 /*
@@ -47,18 +52,22 @@ enum e_type
 
 typedef struct s_cmd	t_cmd;
 
-struct s_cmd
+typedef struct s_game
 {
-	char			*str;
-	int				type;
-	bool			pipe;
-	t_cmd			*next;
-	t_cmd			*prev;
-};
+	double	posx;
+	double	posy;
+	double	dirx;
+	double	diry;
+	double	planex;
+	double	planey;
+	double	time;
+	double	oldtime;
+}	t_game;
 
 
 
 //init_structs
+void	init_game(t_game *game);
 
 //safe_functions
 

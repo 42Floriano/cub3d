@@ -6,7 +6,7 @@
 #    By: falberti <falberti@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/13 12:52:36 by falberti          #+#    #+#              #
-#    Updated: 2024/08/19 13:54:17 by falberti         ###   ########.fr        #
+#    Updated: 2024/09/02 14:33:25 by falberti         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,6 +18,7 @@ HEADER = $(LIBRARIES_DIR)
 # HEADER = $(LIBRARIES_DIR)/cub3d.h
 
 FILES = $(SOURCES_DIR)/cub3d\
+		$(SOURCES_DIR)/init_struct\
 
 ## Ajout de .c et .o aux fichiers dans FILES
 CFILES = $(addsuffix .c, $(FILES))
