@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: falberti <falberti@student.42.fr>          +#+  +:+       +#+         #
+#    By: albertini <albertini@student.42.fr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/13 12:52:36 by falberti          #+#    #+#              #
-#    Updated: 2024/09/02 14:33:25 by falberti         ###   ########.fr        #
+#    Updated: 2024/09/03 10:40:50 by albertini        ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,22 +19,29 @@ HEADER = $(LIBRARIES_DIR)
 
 FILES = $(SOURCES_DIR)/cub3d\
 		$(SOURCES_DIR)/init_struct\
+		$(SOURCES_DIR)/display\
+		$(SOURCES_DIR)/init\
+
 
 ## Ajout de .c et .o aux fichiers dans FILES
 CFILES = $(addsuffix .c, $(FILES))
 OFILES = $(addsuffix .o, $(FILES))
 
 ####################################################################
-## Varguments MACOS
+UNAME := $(shell uname)
 CC = gcc
-# CFLAGS = -Werror -Wextra -Wall -I $(HEADER) -Imlx -g
-# LDFLAGS = -Lmlx -lmlx -framework OpenGL -framework AppKit
 NAME = cub3d
 
-## Varguments Linux
+
+ifeq ($(UNAME), Darwin)
+# macOS-specific settings
+CFLAGS = -Werror -Wextra -Wall -DGL_SILENCE_DEPRECATION -I $(HEADER) -Imlx -g
+LDFLAGS = -Lmlx -lmlx -framework OpenGL -framework AppKit
+else ifeq ($(UNAME), Linux)
+# Linux-specific settings
 CFLAGS = -Werror -Wextra -Wall -I $(HEADER) -I/usr/include -Imlx_linux -O3 -g
 LDFLAGS = -Lmlx_linux -lmlx_Linux -L/usr/lib -Imlx_linux -lXext -lX11 -lm -lz
-
+endif
 #####################################################################
 ## Rules
 

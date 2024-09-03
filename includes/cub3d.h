@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: falberti <falberti@student.42.fr>          +#+  +:+       +#+        */
+/*   By: albertini <albertini@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/24 17:46:15 by aavduli           #+#    #+#             */
-/*   Updated: 2024/09/02 14:33:53 by falberti         ###   ########.fr       */
+/*   Updated: 2024/09/03 11:15:58 by albertini        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,10 +25,10 @@
 # include "keybinds.h"
 # include <stdbool.h>
 
-# define mapWidth 24
-# define mapHeight 24
-# define screenWidth 640
-# define screenHeight 480
+# define MAP_WIDTH 24
+# define MAP_HEIGHT 24
+# define SCREEN_WIDTH 1280
+# define SCREEN_HEIGHT 1080
 
 
 /*
@@ -50,10 +50,21 @@ enum e_type
 	typeOne,
 };
 
-typedef struct s_cmd	t_cmd;
+typedef struct	s_img
+{
+	void	*img_ptr; //pointer to image struct
+	char	*pixels_ptr; //points to the actual pixels
+	int		bpp;
+	int		endian;
+	int		line_len;
+}	t_img;
 
 typedef struct s_game
 {
+	char	*name;
+	void	*mlx_connection;
+	void	*mlx_windows;
+	t_img	img;
 	double	posx;
 	double	posy;
 	double	dirx;
@@ -67,9 +78,13 @@ typedef struct s_game
 
 
 //init_structs
-void	init_game(t_game *game);
+void	data_init(t_game *game);
 
-//safe_functions
+//display
+void	display();
+
+//m_draw
+void	draw_map2D();
 
 //freerers
 
