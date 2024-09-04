@@ -6,7 +6,7 @@
 /*   By: aavduli <aavduli@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/28 13:11:06 by aavduli           #+#    #+#             */
-/*   Updated: 2024/08/28 13:21:06 by aavduli          ###   ########.fr       */
+/*   Updated: 2024/09/03 13:26:39 by aavduli          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,10 @@
 
 void	init_struct(t_game *game)
 {
-	game->player.x = 0;
-	game->player.y = 0;
-	game->player.dirx = -1;
-	game->player.diry = 0;
-	game->player.planex = 0;
-	game->player.planey = 0;
 	game->map->map = NULL;
+	game->map->copy_map = NULL;
+	game->texture->no_path = NULL;
+	game->texture->so_path = NULL;
+	game->texture->we_path = NULL;
+	game->texture->ea_path = NULL;
 }

@@ -6,10 +6,9 @@
 /*   By: aavduli <aavduli@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: Invalid date        by                   #+#    #+#             */
-/*   Updated: 2024/09/02 14:33:48 by aavduli          ###   ########.fr       */
+/*   Updated: 2024/09/04 13:41:17 by aavduli          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 
 #ifndef CUB3D_H
 # define CUB3D_H
@@ -21,17 +20,15 @@
 # include <fcntl.h>
 # include <errno.h>
 # include <math.h>
-# include "../mlx.h"
+# include "mlx.h"
 # include "libft_xl/libft.h"
 # include "keybinds.h"
 # include <stdbool.h>
-# include <GLUT/glut.h>
 
 //-----------------------------MAP----------------------------------------------
 # define MAPX  8      //map width
 # define MAPY  8      //map height
 # define MAPS 64      //map cube size
-
 
 /*
  0 = NORTH
@@ -82,18 +79,24 @@ typedef struct s_game
 	void		*win;
 	int			width;
 	int			height;
-	t_cmd		*cmd;
 	t_map		*map;
 	t_player	*player;
+	t_texture	*texture;
 }				t_game;
-
-
-
 
 //init
 void	init_game(char *av, t_game *game);
+void	init_struct(t_game *game);
+void	init_parsing(char *av, t_game *game);
+void	launch_mlx(t_game *game);
+
+//mapping
+void	set_map(char *line, t_game *game, int fd);
 
 //display
+
+
+
 void	display();
 
 //m_draw

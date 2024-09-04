@@ -3,28 +3,31 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: albertini <albertini@student.42.fr>        +#+  +:+       +#+         #
+#    By: aavduli <aavduli@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/13 12:52:36 by falberti          #+#    #+#              #
-#    Updated: 2024/08/22 16:31:20 by albertini        ###   ########.fr        #
+#    Updated: 2024/09/04 13:59:21 by aavduli          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-## Sources
+## Répertoires
 SOURCES_DIR = srcs
 LIBRARIES_DIR = includes
+OBJ_DIR = obj
 
 HEADER = $(LIBRARIES_DIR)
 # HEADER = $(LIBRARIES_DIR)/cub3d.h
 
 FILES = $(SOURCES_DIR)/cub3d\
 		$(SOURCES_DIR)/display\
+		$(SOURCES_DIR)/parsing\
+		$(SOURCES_DIR)/mapping\
 		$(SOURCES_DIR)/init\
+		$(SOURCES_DIR)/struct\
 
-
-## Ajout de .c et .o aux fichiers dans FILES
+## Ajout de .c et modification pour stocker les .o dans OBJ_DIR
 CFILES = $(addsuffix .c, $(FILES))
-OFILES = $(addsuffix .o, $(FILES))
+OFILES = $(patsubst $(SOURCES_DIR)/%.c, $(OBJ_DIR)/%.o, $(CFILES))
 
 ####################################################################
 UNAME := $(shell uname)
@@ -55,16 +58,21 @@ $(LIBFTXL):
 $(NAME): $(OFILES) $(LIBFTXL)
 	$(CC) $(OFILES) $(LIBFTXL) $(LDFLAGS) -o $(NAME)
 
-### For each .o file it needs the .c file | $< is automatic var that takes the param and $@ the target
-$(SOURCES_DIR)/%.o: $(SOURCES_DIR)/%.c
+### Pour chaque fichier .o dans OBJ_DIR, il a besoin du .c dans SOURCES_DIR | $< correspond à la dépendance et $@ à la cible
+$(OBJ_DIR)/%.o: $(SOURCES_DIR)/%.c | $(OBJ_DIR)
 	$(CC) $(CFLAGS) -c $< -o $@
+
+$(OBJ_DIR):
+	mkdir -p $(OBJ_DIR)
 
 clean:
 	$(MAKE) -C includes/libft_xl clean
-	rm -f $(OFILES)
+	rm -rf $(OBJ_DIR)
 
 fclean: clean
 	$(MAKE) -C includes/libft_xl fclean
 	rm -f $(NAME)
 
 re: fclean all
+
+.PHONY: all clean fclean re
