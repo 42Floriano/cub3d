@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: albertini <albertini@student.42.fr>        +#+  +:+       +#+         #
+#    By: falberti <falberti@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/13 12:52:36 by falberti          #+#    #+#              #
-#    Updated: 2024/09/03 10:40:50 by albertini        ###   ########.fr        #
+#    Updated: 2024/09/04 13:50:35 by falberti         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,9 +18,11 @@ HEADER = $(LIBRARIES_DIR)
 # HEADER = $(LIBRARIES_DIR)/cub3d.h
 
 FILES = $(SOURCES_DIR)/cub3d\
-		$(SOURCES_DIR)/init_struct\
 		$(SOURCES_DIR)/display\
 		$(SOURCES_DIR)/init\
+		$(SOURCES_DIR)/clean_exit\
+		$(SOURCES_DIR)/read_map\
+		$(SOURCES_DIR)/commands\
 
 
 ## Ajout de .c et .o aux fichiers dans FILES

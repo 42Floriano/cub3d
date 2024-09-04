@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   keybinds.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: albertini <albertini@student.42.fr>        +#+  +:+       +#+        */
+/*   By: falberti <falberti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/30 18:09:18 by falberti          #+#    #+#             */
-/*   Updated: 2024/08/15 13:23:18 by albertini        ###   ########.fr       */
+/*   Updated: 2024/09/04 14:51:57 by falberti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,7 @@
 
 enum e_keycode
 {
-	KEYCODE_A = 0,
-	KEYCODE_S = 1,
-	KEYCODE_D = 2,
+	
 	KEYCODE_F = 3,
 	KEYCODE_H = 4,
 	KEYCODE_G = 5,
@@ -28,7 +26,6 @@ enum e_keycode
 	KEYCODE_RAN = 10,
 	KEYCODE_B = 11,
 	KEYCODE_Q = 12,
-	KEYCODE_W = 13,
 	KEYCODE_E = 14,
 	KEYCODE_R = 15,
 	KEYCODE_Z = 18,
@@ -49,13 +46,17 @@ enum e_keycode
 	KEYCODE_K = 40,
 	KEYCODE_TAB = 49,
 	KEYCODE_SPACE = 49,
-	KEYCODE_ESC = 53,
-	KEYCODE_LEFT_ARROW = 123,
-	KEYCODE_RIGHT_ARROW = 124,
 	KEYCODE_DOWN_ARROW = 125,
 	KEYCODE_UP_ARROW = 126,
 	KEYCODE_LSHIFT = 257,
 	KEYCODE_RSHIFT = 258,
+	KEYCODE_W = 119,
+	KEYCODE_A = 97,
+	KEYCODE_S = 115,
+	KEYCODE_D = 100,
+	KEYCODE_ESC = 65307,
+	KEYCODE_LEFT_ARROW = 65361,
+	KEYCODE_RIGHT_ARROW = 65363,
 };
 
 #endif
