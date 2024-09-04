@@ -6,11 +6,16 @@
 /*   By: aavduli <aavduli@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/28 13:16:50 by aavduli           #+#    #+#             */
-/*   Updated: 2024/09/04 13:28:37 by aavduli          ###   ########.fr       */
+/*   Updated: 2024/09/04 15:18:48 by aavduli          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/cub3d.h"
+
+void	set_color(void)
+{
+	return ;
+}
 
 void	init_parsing(char *av, t_game *game)
 {
@@ -21,25 +26,22 @@ void	init_parsing(char *av, t_game *game)
 	fd = open(av, O_RDONLY);
 	if (fd < 0)
 	{
-		ft_putstr_fd("Error\nInvalid file\n", 2);
+		perror("Error\n");
 		exit(1);
 	}
-	while (line != NULL)
+	while ((line = get_next_line(fd)) != NULL)
 	{
-		line = get_next_line(fd);
-		// if (line[0] == 'N')
-		// 	game->texture->no_path = ft_strdup(line + 2);
-		// else if (line[0] == 'S' && line[1] == 'O')
-		// 	game->texture->so_path = ft_strdup(line + 2);
-		// else if (line[0] == 'W' && line[1] == 'E')
-		// 	game->texture->we_path = ft_strdup(line + 2);
-		// else if (line[0] == 'E' && line[1] == 'A')
-		// 	game->texture->ea_path = ft_strdup(line + 2);
-		// if (line[0] == 'F' || line[0] == 'C')
-		// 	set_color(line, game);
-		// else
-			set_map(line, game, fd);
+		if (line[0] == 'N' && line[1] == 'O')
+			game->texture.no_path = ft_strdup(line + 3);
+		if (line[0] == 'S' && line[1] == 'O')
+			game->texture.so_path = ft_strdup(line + 3);
+		if (line[0] == 'W' && line[1] == 'E')
+			game->texture.we_path = ft_strdup(line + 3);
+		if (line[0] == 'E' && line[1] == 'A')
+			game->texture.ea_path = ft_strdup(line + 3);
+		else
+			return ;
+		free(line);
 	}
 	close(fd);
-	free(line);
 }
