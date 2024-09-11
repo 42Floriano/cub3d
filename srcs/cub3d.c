@@ -6,7 +6,7 @@
 /*   By: falberti <falberti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/15 12:53:21 by albertini         #+#    #+#             */
-/*   Updated: 2024/09/04 13:57:04 by falberti         ###   ########.fr       */
+/*   Updated: 2024/09/11 14:35:43 by falberti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ static inline int	av_checker(char *str)
 	return (1);
 }
 
-void print_map(char **map)
+static void	print_map(char **map)
 {
 	int	i;
 
@@ -40,6 +40,12 @@ void print_map(char **map)
 	}
 }
 
+static	int	main_loop(t_game *game)
+{
+	render_frame(game);
+	return (0);
+}
+
 int	main(int ac, char **av)
 {
 	t_game	game;
@@ -52,6 +58,8 @@ int	main(int ac, char **av)
 		game.map = readmap(av[1]);
 		print_map(game.map);
 		commands(&game);
+		initialize_player(&game, game.map);
+		mlx_loop_hook(game.mlx_connection, main_loop, &game);
 		mlx_loop(game.mlx_connection);
 	}
 	return (1);

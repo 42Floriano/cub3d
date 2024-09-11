@@ -6,7 +6,7 @@
 /*   By: falberti <falberti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/20 15:24:44 by albertini         #+#    #+#             */
-/*   Updated: 2024/09/04 13:38:06 by falberti         ###   ########.fr       */
+/*   Updated: 2024/09/11 12:37:55 by falberti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,5 +64,14 @@ void	game_init(t_game *game)
 		malloc_error();
 	}
 	game->img.pixels_ptr = mlx_get_data_addr(game->img.img_ptr,
-			&game->img.bpp, &game->img.endian, &game->img.line_len);
+			&game->img.bpp, &game->img.line_len, &game->img.endian);
+	if (game->img.pixels_ptr == NULL)
+    {
+        // Cleanup if pixel buffer creation fails
+        mlx_destroy_image(game->mlx_connection, game->img.img_ptr);
+        mlx_destroy_window(game->mlx_connection, game->mlx_windows);
+        mlx_destroy_display(game->mlx_connection);
+        free(game->mlx_connection);
+        malloc_error();  // Exit after error
+    }
 }

@@ -6,7 +6,7 @@
 /*   By: falberti <falberti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/24 17:46:15 by aavduli           #+#    #+#             */
-/*   Updated: 2024/09/04 14:00:00 by falberti         ###   ########.fr       */
+/*   Updated: 2024/09/11 14:44:16 by falberti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,8 @@
 # include "keybinds.h"
 # include <stdbool.h>
 
-# define MAP_WIDTH 24
-# define MAP_HEIGHT 24
+# define MAP_WIDTH 6
+# define MAP_HEIGHT 5
 # define SCREEN_WIDTH 1280
 # define SCREEN_HEIGHT 1080
 
@@ -45,6 +45,9 @@
 # define WEST			4
 # define FLOOR			5
 # define CEILING		6
+
+# define MOVE_SPEED 0.1
+# define ROT_SPEED 0.05
 
 /* ERROR MESSAGES */
 # define ERR_ARGS		"Invalid number of arguments"
@@ -126,7 +129,9 @@ void	data_init(t_game *game);
 void	game_init(t_game *game);
 
 //display
-void	display();
+void    raycasting(t_game *game);
+void	render_frame(t_game *game);
+void    initialize_player(t_game *game, char **map);
 
 //m_draw
 void	draw_map2D();
