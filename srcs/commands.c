@@ -6,7 +6,7 @@
 /*   By: falberti <falberti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/04 13:50:00 by falberti          #+#    #+#             */
-/*   Updated: 2024/09/11 14:53:44 by falberti         ###   ########.fr       */
+/*   Updated: 2024/09/11 15:00:38 by falberti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,12 +20,12 @@ static int	read_keys(int keypress, t_game *game)
 	double	old_dirx;
 	double	old_planex;
 
-	printf("TEST: %d\n", keypress);
-	if (keypress == KEYCODE_ESC)
-	{
-		ft_printf("The %d key (ESC) has been pressed\n", keypress);
-		end_game(game);
-	}
+	// printf("TEST: %d\n", keypress);
+	// if (keypress == KEYCODE_ESC)
+	// {
+	// 	ft_printf("The %d key (ESC) has been pressed\n", keypress);
+	// 	end_game(game);
+	// }
 	// Move forward (W key)
 	if (keypress == 119)
 	{
