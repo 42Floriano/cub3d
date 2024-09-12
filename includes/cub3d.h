@@ -6,7 +6,7 @@
 /*   By: falberti <falberti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/24 17:46:15 by aavduli           #+#    #+#             */
-/*   Updated: 2024/09/12 14:37:18 by falberti         ###   ########.fr       */
+/*   Updated: 2024/09/12 14:58:41 by falberti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,8 +51,8 @@
 # define RIGHT			1
 # define LEFT			0
 
-# define MOVE_SPEED 0.1
-# define R_SPD 0.05
+# define MOVE_SPEED 	0.1
+# define R_SPD 			0.05
 
 /* ERROR MESSAGES */
 # define ERR_ARGS		"Invalid number of arguments"
@@ -167,9 +167,6 @@ void	calculate_initial_map_and_ray_lengths(t_game *game, t_ray *ray);
 void	initialize_step_and_side_distances(t_game *game, t_ray *ray);
 void	perform_dda(t_game *game, t_ray *ray);
 void	render_wall_and_floor(t_game *game, t_ray *ray, int x);
-
-//m_draw
-void	draw_map2D();
 
 //freerers
 
