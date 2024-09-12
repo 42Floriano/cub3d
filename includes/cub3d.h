@@ -6,7 +6,7 @@
 /*   By: falberti <falberti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/24 17:46:15 by aavduli           #+#    #+#             */
-/*   Updated: 2024/09/11 14:44:16 by falberti         ###   ########.fr       */
+/*   Updated: 2024/09/12 14:37:18 by falberti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,8 @@
 # define MAP_HEIGHT 5
 # define SCREEN_WIDTH 1280
 # define SCREEN_HEIGHT 1080
+# define FLOOR_COLOR 0x333333
+# define CEILING_COLOR 0x87CEEB
 
 /* SELECTORS */
 # define NO				0
@@ -46,8 +48,11 @@
 # define FLOOR			5
 # define CEILING		6
 
+# define RIGHT			1
+# define LEFT			0
+
 # define MOVE_SPEED 0.1
-# define ROT_SPEED 0.05
+# define R_SPD 0.05
 
 /* ERROR MESSAGES */
 # define ERR_ARGS		"Invalid number of arguments"
@@ -96,6 +101,27 @@ enum e_type
 	typeOne,
 };
 
+typedef struct s_ray
+{
+	double	camera_x;
+	double	ray_dir_x;
+	double	ray_dir_y;
+	int		map_x;
+	int		map_y;
+	double	side_dist_x;
+	double	side_dist_y;
+	double	delta_dist_x;
+	double	delta_dist_y;
+	double	perp_wall_dist;
+	int		step_x;
+	int		step_y;
+	int		hit;
+	int		side;
+	int		line_height;
+	int		draw_start;
+	int		draw_end;
+}	t_ray;
+
 typedef struct	s_img
 {
 	void	*img_ptr; //pointer to image struct
@@ -111,6 +137,7 @@ typedef struct s_game
 	void	*mlx_connection;
 	void	*mlx_windows;
 	t_img	img;
+	t_ray	ray;
 	char	**map;
 	double	posx;
 	double	posy;
@@ -123,15 +150,23 @@ typedef struct s_game
 }	t_game;
 
 
-
 //init_structs
 void	data_init(t_game *game);
 void	game_init(t_game *game);
+void	ray_init(t_ray *ray);
 
 //display
 void    raycasting(t_game *game);
 void	render_frame(t_game *game);
 void    initialize_player(t_game *game, char **map);
+void	my_mlx_pixel_put(t_game *g, int x, int y, int color);
+
+//display_utils
+void	calculate_ray_position_and_direction(t_game *game, t_ray *ray, int x);
+void	calculate_initial_map_and_ray_lengths(t_game *game, t_ray *ray);
+void	initialize_step_and_side_distances(t_game *game, t_ray *ray);
+void	perform_dda(t_game *game, t_ray *ray);
+void	render_wall_and_floor(t_game *game, t_ray *ray, int x);
 
 //m_draw
 void	draw_map2D();
@@ -143,6 +178,13 @@ char	**readmap(char *filename);
 
 //Commands
 void	commands(t_game *game);
+
+//Commands_utils
+void	move_forw(t_game *game);
+void	move_back(t_game *game);
+void	move_left(t_game *game);
+void	move_right(t_game *game);
+void	rotate(t_game *game, int dir);
 
 //clean_exit
 int		exit_error(t_game *game, char *msg);

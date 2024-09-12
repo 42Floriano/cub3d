@@ -6,28 +6,31 @@
 #    By: falberti <falberti@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/13 12:52:36 by falberti          #+#    #+#              #
-#    Updated: 2024/09/04 13:50:35 by falberti         ###   ########.fr        #
+#    Updated: 2024/09/12 14:32:02 by falberti         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 ## Sources
 SOURCES_DIR = srcs
 LIBRARIES_DIR = includes
+OBJ_DIR = obj
 
 HEADER = $(LIBRARIES_DIR)
 # HEADER = $(LIBRARIES_DIR)/cub3d.h
 
 FILES = $(SOURCES_DIR)/cub3d\
 		$(SOURCES_DIR)/display\
+		$(SOURCES_DIR)/display_utils\
 		$(SOURCES_DIR)/init\
 		$(SOURCES_DIR)/clean_exit\
 		$(SOURCES_DIR)/read_map\
 		$(SOURCES_DIR)/commands\
+		$(SOURCES_DIR)/commands_moves\
 
 
 ## Ajout de .c et .o aux fichiers dans FILES
 CFILES = $(addsuffix .c, $(FILES))
-OFILES = $(addsuffix .o, $(FILES))
+OFILES = $(patsubst $(SOURCES_DIR)/%.c, $(OBJ_DIR)/%.o, $(CFILES))
 
 ####################################################################
 UNAME := $(shell uname)
@@ -59,12 +62,15 @@ $(NAME): $(OFILES) $(LIBFTXL)
 	$(CC) $(OFILES) $(LIBFTXL) $(LDFLAGS) -o $(NAME)
 
 ### For each .o file it needs the .c file | $< is automatic var that takes the param and $@ the target
-$(SOURCES_DIR)/%.o: $(SOURCES_DIR)/%.c
+$(OBJ_DIR)/%.o: $(SOURCES_DIR)/%.c | $(OBJ_DIR)
 	$(CC) $(CFLAGS) -c $< -o $@
+
+$(OBJ_DIR):
+	mkdir -p $(OBJ_DIR)
 
 clean:
 	$(MAKE) -C includes/libft_xl clean
-	rm -f $(OFILES)
+	rm -rf $(OBJ_DIR)
 
 fclean: clean
 	$(MAKE) -C includes/libft_xl fclean
