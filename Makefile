@@ -6,7 +6,7 @@
 #    By: aavduli <aavduli@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/13 12:52:36 by falberti          #+#    #+#              #
-#    Updated: 2024/09/04 13:59:21 by aavduli          ###   ########.fr        #
+#    Updated: 2024/09/12 13:43:29 by aavduli          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,6 +24,7 @@ FILES = $(SOURCES_DIR)/cub3d\
 		$(SOURCES_DIR)/mapping\
 		$(SOURCES_DIR)/init\
 		$(SOURCES_DIR)/struct\
+		$(SOURCES_DIR)/safe_function\
 
 ## Ajout de .c et modification pour stocker les .o dans OBJ_DIR
 CFILES = $(addsuffix .c, $(FILES))

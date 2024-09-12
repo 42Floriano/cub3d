@@ -6,7 +6,7 @@
 /*   By: aavduli <aavduli@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: Invalid date        by                   #+#    #+#             */
-/*   Updated: 2024/09/04 15:10:27 by aavduli          ###   ########.fr       */
+/*   Updated: 2024/09/12 14:18:06 by aavduli          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,8 @@ typedef struct s_texture
 	char	*so_path;
 	char	*we_path;
 	char	*ea_path;
+	char	*f_color;
+	char	*c_color;
 }			t_texture;
 
 typedef struct s_player
@@ -90,20 +92,21 @@ void	init_parsing(char *av, t_game *game);
 void	launch_mlx(t_game *game);
 
 //mapping
-void	set_map(char *line, t_game *game, int fd);
+void	malloc_mapy(t_game *game, char *line, int fd);
+void	copy_map(t_game *game, char *av);
 
 //display
-
-
-
-void	display();
+void	display(void);
 
 //m_draw
-void	draw_map2D();
+void	draw_map2D(void);
 
 //freerers
 
 //lst_utils
+
+//sage_function
+int		safe_open(char *av);
 
 //exit
 
