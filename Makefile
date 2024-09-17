@@ -5,8 +5,8 @@
 #                                                     +:+ +:+         +:+      #
 #    By: aavduli <aavduli@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: Invalid date        by                   #+#    #+#              #
-#    Updated: 2024/09/17 13:07:44 by aavduli          ###   ########.fr        #
+#    Created: 2024/06/13 12:52:36 by falberti          #+#    #+#              #
+#    Updated: 2024/09/17 13:16:59 by aavduli          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,8 +31,7 @@ FILES = $(SOURCES_DIR)/cub3d\
 		$(SOURCES_DIR)/read_map\
 		$(SOURCES_DIR)/commands\
 		$(SOURCES_DIR)/commands_moves\
-		$(SOURCES_DIR)/struct\
-		$(SOURCES_DIR)/safe_function\
+		$(SOURCES_DIR)/fps_display\
 
 ## Ajout de .c et modification pour stocker les .o dans OBJ_DIR
 CFILES = $(addsuffix .c, $(FILES))

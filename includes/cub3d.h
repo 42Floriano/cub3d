@@ -6,7 +6,7 @@
 /*   By: aavduli <aavduli@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/24 17:46:15 by aavduli           #+#    #+#             */
-/*   Updated: 2024/09/17 13:09:24 by aavduli          ###   ########.fr       */
+/*   Updated: 2024/09/17 13:17:26 by aavduli          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@
 # include "libft_xl/libft.h"
 # include "keybinds.h"
 # include <stdbool.h>
+# include <sys/time.h>
 
 # define MAP_WIDTH 6
 # define MAP_HEIGHT 5
@@ -153,6 +154,8 @@ typedef struct s_game
 	double	planey;
 	double	time;
 	double	oldtime;
+	struct timeval	fps_time;
+	struct timeval	fps_oldtime;
 }	t_game;
 
 
@@ -238,5 +241,9 @@ int		end_game(t_game *game);
 int		safe_open(char *av);
 
 //exit
+
+//fps_display
+void	display_fps(t_game *game);
+
 
 #endif

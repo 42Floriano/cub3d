@@ -6,7 +6,7 @@
 /*   By: aavduli <aavduli@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/15 12:53:21 by albertini         #+#    #+#             */
-/*   Updated: 2024/09/17 13:10:17 by aavduli          ###   ########.fr       */
+/*   Updated: 2024/09/17 13:18:13 by aavduli          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,7 @@ static void	print_map(char **map)
 static	int	main_loop(t_game *game)
 {
 	render_frame(game);
+	display_fps(game);
 	return (0);
 }
 
