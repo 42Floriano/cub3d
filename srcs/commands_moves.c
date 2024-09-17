@@ -6,7 +6,7 @@
 /*   By: aavduli <aavduli@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/12 11:39:38 by falberti          #+#    #+#             */
-/*   Updated: 2024/09/17 14:56:30 by aavduli          ###   ########.fr       */
+/*   Updated: 2024/09/17 15:10:22 by aavduli          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,6 @@ void	move_forw(t_game *game)
 
 	next_posx = game->posx + game->dirx * MOVE_SPEED;
 	next_posy = game->posy + game->diry * MOVE_SPEED;
-	printf("next_posx: %f\n", next_posx);
-	printf("next_posy: %f\n", next_posy);
 	if (game->map[(int)next_posx][(int)game->posy] == '0')
 		game->posx = next_posx;
 	if (game->map[(int)game->posx][(int)next_posy] == '0')

@@ -6,7 +6,7 @@
 /*   By: aavduli <aavduli@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/04 13:50:00 by falberti          #+#    #+#             */
-/*   Updated: 2024/09/17 15:01:04 by aavduli          ###   ########.fr       */
+/*   Updated: 2024/09/17 15:10:49 by aavduli          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,9 @@
 static int	read_keys(int keypress, t_game *game)
 {
 	printf("TEST: %d\n", keypress);
+	printf("posex: %f\n", game->posx);
+	printf("posey: %f\n", game->posy);
+	printf("game->map[(int)game->posx][(int)game->posy]: %c\n", game->map[(int)game->posx][(int)game->posy]);
 	if (keypress == KEYCODE_ESC)
 	{
 		ft_printf("The %d key (ESC) has been pressed\n", keypress);

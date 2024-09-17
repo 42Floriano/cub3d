@@ -6,7 +6,7 @@
 /*   By: aavduli <aavduli@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/20 15:24:44 by albertini         #+#    #+#             */
-/*   Updated: 2024/09/17 14:29:23 by aavduli          ###   ########.fr       */
+/*   Updated: 2024/09/17 15:12:14 by aavduli          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ static void	init_play_orient(t_game *game, char **map, int i, int j)
 		game->dirx = -1;
 		game->planey = -0.66;
 	}
+	map[i][j] = '0';
 }
 
 void	my_mlx_pixel_put(t_game *g, int x, int y, int color)
