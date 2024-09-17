@@ -6,7 +6,7 @@
 /*   By: aavduli <aavduli@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/15 12:53:21 by albertini         #+#    #+#             */
-/*   Updated: 2024/09/17 14:31:12 by aavduli          ###   ########.fr       */
+/*   Updated: 2024/09/17 14:58:42 by aavduli          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,3 +64,22 @@ int	main(int ac, char **av)
 	}
 	return (1);
 }
+
+// int	main(int ac, char **av)
+// {
+// 	t_game	game;
+
+// 	if (ac != 2 || av_checker(av[1]))
+// 		printf("Error\nInvalid Syntax\nPlease pass .cub file");
+// 	else
+// 	{
+// 		game_init(&game);
+// 		game.map = readmap(av[1]);
+// 		print_map(game.map);
+// 		commands(&game);
+// 		initialize_player(&game, game.map);
+// 		mlx_loop_hook(game.mlx_connection, main_loop, &game);
+// 		mlx_loop(game.mlx_connection);
+// 	}
+// 	return (1);
+// }
