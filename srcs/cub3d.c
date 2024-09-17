@@ -6,7 +6,7 @@
 /*   By: falberti <falberti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/15 12:53:21 by albertini         #+#    #+#             */
-/*   Updated: 2024/09/17 12:54:15 by falberti         ###   ########.fr       */
+/*   Updated: 2024/09/17 14:20:34 by falberti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,8 @@ static void	print_map(char **map)
 
 static	int	main_loop(t_game *game)
 {
+	//render_sky(game);
+	//render_floor(game);
 	render_frame(game);
 	display_fps(game);
 	return (0);

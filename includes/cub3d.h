@@ -6,7 +6,7 @@
 /*   By: falberti <falberti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/24 17:46:15 by aavduli           #+#    #+#             */
-/*   Updated: 2024/09/17 13:10:00 by falberti         ###   ########.fr       */
+/*   Updated: 2024/09/17 14:19:13 by falberti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,6 +102,17 @@ enum e_type
 	typeOne,
 };
 
+// You can create a structure to store texture data
+typedef struct s_texture {
+	void	*img_ptr;
+	int		*pixels;
+	int		width;
+	int		height;
+	int		bpp;
+	int		line_len;
+	int		endian;
+}	t_texture;
+
 typedef struct s_ray
 {
 	double	camera_x;
@@ -140,6 +151,12 @@ typedef struct s_game
 	t_img	img;
 	t_ray	ray;
 	char	**map;
+	t_texture	texture_north;
+	t_texture	texture_south;
+	t_texture	texture_west;
+	t_texture	texture_east;
+	t_texture	sky_texture;
+	t_texture	floor_texture;
 	double	posx;
 	double	posy;
 	double	dirx;
@@ -194,5 +211,11 @@ int		end_game(t_game *game);
 //fps_display
 void	display_fps(t_game *game);
 
+//textures
+void	load_textures(t_game *game);
+
+//display_textures
+void	render_sky(t_game *game);
+void	render_floor(t_game *game);
 
 #endif

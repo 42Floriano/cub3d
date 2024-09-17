@@ -6,7 +6,7 @@
 #    By: falberti <falberti@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/13 12:52:36 by falberti          #+#    #+#              #
-#    Updated: 2024/09/17 13:00:06 by falberti         ###   ########.fr        #
+#    Updated: 2024/09/17 13:29:31 by falberti         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,6 +27,8 @@ FILES = $(SOURCES_DIR)/cub3d\
 		$(SOURCES_DIR)/commands\
 		$(SOURCES_DIR)/commands_moves\
 		$(SOURCES_DIR)/fps_display\
+		$(SOURCES_DIR)/textures\
+		$(SOURCES_DIR)/display_textures\
 
 
 ## Ajout de .c et .o aux fichiers dans FILES
