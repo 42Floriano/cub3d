@@ -6,7 +6,7 @@
 /*   By: falberti <falberti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/24 17:46:15 by aavduli           #+#    #+#             */
-/*   Updated: 2024/09/17 15:16:14 by falberti         ###   ########.fr       */
+/*   Updated: 2024/09/17 16:04:45 by falberti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,8 +52,8 @@
 # define RIGHT			1
 # define LEFT			0
 
-# define MOVE_SPEED 	0.1
-# define R_SPD 			0.05
+# define MOVE_SPEED 	0.05
+# define R_SPD 			0.02
 
 /* ERROR MESSAGES */
 # define ERR_ARGS		"Invalid number of arguments"
@@ -83,35 +83,20 @@
 # define ERR_MAP_MSPAWN	"Multiple spawn points"
 # define ERR_MAP_NSPAWN	"No spawn point"
 
-/*
- 0 = 
- 1 = 
- 2 =
- 3 = 
- 4 = 
- 5 = 
- 6 = 
- 7 = 
- 8 = 
- 9 = 
- 10 = 
-*/
-
 enum e_type
 {
 	typeOne,
 };
 
-// You can create a structure to store texture data
-typedef struct s_texture {
-	void	*img_ptr;
-	int		*pixels;
-	int		width;
-	int		height;
-	int		bpp;
-	int		line_len;
-	int		endian;
-}	t_texture;
+typedef struct s_texture
+{
+	char	*no_path;
+	char	*so_path;
+	char	*we_path;
+	char	*ea_path;
+	char	*f_color;
+	char	*c_color;
+}			t_texture;
 
 typedef struct s_ray
 {
@@ -134,10 +119,10 @@ typedef struct s_ray
 	int		draw_end;
 }	t_ray;
 
-typedef struct	s_img
+typedef struct s_img
 {
-	void	*img_ptr; //pointer to image struct
-	char	*pixels_ptr; //points to the actual pixels
+	void	*img_ptr;
+	char	*pixels_ptr;
 	int		bpp;
 	int		endian;
 	int		line_len;
@@ -145,28 +130,29 @@ typedef struct	s_img
 
 typedef struct s_game
 {
-	char	*name;
-	void	*mlx_connection;
-	void	*mlx_windows;
-	t_img	img;
-	t_ray	ray;
-	char	**map;
-	t_texture	texture_north;
-	t_texture	texture_south;
-	t_texture	texture_west;
-	t_texture	texture_east;
-	t_texture	sky_texture;
-	t_texture	floor_texture;
-	double	posx;
-	double	posy;
-	double	dirx;
-	double	diry;
-	double	planex;
-	double	planey;
-	double	time;
-	double	oldtime;
+	char			*name;
+	void			*mlx_connection;
+	void			*mlx_windows;
+	t_img			img;
+	t_ray			ray;
+	char			**map;
+	double			posx;
+	double			posy;
+	double			dirx;
+	double			diry;
+	double			planex;
+	double			planey;
+	double			time;
+	double			oldtime;
 	struct timeval	fps_time;
 	struct timeval	fps_oldtime;
+	int				key_w;
+	int				key_s;
+	int				key_a;
+	int				key_d;
+	int				key_left;
+	int				key_right;
+	t_texture		texture;
 }	t_game;
 
 
@@ -175,10 +161,24 @@ void	data_init(t_game *game);
 void	game_init(t_game *game);
 void	ray_init(t_ray *ray);
 
+//init_structs
+void	data_init(t_game *game);
+void	game_init(t_game *game);
+void	ray_init(t_ray *ray);
+
+//init
+void	init_game(char *av, t_game *game);
+void	init_parsing(char *av, t_game *game);
+void	launch_mlx(t_game *game);
+
+//mapping
+void	malloc_mapy(t_game *game, char *line, int fd);
+void	copy_map(t_game *game, char *av);
+
 //display
-void    raycasting(t_game *game);
+void	raycasting(t_game *game);
 void	render_frame(t_game *game);
-void    initialize_player(t_game *game, char **map);
+void	initialize_player(t_game *game);
 void	my_mlx_pixel_put(t_game *g, int x, int y, int color);
 
 //display_utils
@@ -195,6 +195,7 @@ char	**readmap(char *filename);
 
 //Commands
 void	commands(t_game *game);
+void	hdl_movement(t_game *game);
 
 //Commands_utils
 void	move_forw(t_game *game);
@@ -207,6 +208,12 @@ void	rotate(t_game *game, int dir);
 int		exit_error(t_game *game, char *msg);
 void	clean_pars(t_game *game);
 int		end_game(t_game *game);
+//lst_utils
+
+//sage_function
+int		safe_open(char *av);
+
+//exit
 
 //fps_display
 void	display_fps(t_game *game);

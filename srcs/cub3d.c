@@ -6,7 +6,7 @@
 /*   By: falberti <falberti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/15 12:53:21 by albertini         #+#    #+#             */
-/*   Updated: 2024/09/17 14:20:34 by falberti         ###   ########.fr       */
+/*   Updated: 2024/09/17 16:05:31 by falberti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,27 +23,26 @@ static inline int	av_checker(char *str)
 	return (1);
 }
 
-static void	print_map(char **map)
-{
-	int	i;
+// static void	print_map(char **map)
+// {
+// 	int	i;
 
-	i = 0;
-	if (map == NULL)
-	{
-		printf("Map is NULL\n");
-		return ;
-	}
-	while (map[i] != NULL)
-	{
-		printf("%s\n", map[i]);
-		i++;
-	}
-}
+// 	i = 0;
+// 	if (map == NULL)
+// 	{
+// 		printf("Map is NULL\n");
+// 		return ;
+// 	}
+// 	while (map[i] != NULL)
+// 	{
+// 		printf("%s\n", map[i]);
+// 		i++;
+// 	}
+// }
 
 static	int	main_loop(t_game *game)
 {
-	//render_sky(game);
-	//render_floor(game);
+	hdl_movement(game);
 	render_frame(game);
 	display_fps(game);
 	return (0);
@@ -57,11 +56,10 @@ int	main(int ac, char **av)
 		printf("Error\nInvalid Syntax\nPlease pass .cub file");
 	else
 	{
+		init_parsing(av[1], &game);
 		game_init(&game);
-		game.map = readmap(av[1]);
-		print_map(game.map);
 		commands(&game);
-		initialize_player(&game, game.map);
+		initialize_player(&game);
 		mlx_loop_hook(game.mlx_connection, main_loop, &game);
 		mlx_loop(game.mlx_connection);
 	}

@@ -6,7 +6,7 @@
 /*   By: falberti <falberti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/20 15:24:44 by albertini         #+#    #+#             */
-/*   Updated: 2024/09/17 15:35:15 by falberti         ###   ########.fr       */
+/*   Updated: 2024/09/17 16:06:01 by falberti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,6 @@ void	data_init(t_game *game)
 	game->img.bpp = 0;
 	game->img.endian = 0;
 	game->img.line_len = 0;
-	game->map = NULL;
 	game->posx = 22;
 	game->posy = 12;
 	game->dirx = 0;
@@ -37,6 +36,12 @@ void	data_init(t_game *game)
 	game->planey = 0;
 	game->time = 0;
 	game->oldtime = 0;
+	game->key_w = 0;
+	game->key_a = 0;
+	game->key_s = 0;
+	game->key_d = 0;
+	game->key_left = 0;
+	game->key_right = 0;
 	return ;
 }
 

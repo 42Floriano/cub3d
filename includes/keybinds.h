@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   keybinds.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: falberti <falberti@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aavduli <aavduli@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/30 18:09:18 by falberti          #+#    #+#             */
-/*   Updated: 2024/09/04 14:51:57 by falberti         ###   ########.fr       */
+/*   Updated: 2024/09/17 14:36:58 by aavduli          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 
 enum e_keycode
 {
-	
 	KEYCODE_F = 3,
 	KEYCODE_H = 4,
 	KEYCODE_G = 5,

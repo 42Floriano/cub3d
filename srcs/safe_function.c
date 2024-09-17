@@ -1,35 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   safe_function.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aavduli <aavduli@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/17 13:32:44 by falberti          #+#    #+#             */
-/*   Updated: 2024/09/17 11:40:50 by aavduli          ###   ########.fr       */
+/*   Created: 2024/09/12 13:36:34 by aavduli           #+#    #+#             */
+/*   Updated: 2024/09/12 13:36:46 by aavduli          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../includes/cub3d.h"
 
-char	*ft_strdup(const char *s1)
+int	safe_open(char *av)
 {
-	char	*strr;
-	int		size;
-	int		i;
+	int	fd;
 
-	size = ft_strlen(s1);
-	strr = malloc((size + 1) * sizeof(char));
-	if (!strr)
-		return (strr);
-	if (!s1)
-		return (NULL);
-	i = 0;
-	while (s1[i])
+	fd = open(av, O_RDONLY);
+	if (fd == -1)
 	{
-		strr[i] = s1[i];
-		i++;
+		perror("Error\n");
+		exit(1);
 	}
-	strr[i] = '\0';
-	return (strr);
+	return (fd);
 }
