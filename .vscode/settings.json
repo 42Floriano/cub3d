@@ -1,6 +1,5 @@
 {
-  "files.associations": {
-    "stdbool.h": "c",
-    "cub3d.h": "c"
-  }
+    "files.associations": {
+        "cub3d.h": "c"
+    }
 }
