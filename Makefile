@@ -3,16 +3,19 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: falberti <falberti@student.42.fr>          +#+  +:+       +#+         #
+#    By: aavduli <aavduli@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/13 12:52:36 by falberti          #+#    #+#              #
-#    Updated: 2024/09/17 13:00:06 by falberti         ###   ########.fr        #
+#    Updated: 2024/09/17 13:34:29 by aavduli          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-## Sources
+# **************************************************************************** #
+
+## Répertoires
 SOURCES_DIR = srcs
 LIBRARIES_DIR = includes
+OBJ_DIR = obj
 OBJ_DIR = obj
 
 HEADER = $(LIBRARIES_DIR)
@@ -21,15 +24,16 @@ HEADER = $(LIBRARIES_DIR)
 FILES = $(SOURCES_DIR)/cub3d\
 		$(SOURCES_DIR)/display\
 		$(SOURCES_DIR)/display_utils\
+		$(SOURCES_DIR)/parsing\
+		$(SOURCES_DIR)/mapping\
 		$(SOURCES_DIR)/init\
 		$(SOURCES_DIR)/clean_exit\
-		$(SOURCES_DIR)/read_map\
 		$(SOURCES_DIR)/commands\
 		$(SOURCES_DIR)/commands_moves\
 		$(SOURCES_DIR)/fps_display\
+		$(SOURCES_DIR)/safe_function\
 
-
-## Ajout de .c et .o aux fichiers dans FILES
+## Ajout de .c et modification pour stocker les .o dans OBJ_DIR
 CFILES = $(addsuffix .c, $(FILES))
 OFILES = $(patsubst $(SOURCES_DIR)/%.c, $(OBJ_DIR)/%.o, $(CFILES))
 
@@ -64,6 +68,8 @@ $(NAME): $(OFILES) $(LIBFTXL)
 
 ### For each .o file it needs the .c file | $< is automatic var that takes the param and $@ the target
 $(OBJ_DIR)/%.o: $(SOURCES_DIR)/%.c | $(OBJ_DIR)
+### Pour chaque fichier .o dans OBJ_DIR, il a besoin du .c dans SOURCES_DIR | $< correspond à la dépendance et $@ à la cible
+$(OBJ_DIR)/%.o: $(SOURCES_DIR)/%.c | $(OBJ_DIR)
 	$(CC) $(CFLAGS) -c $< -o $@
 
 $(OBJ_DIR):
@@ -72,9 +78,12 @@ $(OBJ_DIR):
 clean:
 	$(MAKE) -C includes/libft_xl clean
 	rm -rf $(OBJ_DIR)
+	rm -rf $(OBJ_DIR)
 
 fclean: clean
 	$(MAKE) -C includes/libft_xl fclean
 	rm -f $(NAME)
 
 re: fclean all
+
+.PHONY: all clean fclean re
