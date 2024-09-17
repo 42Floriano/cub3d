@@ -6,7 +6,7 @@
 /*   By: falberti <falberti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/24 17:46:15 by aavduli           #+#    #+#             */
-/*   Updated: 2024/09/17 16:04:45 by falberti         ###   ########.fr       */
+/*   Updated: 2024/09/17 16:19:31 by falberti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,7 +88,17 @@ enum e_type
 	typeOne,
 };
 
-typedef struct s_texture
+typedef struct s_texture {
+	void	*img_ptr;
+	int		*pixels;
+	int		width;
+	int		height;
+	int		bpp;
+	int		line_len;
+	int		endian;
+}	t_texture;
+
+typedef struct s_texture_path
 {
 	char	*no_path;
 	char	*so_path;
@@ -96,7 +106,7 @@ typedef struct s_texture
 	char	*ea_path;
 	char	*f_color;
 	char	*c_color;
-}			t_texture;
+}			t_texture_path;
 
 typedef struct s_ray
 {
@@ -146,13 +156,17 @@ typedef struct s_game
 	double			oldtime;
 	struct timeval	fps_time;
 	struct timeval	fps_oldtime;
+	t_texture		texture_north;
+	t_texture		texture_south;
+	t_texture		texture_west;
+	t_texture		texture_east;
 	int				key_w;
 	int				key_s;
 	int				key_a;
 	int				key_d;
 	int				key_left;
 	int				key_right;
-	t_texture		texture;
+	t_texture_path		texture;
 }	t_game;
 
 
