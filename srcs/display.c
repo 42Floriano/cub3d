@@ -6,7 +6,7 @@
 /*   By: aavduli <aavduli@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/20 15:24:44 by albertini         #+#    #+#             */
-/*   Updated: 2024/09/17 13:33:35 by aavduli          ###   ########.fr       */
+/*   Updated: 2024/09/17 14:29:23 by aavduli          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,24 +63,23 @@ void	raycasting(t_game *game)
 }
 
 // +0.5 is to center the player in the square
-void	initialize_player(t_game *game, char **map)
+void	initialize_player(t_game *game)
 {
 	int	i;
 	int	j;
 
 	i = 0;
-	while (map[i])
+	while (game->map[i])
 	{
 		j = 0;
-		while (map[i][j])
+		while (game->map[i][j])
 		{
-			if (map[i][j] == 'N' || map[i][j] == 'S'
-				|| map[i][j] == 'E' || map[i][j] == 'W')
+			if (game->map[i][j] == 'N' || game->map[i][j] == 'S'
+				|| game->map[i][j] == 'E' || game->map[i][j] == 'W')
 			{
-				game->posx = j + 0.5;
-				game->posy = i + 0.5;
-				init_play_orient(game, map, i, j);
-				map[i][j] = '0';
+				game->posx = i + 0.5;
+				game->posy = j + 0.5;
+				init_play_orient(game, game->map, i, j);
 				return ;
 			}
 			j++;

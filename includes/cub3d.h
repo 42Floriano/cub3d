@@ -6,7 +6,7 @@
 /*   By: aavduli <aavduli@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/24 17:46:15 by aavduli           #+#    #+#             */
-/*   Updated: 2024/09/17 13:31:11 by aavduli          ###   ########.fr       */
+/*   Updated: 2024/09/17 14:16:28 by aavduli          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -167,7 +167,7 @@ void	copy_map(t_game *game, char *av);
 //display
 void	raycasting(t_game *game);
 void	render_frame(t_game *game);
-void	initialize_player(t_game *game, char **map);
+void	initialize_player(t_game *game);
 void	my_mlx_pixel_put(t_game *g, int x, int y, int color);
 
 //display_utils
