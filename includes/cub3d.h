@@ -6,7 +6,7 @@
 /*   By: aavduli <aavduli@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/24 17:46:15 by aavduli           #+#    #+#             */
-/*   Updated: 2024/09/17 14:16:28 by aavduli          ###   ########.fr       */
+/*   Updated: 2024/09/17 14:51:01 by aavduli          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,6 +82,11 @@
 # define ERR_MAP_CHARS	"Invalid character in map"
 # define ERR_MAP_MSPAWN	"Multiple spawn points"
 # define ERR_MAP_NSPAWN	"No spawn point"
+
+enum e_type
+{
+	typeOne,
+};
 
 typedef struct s_texture
 {
