@@ -6,7 +6,7 @@
 /*   By: aavduli <aavduli@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/28 13:55:47 by aavduli           #+#    #+#             */
-/*   Updated: 2024/09/12 14:16:16 by aavduli          ###   ########.fr       */
+/*   Updated: 2024/09/17 13:32:00 by aavduli          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,8 @@ void	malloc_mapy(t_game *game, char *line, int fd)
 		count++;
 		line = get_next_line(fd);
 	}
-	game->map.map = (char **)malloc(sizeof(char *) * count);
-	if (game->map.map == NULL)
+	game->map = (char **)malloc(sizeof(char *) * count);
+	if (game->map == NULL)
 	{
 		perror("Error\n");
 		exit(1);
@@ -37,14 +37,14 @@ void	clean_map(t_game *game)
 
 	buf = ft_strdup("");
 	len = 0;
-	while (game->map.map[len] != NULL)
+	while (game->map[len] != NULL)
 	{
-		buf = ft_strjoin(buf, game->map.map[len]);
-		free(game->map.map[len]);
+		buf = ft_strjoin(buf, game->map[len]);
+		free(game->map[len]);
 		len++;
 	}
-	free(game->map.map);
-	game->map.map = ft_split(buf, '\n');
+	free(game->map);
+	game->map = ft_split(buf, '\n');
 	free(buf);
 }
 
@@ -67,11 +67,11 @@ void	copy_map(t_game *game, char *av)
 	}
 	while (line != NULL)
 	{
-		game->map.map[i] = ft_strdup(line);
+		game->map[i] = ft_strdup(line);
 		i++;
 		line = get_next_line(fd);
 	}
-	game->map.map[i] = NULL;
+	game->map[i] = NULL;
 	close(fd);
 	clean_map(game);
 }

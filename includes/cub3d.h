@@ -6,7 +6,7 @@
 /*   By: aavduli <aavduli@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/24 17:46:15 by aavduli           #+#    #+#             */
-/*   Updated: 2024/09/17 13:17:26 by aavduli          ###   ########.fr       */
+/*   Updated: 2024/09/17 13:31:11 by aavduli          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,21 +83,6 @@
 # define ERR_MAP_MSPAWN	"Multiple spawn points"
 # define ERR_MAP_NSPAWN	"No spawn point"
 
-/*
- 0 = NORTH
- 1 = SOUTH
- 2 = EAST
- 3 = WEST
-*/
-
-enum e_direction
-{
-	NORTH,
-	SOUTH,
-	EAST,
-	WEST,
-};
-
 typedef struct s_texture
 {
 	char	*no_path;
@@ -129,10 +114,10 @@ typedef struct s_ray
 	int		draw_end;
 }	t_ray;
 
-typedef struct	s_img
+typedef struct s_img
 {
-	void	*img_ptr; //pointer to image struct
-	char	*pixels_ptr; //points to the actual pixels
+	void	*img_ptr;
+	char	*pixels_ptr;
 	int		bpp;
 	int		endian;
 	int		line_len;
@@ -140,22 +125,23 @@ typedef struct	s_img
 
 typedef struct s_game
 {
-	char	*name;
-	void	*mlx_connection;
-	void	*mlx_windows;
-	t_img	img;
-	t_ray	ray;
-	char	**map;
-	double	posx;
-	double	posy;
-	double	dirx;
-	double	diry;
-	double	planex;
-	double	planey;
-	double	time;
-	double	oldtime;
+	char			*name;
+	void			*mlx_connection;
+	void			*mlx_windows;
+	t_img			img;
+	t_ray			ray;
+	char			**map;
+	double			posx;
+	double			posy;
+	double			dirx;
+	double			diry;
+	double			planex;
+	double			planey;
+	double			time;
+	double			oldtime;
 	struct timeval	fps_time;
 	struct timeval	fps_oldtime;
+	t_texture		texture;
 }	t_game;
 
 
@@ -163,36 +149,11 @@ typedef struct s_game
 void	data_init(t_game *game);
 void	game_init(t_game *game);
 void	ray_init(t_ray *ray);
-typedef struct s_player
-{
-	long	x;
-	long	y;
-	long	dirx;
-	long	diry;
-	long	planex;
-	long	planey;
-}				t_player;
 
-typedef struct s_map
-{
-	char	**map;
-	char	**copy_map;
-	int		x;
-	int		y;
-	int		width;
-	int		height;
-}				t_map;
-
-typedef struct s_game
-{
-	void		*mlx;
-	void		*win;
-	int			width;
-	int			height;
-	t_map		map;
-	t_player	player;
-	t_texture	texture;
-}				t_game;
+//init_structs
+void	data_init(t_game *game);
+void	game_init(t_game *game);
+void	ray_init(t_ray *ray);
 
 //init
 void	init_game(char *av, t_game *game);
@@ -204,9 +165,9 @@ void	malloc_mapy(t_game *game, char *line, int fd);
 void	copy_map(t_game *game, char *av);
 
 //display
-void    raycasting(t_game *game);
+void	raycasting(t_game *game);
 void	render_frame(t_game *game);
-void    initialize_player(t_game *game, char **map);
+void	initialize_player(t_game *game, char **map);
 void	my_mlx_pixel_put(t_game *g, int x, int y, int color);
 
 //display_utils

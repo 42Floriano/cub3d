@@ -6,7 +6,7 @@
 #    By: aavduli <aavduli@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/13 12:52:36 by falberti          #+#    #+#              #
-#    Updated: 2024/09/17 13:16:59 by aavduli          ###   ########.fr        #
+#    Updated: 2024/09/17 13:34:29 by aavduli          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,14 +28,13 @@ FILES = $(SOURCES_DIR)/cub3d\
 		$(SOURCES_DIR)/mapping\
 		$(SOURCES_DIR)/init\
 		$(SOURCES_DIR)/clean_exit\
-		$(SOURCES_DIR)/read_map\
 		$(SOURCES_DIR)/commands\
 		$(SOURCES_DIR)/commands_moves\
 		$(SOURCES_DIR)/fps_display\
+		$(SOURCES_DIR)/safe_function\
 
 ## Ajout de .c et modification pour stocker les .o dans OBJ_DIR
 CFILES = $(addsuffix .c, $(FILES))
-OFILES = $(patsubst $(SOURCES_DIR)/%.c, $(OBJ_DIR)/%.o, $(CFILES))
 OFILES = $(patsubst $(SOURCES_DIR)/%.c, $(OBJ_DIR)/%.o, $(CFILES))
 
 ####################################################################
@@ -72,9 +71,6 @@ $(OBJ_DIR)/%.o: $(SOURCES_DIR)/%.c | $(OBJ_DIR)
 ### Pour chaque fichier .o dans OBJ_DIR, il a besoin du .c dans SOURCES_DIR | $< correspond à la dépendance et $@ à la cible
 $(OBJ_DIR)/%.o: $(SOURCES_DIR)/%.c | $(OBJ_DIR)
 	$(CC) $(CFLAGS) -c $< -o $@
-
-$(OBJ_DIR):
-	mkdir -p $(OBJ_DIR)
 
 $(OBJ_DIR):
 	mkdir -p $(OBJ_DIR)

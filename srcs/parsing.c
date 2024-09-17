@@ -6,7 +6,7 @@
 /*   By: aavduli <aavduli@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/28 13:16:50 by aavduli           #+#    #+#             */
-/*   Updated: 2024/09/17 11:41:09 by aavduli          ###   ########.fr       */
+/*   Updated: 2024/09/17 13:31:38 by aavduli          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,9 +31,9 @@ void	print_parsing(t_game *game)
 	printf("EA: %s\n", game->texture.ea_path);
 	printf("F: %s\n", game->texture.f_color);
 	printf("C: %s\n", game->texture.c_color);
-	while (game->map.map[i] != NULL)
+	while (game->map[i] != NULL)
 	{
-		printf("%s\n", game->map.map[i]);
+		printf("%s\n", game->map[i]);
 		i++;
 	}
 }
