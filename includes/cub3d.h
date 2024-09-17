@@ -6,7 +6,7 @@
 /*   By: falberti <falberti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/24 17:46:15 by aavduli           #+#    #+#             */
-/*   Updated: 2024/09/17 13:10:00 by falberti         ###   ########.fr       */
+/*   Updated: 2024/09/17 15:54:01 by falberti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,8 +52,8 @@
 # define RIGHT			1
 # define LEFT			0
 
-# define MOVE_SPEED 	0.1
-# define R_SPD 			0.05
+# define MOVE_SPEED 	0.05
+# define R_SPD 			0.02
 
 /* ERROR MESSAGES */
 # define ERR_ARGS		"Invalid number of arguments"
@@ -150,6 +150,12 @@ typedef struct s_game
 	double	oldtime;
 	struct timeval	fps_time;
 	struct timeval	fps_oldtime;
+	int		key_w;
+	int		key_s;
+	int		key_a;
+	int		key_d;
+	int		key_left;
+	int		key_right;
 }	t_game;
 
 
@@ -178,6 +184,7 @@ char	**readmap(char *filename);
 
 //Commands
 void	commands(t_game *game);
+void	hdl_movement(t_game *game);
 
 //Commands_utils
 void	move_forw(t_game *game);

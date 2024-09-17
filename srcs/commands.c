@@ -6,38 +6,47 @@
 /*   By: falberti <falberti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/04 13:50:00 by falberti          #+#    #+#             */
-/*   Updated: 2024/09/12 14:45:37 by falberti         ###   ########.fr       */
+/*   Updated: 2024/09/17 15:53:14 by falberti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/cub3d.h"
 
-static int	read_keys(int keypress, t_game *game)
+static int	key_press(int keycode, t_game *game)
 {
-	printf("TEST: %d\n", keypress);
-	if (keypress == KEYCODE_ESC)
+	if (keycode == KEYCODE_ESC)
 	{
-		ft_printf("The %d key (ESC) has been pressed\n", keypress);
 		end_game(game);
 	}
-	// Move forward (W key)
-	if (keypress == 119)
-		move_forw(game);
-	// Move backward (S key)
-	if (keypress == 115)
-		move_back(game);
-	// Strafe left (A key)
-	if (keypress == 97)
-		move_left(game);
-	// Strafe right (D key)
-	if (keypress == 100)
-		move_right(game);
-	// Rotate right (right arrow key)
-	if (keypress == 65361)
-		rotate(game, RIGHT);
-	// Rotate left (left arrow key)
-	if (keypress == 65363)
-		rotate(game, LEFT);
+	if (keycode == 119)
+		game->key_w = 1;
+	if (keycode == 115)
+		game->key_s = 1;
+	if (keycode == 97)
+		game->key_a = 1;
+	if (keycode == 100)
+		game->key_d = 1;
+	if (keycode == 65363)
+		game->key_left = 1;
+	if (keycode == 65361)
+		game->key_right = 1;
+	return (0);
+}
+
+static int	key_release(int keycode, t_game *game)
+{
+	if (keycode == 119)
+		game->key_w = 0;
+	if (keycode == 115)
+		game->key_s = 0;
+	if (keycode == 97)
+		game->key_a = 0;
+	if (keycode == 100)
+		game->key_d = 0;
+	if (keycode == 65363)
+		game->key_left = 0;
+	if (keycode == 65361)
+		game->key_right = 0;
 	return (0);
 }
 
@@ -47,8 +56,25 @@ static int	close_cross(t_game *game)
 	return (0);
 }
 
+void	hdl_movement(t_game *game)
+{
+	if (game->key_w)
+		move_forw(game);
+	if (game->key_s)
+		move_back(game);
+	if (game->key_a)
+		move_left(game);
+	if (game->key_d)
+		move_right(game);
+	if (game->key_left)
+		rotate(game, LEFT);
+	if (game->key_right)
+		rotate(game, RIGHT);
+}
+
 void	commands(t_game *game)
 {
-	mlx_hook(game->mlx_windows, 2, 1L << 0, read_keys, game);
+	mlx_hook(game->mlx_windows, 2, 1L << 0, key_press, game);
+	mlx_hook(game->mlx_windows, 3, 1L << 1, key_release, game);
 	mlx_hook(game->mlx_windows, 17, 0, close_cross, game);
 }
