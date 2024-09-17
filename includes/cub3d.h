@@ -6,7 +6,7 @@
 /*   By: falberti <falberti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/24 17:46:15 by aavduli           #+#    #+#             */
-/*   Updated: 2024/09/17 14:19:13 by falberti         ###   ########.fr       */
+/*   Updated: 2024/09/17 15:16:14 by falberti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -215,7 +215,7 @@ void	display_fps(t_game *game);
 void	load_textures(t_game *game);
 
 //display_textures
-void	render_sky(t_game *game);
-void	render_floor(t_game *game);
+// void	render_sky(t_game *game);
+// void	render_floor(t_game *game);
 
 #endif

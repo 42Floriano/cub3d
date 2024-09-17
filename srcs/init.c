@@ -6,7 +6,7 @@
 /*   By: falberti <falberti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/20 15:24:44 by albertini         #+#    #+#             */
-/*   Updated: 2024/09/17 14:31:04 by falberti         ###   ########.fr       */
+/*   Updated: 2024/09/17 15:35:15 by falberti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,6 +74,7 @@ static void	game_init_suite(t_game *game)
 		free(game->mlx_connection);
 		malloc_error();
 	}
+	//load_textures(game);
 }
 
 void	game_init(t_game *game)
@@ -100,5 +101,4 @@ void	game_init(t_game *game)
 		malloc_error();
 	}
 	game_init_suite(game);
-	load_textures(game);
 }
