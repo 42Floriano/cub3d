@@ -6,7 +6,7 @@
 /*   By: aavduli <aavduli@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/28 13:55:47 by aavduli           #+#    #+#             */
-/*   Updated: 2024/09/17 13:32:00 by aavduli          ###   ########.fr       */
+/*   Updated: 2024/09/19 12:05:19 by aavduli          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,10 +40,8 @@ void	clean_map(t_game *game)
 	while (game->map[len] != NULL)
 	{
 		buf = ft_strjoin(buf, game->map[len]);
-		free(game->map[len]);
 		len++;
 	}
-	free(game->map);
 	game->map = ft_split(buf, '\n');
 	free(buf);
 }

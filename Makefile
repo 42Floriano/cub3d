@@ -6,7 +6,7 @@
 #    By: aavduli <aavduli@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/13 12:52:36 by falberti          #+#    #+#              #
-#    Updated: 2024/09/17 13:34:29 by aavduli          ###   ########.fr        #
+#    Updated: 2024/09/19 12:04:13 by aavduli          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,6 +32,7 @@ FILES = $(SOURCES_DIR)/cub3d\
 		$(SOURCES_DIR)/commands_moves\
 		$(SOURCES_DIR)/fps_display\
 		$(SOURCES_DIR)/safe_function\
+		$(SOURCES_DIR)/free\
 
 ## Ajout de .c et modification pour stocker les .o dans OBJ_DIR
 CFILES = $(addsuffix .c, $(FILES))

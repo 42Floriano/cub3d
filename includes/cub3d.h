@@ -6,7 +6,7 @@
 /*   By: aavduli <aavduli@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/24 17:46:15 by aavduli           #+#    #+#             */
-/*   Updated: 2024/09/19 11:54:44 by aavduli          ###   ########.fr       */
+/*   Updated: 2024/09/19 12:03:38 by aavduli          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -192,6 +192,7 @@ void	perform_dda(t_game *game, t_ray *ray);
 void	render_wall_and_floor(t_game *game, t_ray *ray, int x);
 
 //freerers
+void	free_array(char **map);
 
 //read_map
 char	**readmap(char *filename);
