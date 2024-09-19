@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: falberti <falberti@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aavduli <aavduli@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/24 17:46:15 by aavduli           #+#    #+#             */
-/*   Updated: 2024/09/17 16:00:18 by falberti         ###   ########.fr       */
+/*   Updated: 2024/09/19 11:54:44 by aavduli          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -136,6 +136,9 @@ typedef struct s_game
 	t_img			img;
 	t_ray			ray;
 	char			**map;
+	char			**dup_map;
+	double			map_y;
+	double			map_x;
 	double			posx;
 	double			posy;
 	double			dirx;
@@ -152,9 +155,9 @@ typedef struct s_game
 	int				key_d;
 	int				key_left;
 	int				key_right;
+	bool			player_pos;
 	t_texture		texture;
 }	t_game;
-
 
 //init_structs
 void	data_init(t_game *game);
