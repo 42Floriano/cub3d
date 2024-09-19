@@ -6,7 +6,7 @@
 /*   By: falberti <falberti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/15 12:53:21 by albertini         #+#    #+#             */
-/*   Updated: 2024/09/17 16:05:31 by falberti         ###   ########.fr       */
+/*   Updated: 2024/09/19 11:35:20 by falberti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,9 +42,9 @@ static inline int	av_checker(char *str)
 
 static	int	main_loop(t_game *game)
 {
-	hdl_movement(game);
 	render_frame(game);
 	display_fps(game);
+	hdl_movement(game);
 	return (0);
 }
 
