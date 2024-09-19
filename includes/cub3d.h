@@ -6,7 +6,7 @@
 /*   By: aavduli <aavduli@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/24 17:46:15 by aavduli           #+#    #+#             */
-/*   Updated: 2024/09/19 12:03:38 by aavduli          ###   ########.fr       */
+/*   Updated: 2024/09/19 14:20:53 by aavduli          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -137,6 +137,7 @@ typedef struct s_game
 	t_ray			ray;
 	char			**map;
 	char			**dup_map;
+	char			*array_size;
 	double			map_y;
 	double			map_x;
 	double			posx;
@@ -178,6 +179,11 @@ void	launch_mlx(t_game *game);
 void	malloc_mapy(t_game *game, char *line, int fd);
 void	copy_map(t_game *game, char *av);
 
+//map_utils
+void	check_map(t_game *game);
+int		max_lenght(t_game *game);
+void	make_it_rectangle(t_game *game, int max_size);
+
 //display
 void	raycasting(t_game *game);
 void	render_frame(t_game *game);
@@ -218,9 +224,9 @@ int		end_game(t_game *game);
 int		safe_open(char *av);
 
 //exit
+void	print_error(char *msg);
 
 //fps_display
 void	display_fps(t_game *game);
-
 
 #endif
