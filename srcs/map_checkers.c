@@ -6,7 +6,7 @@
 /*   By: aavduli <aavduli@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/19 12:18:34 by aavduli           #+#    #+#             */
-/*   Updated: 2024/09/24 15:46:15 by aavduli          ###   ########.fr       */
+/*   Updated: 2024/09/24 15:49:27 by aavduli          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,6 @@ int	validate_vertical(t_game *game)
 		}
 		j++;
 	}
-	printf("Vertical ok\n");
 	return (1);
 }
 
@@ -55,7 +54,6 @@ int	validate_horizontal(t_game *game)
 		}
 		i++;
 	}
-	printf("Horizontale ok\n");
 	return (1);
 }
 

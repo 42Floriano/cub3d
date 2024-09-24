@@ -6,7 +6,7 @@
 /*   By: aavduli <aavduli@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/19 12:23:46 by aavduli           #+#    #+#             */
-/*   Updated: 2024/09/24 15:14:33 by aavduli          ###   ########.fr       */
+/*   Updated: 2024/09/24 15:53:49 by aavduli          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ void	make_it_rectangle(t_game *game, int max_size)
 		j = 0;
 		while (j < max_size)
 		{
-			if (j < (int)ft_strlen(game->map[i]))
+			if (j < (int)ft_strlen(game->map[i]) && game->dup_map[i][j] != 'S')
 				game->dup_map[i][j] = game->map[i][j];
 			else
 				game->dup_map[i][j] = 'S';
@@ -69,6 +69,5 @@ int	max_lenght(t_game *game)
 		}
 		i++;
 	}
-	printf("max ; %d\n", max);
 	return (max + 1);
 }
