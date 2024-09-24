@@ -6,7 +6,7 @@
 /*   By: aavduli <aavduli@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/28 13:16:50 by aavduli           #+#    #+#             */
-/*   Updated: 2024/09/17 14:34:31 by aavduli          ###   ########.fr       */
+/*   Updated: 2024/09/24 14:16:35 by aavduli          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ void	init_parsing(char *av, t_game *game)
 	int		fd;
 	char	*line;
 
-	fd = safe_open(av);
+	fd = safe_open(game, av);
 	line = get_next_line(fd);
 	while (line != NULL)
 	{

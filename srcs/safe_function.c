@@ -6,13 +6,13 @@
 /*   By: aavduli <aavduli@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/12 13:36:34 by aavduli           #+#    #+#             */
-/*   Updated: 2024/09/12 13:36:46 by aavduli          ###   ########.fr       */
+/*   Updated: 2024/09/24 14:16:57 by aavduli          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/cub3d.h"
 
-int	safe_open(char *av)
+int	safe_open(t_game *game, char *av)
 {
 	int	fd;
 
@@ -20,7 +20,7 @@ int	safe_open(char *av)
 	if (fd == -1)
 	{
 		perror("Error\n");
-		exit(1);
+		exit_error(game, "Can't open the file !");
 	}
 	return (fd);
 }

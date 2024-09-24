@@ -6,7 +6,7 @@
 /*   By: aavduli <aavduli@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/24 17:46:15 by aavduli           #+#    #+#             */
-/*   Updated: 2024/09/19 14:20:53 by aavduli          ###   ########.fr       */
+/*   Updated: 2024/09/24 14:16:15 by aavduli          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -137,7 +137,7 @@ typedef struct s_game
 	t_ray			ray;
 	char			**map;
 	char			**dup_map;
-	char			*array_size;
+	int				array_size;
 	double			map_y;
 	double			map_x;
 	double			posx;
@@ -221,10 +221,9 @@ int		end_game(t_game *game);
 //lst_utils
 
 //sage_function
-int		safe_open(char *av);
+int		safe_open(t_game *game, char *av);
 
 //exit
-void	print_error(char *msg);
 
 //fps_display
 void	display_fps(t_game *game);

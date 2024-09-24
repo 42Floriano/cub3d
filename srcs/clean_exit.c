@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   clean_exit.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: falberti <falberti@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aavduli <aavduli@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/04 11:30:00 by falberti          #+#    #+#             */
-/*   Updated: 2024/09/12 14:58:12 by falberti         ###   ########.fr       */
+/*   Updated: 2024/09/24 13:59:06 by aavduli          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ void	clean_pars(t_game *game)
 int	end_game(t_game *game)
 {
 	mlx_destroy_window(game->mlx_connection, game->mlx_windows);
-	mlx_destroy_display(game->mlx_connection);
+	// mlx_destroy_display(game->mlx_connection);
 	free(game->mlx_connection);
 	clean_pars(game);
 	exit(EXIT_SUCCESS);

@@ -6,7 +6,7 @@
 /*   By: aavduli <aavduli@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/19 12:18:34 by aavduli           #+#    #+#             */
-/*   Updated: 2024/09/19 14:54:35 by aavduli          ###   ########.fr       */
+/*   Updated: 2024/09/24 15:46:15 by aavduli          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,19 +18,22 @@ int	validate_vertical(t_game *game)
 	int	j;
 
 	j = 0;
-	i = 0;
-	while (game->dup_map[i][j])
+	while (game->dup_map[0][j])
 	{
-		i = 0;
+		i = 1;
 		while (game->dup_map[i])
 		{
-			if ((game->dup_map[i][j] == '0') && game->dup_map[i - 1][j] == 'S'
-				|| game->dup_map[i + 1][j] == 'S')
-				return (0);
+			if (game->dup_map[i][j] == '0')
+			{
+				if (game->dup_map[i - 1][j] == 'S' ||
+					(game->dup_map[i + 1] && game->dup_map[i + 1][j] == 'S'))
+					return (0);
+			}
 			i++;
 		}
 		j++;
 	}
+	printf("Vertical ok\n");
 	return (1);
 }
 
@@ -45,41 +48,25 @@ int	validate_horizontal(t_game *game)
 		j = 0;
 		while (game->dup_map[i][j])
 		{
-			if ((game->dup_map[i][j] == '0') && game->dup_map[i][j - 1] == 'S'
-				|| game->dup_map[i][j + 1] == 'S')
+			if (game->dup_map[i][j] == '0' && (game->dup_map[i][j - 1] == 'S'
+				|| game->dup_map[i][j + 1] == 'S'))
 				return (0);
 			j++;
 		}
 		i++;
 	}
+	printf("Horizontale ok\n");
 	return (1);
-}
-
-int	wall_e(t_game *game, int max_size)
-{
-	int	i;
-	int	j;
-
-	i = 0;
-	while (game->dup_map[i])
-	{
-		while (j <= max_size)
-		{
-			if (game->dup_map[i][j] != 'S' || game->dup_map[i][j] != '1')
-				return (0);
-		}
-	}
 }
 
 void	check_map(t_game *game)
 {
 	int	i;
-	int	j;
 	int	max_size;
 
 	i = 0;
 	max_size = max_lenght(game);
 	make_it_rectangle(game, max_size);
 	if (!validate_horizontal(game) || !validate_vertical(game))
-		print_error("Map isn't valid ! Please do what necessary.");
+		exit_error(game, "Map isn't valid, pls correct it.");
 }
