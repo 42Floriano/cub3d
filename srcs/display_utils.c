@@ -6,7 +6,7 @@
 /*   By: falberti <falberti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/12 13:51:34 by falberti          #+#    #+#             */
-/*   Updated: 2024/09/12 14:45:19 by falberti         ###   ########.fr       */
+/*   Updated: 2024/09/24 16:13:11 by falberti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,3 +113,4 @@ void	render_wall_and_floor(t_game *game, t_ray *ray, int x)
 	while (y < SCREEN_HEIGHT)
 		my_mlx_pixel_put(game, x, y++, FLOOR_COLOR);
 }
+

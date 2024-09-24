@@ -6,7 +6,7 @@
 /*   By: falberti <falberti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/04 13:50:00 by falberti          #+#    #+#             */
-/*   Updated: 2024/09/17 16:05:00 by falberti         ###   ########.fr       */
+/*   Updated: 2024/09/24 12:10:52 by falberti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,39 +14,40 @@
 
 static int	key_press(int keycode, t_game *game)
 {
-	if (keycode == KEYCODE_ESC)
+	if (keycode == KEYCODE_ESC || keycode == 53)
 	{
 		end_game(game);
 	}
-	if (keycode == 119)
+	printf("Kypressed: %d\n", keycode);
+	if (keycode == 119 || keycode == 13)
 		game->key_w = 1;
-	if (keycode == 115)
+	if (keycode == 115 || keycode == 1)
 		game->key_s = 1;
-	if (keycode == 97)
+	if (keycode == 97 || keycode == 0)
 		game->key_a = 1;
-	if (keycode == 100)
+	if (keycode == 100 || keycode == 2)
 		game->key_d = 1;
-	if (keycode == 65363)
-		game->key_left = 1;
-	if (keycode == 65361)
+	if (keycode == 65363 || keycode == 123)
 		game->key_right = 1;
+	if (keycode == 65361 || keycode == 124)
+		game->key_left = 1;
 	return (0);
 }
 
 static int	key_release(int keycode, t_game *game)
 {
-	if (keycode == 119)
+	if (keycode == 119 || keycode == 13)
 		game->key_w = 0;
-	if (keycode == 115)
+	if (keycode == 115 || keycode == 1)
 		game->key_s = 0;
-	if (keycode == 97)
+	if (keycode == 97 || keycode == 0)
 		game->key_a = 0;
-	if (keycode == 100)
+	if (keycode == 100 || keycode == 2)
 		game->key_d = 0;
-	if (keycode == 65363)
-		game->key_left = 0;
-	if (keycode == 65361)
+	if (keycode == 65363 || keycode == 123)
 		game->key_right = 0;
+	if (keycode == 65361 || keycode == 124)
+		game->key_left = 0;
 	return (0);
 }
 

@@ -6,31 +6,50 @@
 /*   By: falberti <falberti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/17 13:23:17 by falberti          #+#    #+#             */
-/*   Updated: 2024/09/17 16:21:26 by falberti         ###   ########.fr       */
+/*   Updated: 2024/09/24 16:06:53 by falberti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/cub3d.h"
 
-// //Function to load textures
-// static void	load_texture(t_game *game, t_texture *texture, char *path)
-// {
-// 	printf("Loading texture from path: %s\n", path);
-// 	texture->img_ptr = mlx_xpm_file_to_image(game->mlx_connection,
-// 			path, &texture->width, &texture->height);
-// 	if (!texture->img_ptr)
-// 		exit_error(game, "Failed to load texture.");
-// 	texture->pixels = (int *)mlx_get_data_addr(texture->img_ptr,
-// 			&texture->bpp, &texture->line_len, &texture->endian);
-// }
+// Function to allocate and load textures
+void	load_texture(t_game *game, int i, char *path)
+{
+	printf("Loading texture from path: %s\n", path);
+	game->textures_list[i]->img_ptr
+		= mlx_xpm_file_to_image(game->mlx_connection, path,
+			&game->textures_list[i]->width, &game->textures_list[i]->height);
+	printf("%p\n", game->textures_list[i]->img_ptr);
+	if (!game->textures_list[i]->img_ptr)
+		exit_error(game, "Failed to load game->texture_north.");
+	game->textures_list[i]->pixels
+		= (int *)mlx_get_data_addr(game->textures_list[i]->img_ptr,
+			&game->textures_list[i]->bpp,
+			&game->textures_list[i]->line_len, &game->textures_list[i]->endian);
+	printf("%p\n", game->textures_list[i]->pixels);
+	if (!game->textures_list[i]->pixels)
+		exit_error(game, "Failed to get texture data address.");
+}
 
-// // Load all the textures during game initialization
-// void	load_textures(t_game *game)
-// {
-// 	load_texture(game, &game->texture_north, "../textures/north_wall.xpm");
-// 	load_texture(game, &game->texture_south, "../textures/south_wall.xpm");
-// 	load_texture(game, &game->texture_west, "../textures/west_wall.xpm");
-// 	load_texture(game, &game->texture_east, "../textures/east_wall.xpm");
-// 	// load_texture(game, &game->sky_texture, "../textures/floor_3.xmp");
-// 	//load_texture(game, &game->floor_texture, "../textures/floor_3.xpm");
-// }
+// Load all the textures during game initialization
+void	load_texture_list(t_game *game)
+{
+	int	i;
+
+	i = 0;
+	game->textures_list = (t_texture **) malloc(sizeof(t_texture *) * 4);
+	if (!game->textures_list)
+		exit_error(game, "Memory allocation failed for texture.");
+	while (i < 4)
+	{
+		game->textures_list[i] = (t_texture *)malloc(sizeof(t_texture));
+		if (!game->textures_list[i])
+			exit_error(game, "Memory allocation failed for texture.");
+		i++;
+	}
+	load_texture(game, SOUTH, "./textures/wall_south.xpm");
+	load_texture(game, NORTH, "./textures/wall_north.xpm");
+	load_texture(game, WEST, "./textures/wall_west.xpm");
+	load_texture(game, EAST, "./textures/wall_east.xpm");
+}
+

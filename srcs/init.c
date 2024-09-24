@@ -6,7 +6,7 @@
 /*   By: falberti <falberti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/20 15:24:44 by albertini         #+#    #+#             */
-/*   Updated: 2024/09/17 16:21:31 by falberti         ###   ########.fr       */
+/*   Updated: 2024/09/24 14:51:24 by falberti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,11 +75,11 @@ static void	game_init_suite(t_game *game)
 	{
 		mlx_destroy_image(game->mlx_connection, game->img.img_ptr);
 		mlx_destroy_window(game->mlx_connection, game->mlx_windows);
-		mlx_destroy_display(game->mlx_connection);
+		//mlx_destroy_display(game->mlx_connection);
 		free(game->mlx_connection);
 		malloc_error();
 	}
-	//load_textures(game);
+	load_texture_list(game);
 }
 
 void	game_init(t_game *game)
@@ -92,7 +92,7 @@ void	game_init(t_game *game)
 			SCREEN_WIDTH, SCREEN_HEIGHT, game->name);
 	if (game->mlx_windows == NULL)
 	{
-		mlx_destroy_display(game->mlx_connection);
+		//mlx_destroy_display(game->mlx_connection);
 		free(game->mlx_connection);
 		malloc_error();
 	}
@@ -101,7 +101,7 @@ void	game_init(t_game *game)
 	if (game->img.img_ptr == NULL)
 	{
 		mlx_destroy_window(game->mlx_connection, game->mlx_windows);
-		mlx_destroy_display(game->mlx_connection);
+		//mlx_destroy_display(game->mlx_connection);
 		free(game->mlx_connection);
 		malloc_error();
 	}

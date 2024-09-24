@@ -6,7 +6,7 @@
 /*   By: falberti <falberti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/24 17:46:15 by aavduli           #+#    #+#             */
-/*   Updated: 2024/09/17 16:19:31 by falberti         ###   ########.fr       */
+/*   Updated: 2024/09/24 16:05:47 by falberti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,9 +43,9 @@
 # define COLOR			2
 
 # define NORTH			1
-# define SOUTH			2
+# define SOUTH			0
 # define EAST			3
-# define WEST			4
+# define WEST			2
 # define FLOOR			5
 # define CEILING		6
 
@@ -156,10 +156,7 @@ typedef struct s_game
 	double			oldtime;
 	struct timeval	fps_time;
 	struct timeval	fps_oldtime;
-	t_texture		texture_north;
-	t_texture		texture_south;
-	t_texture		texture_west;
-	t_texture		texture_east;
+	t_texture		**textures_list;
 	int				key_w;
 	int				key_s;
 	int				key_a;
@@ -222,6 +219,7 @@ void	rotate(t_game *game, int dir);
 int		exit_error(t_game *game, char *msg);
 void	clean_pars(t_game *game);
 int		end_game(t_game *game);
+void	free_textures(t_game *game);
 //lst_utils
 
 //sage_function
@@ -233,7 +231,7 @@ int		safe_open(char *av);
 void	display_fps(t_game *game);
 
 //textures
-void	load_textures(t_game *game);
+void	load_texture_list(t_game *game);
 
 //display_textures
 // void	render_sky(t_game *game);

@@ -6,7 +6,7 @@
 /*   By: falberti <falberti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/04 11:30:00 by falberti          #+#    #+#             */
-/*   Updated: 2024/09/12 14:58:12 by falberti         ###   ########.fr       */
+/*   Updated: 2024/09/24 15:45:34 by falberti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,27 @@ void	clean_pars(t_game *game)
 int	end_game(t_game *game)
 {
 	mlx_destroy_window(game->mlx_connection, game->mlx_windows);
-	mlx_destroy_display(game->mlx_connection);
+	//mlx_destroy_display(game->mlx_connection);
 	free(game->mlx_connection);
 	clean_pars(game);
 	exit(EXIT_SUCCESS);
+}
+
+void	free_textures(t_game *game)
+{
+	int	i;
+
+	i = 0;
+	while (i < 4)
+	{
+		if (game->textures_list[i])
+		{
+			if (game->textures_list[i]->img_ptr)
+				mlx_destroy_image(game->mlx_connection,
+					game->textures_list[i]->img_ptr);
+			free(game->textures_list[i]);
+		}
+		i++;
+	}
+	free(game->textures_list);
 }
