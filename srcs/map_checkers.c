@@ -6,7 +6,7 @@
 /*   By: aavduli <aavduli@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/19 12:18:34 by aavduli           #+#    #+#             */
-/*   Updated: 2024/09/24 15:49:27 by aavduli          ###   ########.fr       */
+/*   Updated: 2024/09/25 13:04:24 by aavduli          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,10 +59,8 @@ int	validate_horizontal(t_game *game)
 
 void	check_map(t_game *game)
 {
-	int	i;
 	int	max_size;
 
-	i = 0;
 	max_size = max_lenght(game);
 	make_it_rectangle(game, max_size);
 	if (!validate_horizontal(game) || !validate_vertical(game))
