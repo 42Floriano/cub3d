@@ -6,7 +6,7 @@
 /*   By: albertini <albertini@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/12 13:51:34 by falberti          #+#    #+#             */
-/*   Updated: 2024/09/26 11:17:33 by albertini        ###   ########.fr       */
+/*   Updated: 2024/09/26 12:50:35 by albertini        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,8 +99,12 @@ void	render_wall_and_floor(t_game *game, t_ray *ray, int x)
 		ray->draw_end = SCREEN_HEIGHT - 1;
 	while (y < ray->draw_start)
 		my_mlx_pixel_put(game, x, y++, CEILING_COLOR);
+	// while (y < ray->draw_start)
+	// 	my_mlx_pixel_put(game, x, y++, game->paths.c_color);
 	while (y < SCREEN_HEIGHT)
 		my_mlx_pixel_put(game, x, y++, FLOOR_COLOR);
+	// while (y < SCREEN_HEIGHT)
+	// 	my_mlx_pixel_put(game, x, y++, game->paths.f_color);
 	render_wall(game, x, ray);
 }
 

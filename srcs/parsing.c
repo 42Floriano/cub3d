@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parsing.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aavduli <aavduli@student.42.fr>            +#+  +:+       +#+        */
+/*   By: albertini <albertini@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/28 13:16:50 by aavduli           #+#    #+#             */
-/*   Updated: 2024/09/17 14:34:31 by aavduli          ###   ########.fr       */
+/*   Updated: 2024/09/26 12:51:35 by albertini        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,9 @@
 void	set_color(char *line, t_game *game)
 {
 	if (line[0] == 'F')
-		game->texture.f_color = ft_strdup(line + 2);
+		game->paths.f_color = ft_strdup(line + 2);
 	if (line[0] == 'C')
-		game->texture.c_color = ft_strdup(line + 2);
+		game->paths.c_color = ft_strdup(line + 2);
 }
 
 void	print_parsing(t_game *game)
@@ -25,12 +25,12 @@ void	print_parsing(t_game *game)
 	int	i;
 
 	i = 0;
-	printf("NO: %s\n", game->texture.no_path);
-	printf("SO: %s\n", game->texture.so_path);
-	printf("WE: %s\n", game->texture.we_path);
-	printf("EA: %s\n", game->texture.ea_path);
-	printf("F: %s\n", game->texture.f_color);
-	printf("C: %s\n", game->texture.c_color);
+	printf("NO: %s\n", game->paths.no_path);
+	printf("SO: %s\n", game->paths.so_path);
+	printf("WE: %s\n", game->paths.we_path);
+	printf("EA: %s\n", game->paths.ea_path);
+	printf("F: %s\n", game->paths.f_color);
+	printf("C: %s\n", game->paths.c_color);
 	while (game->map[i] != NULL)
 	{
 		printf("%s\n", game->map[i]);
@@ -48,13 +48,13 @@ void	init_parsing(char *av, t_game *game)
 	while (line != NULL)
 	{
 		if (line[0] == 'N' && line[1] == 'O')
-			game->texture.no_path = ft_strdup(line + 3);
+			game->paths.no_path = ft_strdup(line + 3);
 		if (line[0] == 'S' && line[1] == 'O')
-			game->texture.so_path = ft_strdup(line + 3);
+			game->paths.so_path = ft_strdup(line + 3);
 		if (line[0] == 'W' && line[1] == 'E')
-			game->texture.we_path = ft_strdup(line + 3);
+			game->paths.we_path = ft_strdup(line + 3);
 		if (line[0] == 'E' && line[1] == 'A')
-			game->texture.ea_path = ft_strdup(line + 3);
+			game->paths.ea_path = ft_strdup(line + 3);
 		if (line[0] == 'F' || line[0] == 'C')
 			set_color(line, game);
 		if (line[0] == ' ' || line[0] == '1'

@@ -6,7 +6,7 @@
 /*   By: albertini <albertini@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/24 17:46:15 by aavduli           #+#    #+#             */
-/*   Updated: 2024/09/26 11:17:07 by albertini        ###   ########.fr       */
+/*   Updated: 2024/09/26 12:48:11 by albertini        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,7 +98,7 @@ typedef struct s_texture {
 	int		endian;
 }	t_texture;
 
-typedef struct s_texture_path
+typedef struct s_path
 {
 	char	*no_path;
 	char	*so_path;
@@ -106,7 +106,7 @@ typedef struct s_texture_path
 	char	*ea_path;
 	char	*f_color;
 	char	*c_color;
-}			t_texture_path;
+}			t_path;
 
 typedef struct s_ray
 {
@@ -163,7 +163,7 @@ typedef struct s_game
 	int				key_d;
 	int				key_left;
 	int				key_right;
-	t_texture_path		texture;
+	t_path			paths;
 }	t_game;
 
 
