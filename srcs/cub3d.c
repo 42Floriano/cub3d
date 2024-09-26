@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: falberti <falberti@student.42.fr>          +#+  +:+       +#+        */
+/*   By: albertini <albertini@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/15 12:53:21 by albertini         #+#    #+#             */
-/*   Updated: 2024/09/19 11:35:20 by falberti         ###   ########.fr       */
+/*   Updated: 2024/09/26 12:41:22 by albertini        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ int	main(int ac, char **av)
 		game_init(&game);
 		commands(&game);
 		initialize_player(&game);
-		mlx_loop_hook(game.mlx_connection, main_loop, &game);
+		mlx_loop_hook(game.mlx_connection, &main_loop, &game);
 		mlx_loop(game.mlx_connection);
 	}
 	return (1);
