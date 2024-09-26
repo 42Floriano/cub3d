@@ -6,7 +6,7 @@
 /*   By: albertini <albertini@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/24 17:46:15 by aavduli           #+#    #+#             */
-/*   Updated: 2024/09/26 12:48:11 by albertini        ###   ########.fr       */
+/*   Updated: 2024/09/26 13:09:29 by albertini        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -146,6 +146,10 @@ typedef struct s_game
 	t_img			img;
 	t_ray			*ray;
 	char			**map;
+	char			**dup_map;
+	int				array_size;
+	double			map_y;
+	double			map_x;
 	double			posx;
 	double			posy;
 	double			dirx;
@@ -164,8 +168,8 @@ typedef struct s_game
 	int				key_left;
 	int				key_right;
 	t_path			paths;
+	bool			player_pos;
 }	t_game;
-
 
 //init_structs
 void	data_init(t_game *game);
@@ -186,6 +190,11 @@ void	launch_mlx(t_game *game);
 void	malloc_mapy(t_game *game, char *line, int fd);
 void	copy_map(t_game *game, char *av);
 
+//map_utils
+void	check_map(t_game *game);
+int		max_lenght(t_game *game);
+void	make_it_rectangle(t_game *game, int max_size);
+
 //display
 void	raycasting(t_game *game);
 void	render_frame(t_game *game);
@@ -201,6 +210,7 @@ void	perform_dda(t_game *game, t_ray *ray);
 void	render_wall_and_floor(t_game *game, t_ray *ray, int x);
 
 //freerers
+void	free_array(char **map);
 
 //read_map
 char	**readmap(char *filename);
@@ -224,7 +234,7 @@ void	free_textures(t_game *game);
 //lst_utils
 
 //sage_function
-int		safe_open(char *av);
+int		safe_open(t_game *game, char *av);
 
 //exit
 

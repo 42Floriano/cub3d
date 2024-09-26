@@ -1,26 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   safe_function.c                                    :+:      :+:    :+:   */
+/*   free.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aavduli <aavduli@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/12 13:36:34 by aavduli           #+#    #+#             */
-/*   Updated: 2024/09/24 14:16:57 by aavduli          ###   ########.fr       */
+/*   Created: 2024/09/19 12:01:47 by aavduli           #+#    #+#             */
+/*   Updated: 2024/09/19 12:04:58 by aavduli          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/cub3d.h"
 
-int	safe_open(t_game *game, char *av)
+void	free_array(char **map)
 {
-	int	fd;
+	int	i;
 
-	fd = open(av, O_RDONLY);
-	if (fd == -1)
+	i = 0;
+	while (map[i])
 	{
-		perror("Error\n");
-		exit_error(game, "Can't open the file !");
+		free(map[i]);
+		i++;
 	}
-	return (fd);
+	free(map);
+	map = NULL;
+	return ;
 }

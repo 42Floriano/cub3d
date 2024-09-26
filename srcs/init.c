@@ -5,10 +5,11 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: albertini <albertini@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/20 15:24:44 by albertini         #+#    #+#             */
-/*   Updated: 2024/09/26 12:35:40 by albertini        ###   ########.fr       */
+/*   Created: Invalid date        by                   #+#    #+#             */
+/*   Updated: 2024/09/26 13:08:52 by albertini        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 
 #include "../includes/cub3d.h"
 
@@ -42,6 +43,7 @@ void	data_init(t_game *game)
 	game->key_d = 0;
 	game->key_left = 0;
 	game->key_right = 0;
+	game->player_pos = false;
 	return ;
 }
 

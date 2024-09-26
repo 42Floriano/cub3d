@@ -6,7 +6,7 @@
 /*   By: albertini <albertini@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/15 12:53:21 by albertini         #+#    #+#             */
-/*   Updated: 2024/09/26 12:41:22 by albertini        ###   ########.fr       */
+/*   Updated: 2024/09/26 13:08:03 by albertini        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,7 @@ int	main(int ac, char **av)
 	{
 		init_parsing(av[1], &game);
 		game_init(&game);
+		check_map(&game);
 		commands(&game);
 		initialize_player(&game);
 		mlx_loop_hook(game.mlx_connection, &main_loop, &game);

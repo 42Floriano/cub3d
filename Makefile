@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: falberti <falberti@student.42.fr>          +#+  +:+       +#+         #
+#    By: albertini <albertini@student.42.fr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/13 12:52:36 by falberti          #+#    #+#              #
-#    Updated: 2024/09/17 16:07:23 by falberti         ###   ########.fr        #
+#    Updated: 2024/09/26 13:04:12 by albertini        ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,6 +32,9 @@ FILES = $(SOURCES_DIR)/cub3d\
 		$(SOURCES_DIR)/textures\
 		$(SOURCES_DIR)/display_textures\
 		$(SOURCES_DIR)/safe_function\
+		$(SOURCES_DIR)/free\
+		$(SOURCES_DIR)/map_checkers\
+		$(SOURCES_DIR)/map_utils\
 
 ## Ajout de .c et modification pour stocker les .o dans OBJ_DIR
 CFILES = $(addsuffix .c, $(FILES))
