@@ -6,7 +6,7 @@
 /*   By: albertini <albertini@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/28 13:16:50 by aavduli           #+#    #+#             */
-/*   Updated: 2024/09/26 13:05:32 by albertini        ###   ########.fr       */
+/*   Updated: 2024/09/26 13:44:26 by albertini        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,28 @@ void	print_parsing(t_game *game)
 	}
 }
 
+char	*ft_strdup_update(const char *s1)
+{
+	char	*strr;
+	int		size;
+	int		i;
+
+	size = ft_strlen(s1);
+	strr = malloc((size + 1) * sizeof(char));
+	if (!strr)
+		return (strr);
+	if (!s1)
+		return (NULL);
+	i = 0;
+	while (s1[i] && s1[i] != '\n')
+	{
+		strr[i] = s1[i];
+		i++;
+	}
+	strr[i] = '\0';
+	return (strr);
+}
+
 void	init_parsing(char *av, t_game *game)
 {
 	int		fd;
@@ -48,13 +70,13 @@ void	init_parsing(char *av, t_game *game)
 	while (line != NULL)
 	{
 		if (line[0] == 'N' && line[1] == 'O')
-			game->paths.no_path = ft_strdup(line + 3);
+			game->paths.no_path = ft_strdup_update(line + 3);
 		if (line[0] == 'S' && line[1] == 'O')
-			game->paths.so_path = ft_strdup(line + 3);
+			game->paths.so_path = ft_strdup_update(line + 3);
 		if (line[0] == 'W' && line[1] == 'E')
-			game->paths.we_path = ft_strdup(line + 3);
+			game->paths.we_path = ft_strdup_update(line + 3);
 		if (line[0] == 'E' && line[1] == 'A')
-			game->paths.ea_path = ft_strdup(line + 3);
+			game->paths.ea_path = ft_strdup_update(line + 3);
 		if (line[0] == 'F' || line[0] == 'C')
 			set_color(line, game);
 		if (line[0] == ' ' || line[0] == '1'
