@@ -6,7 +6,7 @@
 /*   By: aavduli <aavduli@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/24 17:46:15 by aavduli           #+#    #+#             */
-/*   Updated: 2024/09/24 14:16:15 by aavduli          ###   ########.fr       */
+/*   Updated: 2024/09/26 12:35:46 by aavduli          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -220,8 +220,9 @@ void	clean_pars(t_game *game);
 int		end_game(t_game *game);
 //lst_utils
 
-//sage_function
+//safe_function
 int		safe_open(t_game *game, char *av);
+void	*safe_malloc(size_t bytes);
 
 //exit
 
