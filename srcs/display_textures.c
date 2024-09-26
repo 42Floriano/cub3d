@@ -3,59 +3,143 @@
 /*                                                        :::      ::::::::   */
 /*   display_textures.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: falberti <falberti@student.42.fr>          +#+  +:+       +#+        */
+/*   By: albertini <albertini@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/17 13:29:00 by falberti          #+#    #+#             */
-/*   Updated: 2024/09/17 15:15:21 by falberti         ###   ########.fr       */
+/*   Updated: 2024/09/25 15:53:45 by albertini        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/cub3d.h"
 
-// void	render_sky(t_game *game)
-// {
-// 	int	x;
-// 	int	y;
-// 	int	tex_x;
-// 	int	tex_y;
-// 	int	color;
+static t_texture	*choose_text(t_game *game, int side)
+{
+		printf("TEST position Side: %d\n", side);
+	printf("TEST position Y: %f\n", game->ray.ray_dir_y);
+	printf("TEST position X: %f\n", game->ray.ray_dir_x);
+	if (side == 0)
+	{
+		if (game->ray.ray_dir_x > 0)
+			return (game->textures_list[EAST]);
+		else
+			return (game->textures_list[WEST]);
+	}
+	else
+	{
+		if (game->ray.ray_dir_y > 0)
+			return (game->textures_list[SOUTH]);
+		else
+			return (game->textures_list[NORTH]);
+	}
+}
 
-// 	y = 0; // Start from the top of the screen
-// 	while (y < SCREEN_HEIGHT / 2)  // Sky is rendered on the top half of the screen
-// 	{
-// 		x = 0;
-// 		while (x < SCREEN_WIDTH)  // Iterate over the width of the screen
-// 		{
-// 			tex_x = x % game->sky_texture.width;  // Calculate the corresponding texture x-coordinate
-// 			tex_y = y % game->sky_texture.height; // Calculate the corresponding texture y-coordinate
-// 			color = game->sky_texture.pixels[tex_y * game->sky_texture.width + tex_x];  // Get the pixel color from the texture
-// 			my_mlx_pixel_put(game, x, y, color);  // Render the pixel on the screen
-// 			x++;
-// 		}
-// 		y++;
-// 	}
+// Calculate the exact position on the wall
+static double	calc_p_wall(t_game *game, int side)
+{
+	double	wall_x;
+
+	wall_x = 0.0;
+	if (side == 0)
+		wall_x = game->posy + game->ray.perp_wall_dist * game->ray.ray_dir_y;
+	else
+		wall_x = game->posx + game->ray.perp_wall_dist * game->ray.ray_dir_x;
+	wall_x -= floor(wall_x);
+	return (wall_x);
+}
+
+// X-coordinate on the texture
+static int	coordi_text(t_game *game, t_texture *texture, int tex_x, int side)
+{
+	if (side == 0 && game->ray.ray_dir_x > 0)
+		tex_x = texture->width - tex_x - 1;
+	if (side == 1 && game->ray.ray_dir_y < 0)
+		tex_x = texture->width - tex_x - 1;
+	return (tex_x);
+}
+
+static inline double step(t_texture *texture, int draw_start, int draw_end)
+{
+	double	step;
+
+	step = 0.0;
+	step = 1.0 * texture->height / (draw_end - draw_start);
+	return (step);
+}
+
+void	render_wall(t_game *game, int x, int draw_start, int draw_end, int side)
+{
+	t_texture	*texture;
+	int			tex_x;
+	int			tex_y;
+	double		tex_pos;
+	int			y;
+
+	tex_x = 0;
+	tex_y = 0;
+	tex_pos = 0.0;
+	texture = NULL;
+	texture = choose_text(game, side);
+	tex_x = (int)(calc_p_wall(game, side) * (double)texture->width);
+	coordi_text(game, texture, tex_x, side);
+	// Calculate step size and initial texture position
+	tex_pos = (draw_start - SCREEN_HEIGHT / 2 + (draw_end - draw_start) / 2)
+		* step(texture, draw_start, draw_end);
+	y = draw_start;
+	while (y < draw_end)
+	{
+		tex_y = (int)tex_pos & (texture->height - 1);
+		tex_pos += step(texture, draw_start, draw_end);
+		my_mlx_pixel_put(game, x, y, texture->pixels[tex_y * texture->width + tex_x]);
+		y++;
+	}
+}
+
+
+// #include "../includes/cub3d.h"
+
+// // Define wall colors for different orientations
+// #define COLOR_NORTH 0xFF0000 // Red
+// #define COLOR_SOUTH 0x00FF00 // Green
+// #define COLOR_EAST  0x0000FF // Blue
+// #define COLOR_WEST  0xFFFF00 // Yellow
+
+// // Choose the color based on wall orientation and direction
+// static int choose_color(t_game *game, int side)
+// {
+// 	printf("TEST position Side: %d\n", side);
+// 	printf("TEST position Y: %f\n", game->ray.ray_dir_y);
+// 	printf("TEST position X: %f\n", game->ray.ray_dir_x);
+//     // Horizontal walls
+//     if (side == 0)
+//     {
+//         if (game->ray.ray_dir_x > 0)
+//             return COLOR_EAST; // East-facing wall
+//         else
+//             return COLOR_WEST; // West-facing wall
+//     }
+//     // Vertical walls
+//     else
+//     {
+//         if (game->ray.ray_dir_y > 0)
+//             return COLOR_SOUTH; // South-facing wall
+//         else
+//             return COLOR_NORTH; // North-facing wall
+//     }
 // }
 
-// void	render_floor(t_game *game)
+// void render_wall(t_game *game, int x, int draw_start, int draw_end, int side)
 // {
-// 	int	x;
-// 	int	y;
-// 	int	tex_x;
-// 	int	tex_y;
-// 	int	color;
+//     int color;
+//     int y;
 
-// 	y = SCREEN_HEIGHT / 2;  // Start from the middle of the screen (where the floor starts)
-// 	while (y < SCREEN_HEIGHT)  // Floor is rendered on the bottom half of the screen
-// 	{
-// 		x = 0;
-// 		while (x < SCREEN_WIDTH)  // Iterate over the width of the screen
-// 		{
-// 			tex_x = x % game->floor_texture.width;  // Calculate the corresponding texture x-coordinate
-// 			tex_y = y % game->floor_texture.height; // Calculate the corresponding texture y-coordinate
-// 			color = game->floor_texture.pixels[tex_y * game->floor_texture.width + tex_x];  // Get the pixel color from the texture
-// 			my_mlx_pixel_put(game, x, y, color);  // Render the pixel on the screen
-// 			x++;
-// 		}
-// 		y++;
-// 	}
+//     // Choose the color for the wall based on its orientation
+//     color = choose_color(game, side);
+
+//     // Render the wall with the chosen color
+//     y = draw_start;
+//     while (y < draw_end)
+//     {
+//         my_mlx_pixel_put(game, x, y, color);
+//         y++;
+//     }
 // }

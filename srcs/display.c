@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   display.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: falberti <falberti@student.42.fr>          +#+  +:+       +#+        */
+/*   By: albertini <albertini@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/20 15:24:44 by albertini         #+#    #+#             */
-/*   Updated: 2024/09/17 16:06:09 by falberti         ###   ########.fr       */
+/*   Updated: 2024/09/25 15:51:03 by albertini        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,21 @@ void	my_mlx_pixel_put(t_game *g, int x, int y, int color)
 	*(unsigned int *)dst = color;
 }
 
+
+
+// void	texture_pixel_put(t_texture *texture, int x, int y, int color)
+// {
+// 	int	*dst;
+
+// 	// Ensure x and y are within the bounds of the texture
+// 	if (x < 0 || x >= texture->width || y < 0 || y >= texture->height)
+// 		return;
+
+// 	// Calculate the position in the texture's pixel array
+// 	dst = texture->pixels + (y * texture->width + x);
+// 	*dst = color;
+// }
+
 void	raycasting(t_game *game)
 {
 	int		x;
@@ -70,6 +85,10 @@ void	initialize_player(t_game *game)
 	int	j;
 
 	i = 0;
+	// game->dirx = 0;    // Initial direction x
+    // game->diry = -1;   // Initial direction y
+    // game->planex = 0.66; // Camera plane x
+    // game->planey = 0;   // Camera plane yß∂ß
 	while (game->map[i])
 	{
 		j = 0;

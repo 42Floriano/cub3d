@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: falberti <falberti@student.42.fr>          +#+  +:+       +#+        */
+/*   By: albertini <albertini@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/24 17:46:15 by aavduli           #+#    #+#             */
-/*   Updated: 2024/09/24 16:05:47 by falberti         ###   ########.fr       */
+/*   Updated: 2024/09/25 14:39:07 by albertini        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -191,6 +191,7 @@ void	raycasting(t_game *game);
 void	render_frame(t_game *game);
 void	initialize_player(t_game *game);
 void	my_mlx_pixel_put(t_game *g, int x, int y, int color);
+void	my_mlx_pixel_put_text(t_texture *text, int x, int y, int color);
 
 //display_utils
 void	calculate_ray_position_and_direction(t_game *game, t_ray *ray, int x);
@@ -234,7 +235,7 @@ void	display_fps(t_game *game);
 void	load_texture_list(t_game *game);
 
 //display_textures
-// void	render_sky(t_game *game);
-// void	render_floor(t_game *game);
+void	render_wall(t_game *game, int x, int draw_start,
+			int draw_end, int side);
 
 #endif
