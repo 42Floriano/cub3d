@@ -6,7 +6,7 @@
 /*   By: albertini <albertini@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/17 13:23:17 by falberti          #+#    #+#             */
-/*   Updated: 2024/09/25 15:11:12 by albertini        ###   ########.fr       */
+/*   Updated: 2024/09/26 11:36:27 by albertini        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,4 +52,3 @@ void	load_texture_list(t_game *game)
 	load_texture(game, WEST, "./textures/wall_west.xpm");
 	load_texture(game, EAST, "./textures/wall_east.xpm");
 }
-

@@ -6,7 +6,7 @@
 /*   By: albertini <albertini@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/24 17:46:15 by aavduli           #+#    #+#             */
-/*   Updated: 2024/09/26 10:46:38 by albertini        ###   ########.fr       */
+/*   Updated: 2024/09/26 11:17:07 by albertini        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -235,7 +235,6 @@ void	display_fps(t_game *game);
 void	load_texture_list(t_game *game);
 
 //display_textures
-void	render_wall(t_game *game, int x, int draw_start,
-			int draw_end, int side);
+void	render_wall(t_game *game, int x, t_ray *ray);
 
 #endif

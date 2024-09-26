@@ -6,7 +6,7 @@
 /*   By: albertini <albertini@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/17 13:29:00 by falberti          #+#    #+#             */
-/*   Updated: 2024/09/26 11:00:20 by albertini        ###   ########.fr       */
+/*   Updated: 2024/09/26 11:36:09 by albertini        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,6 @@
 
 static t_texture	*choose_text(t_game *game, int side)
 {
-	// printf("TEST position Side: %d\n", side);
-	// printf("TEST position Y: %f\n", game->ray->ray_dir_y);
-	// printf("TEST position X: %f\n", game->ray->ray_dir_x);
 	if (side == 0)
 	{
 		if (game->ray->ray_dir_x > 0)
@@ -57,7 +54,8 @@ static int	coordi_text(t_game *game, t_texture *texture, int tex_x, int side)
 	return (tex_x);
 }
 
-static inline double step(t_texture *texture, int draw_start, int draw_end)
+// Calculate step size and initial texture position
+static inline double	step(t_texture *texture, int draw_start, int draw_end)
 {
 	double	step;
 
@@ -66,7 +64,7 @@ static inline double step(t_texture *texture, int draw_start, int draw_end)
 	return (step);
 }
 
-void	render_wall(t_game *game, int x, int draw_start, int draw_end, int side)
+void	render_wall(t_game *game, int x, t_ray *ray)
 {
 	t_texture	*texture;
 	int			tex_x;
@@ -78,25 +76,24 @@ void	render_wall(t_game *game, int x, int draw_start, int draw_end, int side)
 	tex_y = 0;
 	tex_pos = 0.0;
 	texture = NULL;
-	texture = choose_text(game, side);
-	tex_x = (int)(calc_p_wall(game, side) * (double)texture->width);
-	coordi_text(game, texture, tex_x, side);
-	// Calculate step size and initial texture position
-	tex_pos = (draw_start - SCREEN_HEIGHT / 2 + (draw_end - draw_start) / 2)
-		* step(texture, draw_start, draw_end);
-	y = draw_start;
-	while (y < draw_end)
+	texture = choose_text(game, ray->side);
+	tex_x = (int)(calc_p_wall(game, ray->side) * (double)texture->width);
+	coordi_text(game, texture, tex_x, ray->side);
+	tex_pos = (ray->draw_start - SCREEN_HEIGHT / 2
+			+ (ray->draw_end - ray->draw_start)
+			/ 2) * step(texture, ray->draw_start, ray->draw_end);
+	y = ray->draw_start;
+	while (y < ray->draw_end)
 	{
 		tex_y = (int)tex_pos & (texture->height - 1);
-		tex_pos += step(texture, draw_start, draw_end);
-		my_mlx_pixel_put(game, x, y, texture->pixels[tex_y * texture->width + tex_x]);
+		tex_pos += step(texture, ray->draw_start, ray->draw_end);
+		my_mlx_pixel_put(game, x, y,
+			texture->pixels[tex_y * texture->width + tex_x]);
 		y++;
 	}
 }
 
-
 // #include "../includes/cub3d.h"
-
 // // Define wall colors for different orientations
 // #define COLOR_NORTH 0xFF0000 // Red
 // #define COLOR_SOUTH 0x00FF00 // Green

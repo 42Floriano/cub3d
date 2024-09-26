@@ -6,7 +6,7 @@
 /*   By: albertini <albertini@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/12 13:51:34 by falberti          #+#    #+#             */
-/*   Updated: 2024/09/25 15:04:10 by albertini        ###   ########.fr       */
+/*   Updated: 2024/09/26 11:17:33 by albertini        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,6 +85,25 @@ void	perform_dda(t_game *game, t_ray *ray)
 				+ (1 - ray->step_y) / 2) / ray->ray_dir_y;
 }
 
+void	render_wall_and_floor(t_game *game, t_ray *ray, int x)
+{
+	int	y;
+
+	y = 0;
+	ray->line_height = (int)(SCREEN_HEIGHT / ray->perp_wall_dist);
+	ray->draw_start = -ray->line_height / 2 + SCREEN_HEIGHT / 2;
+	if (ray->draw_start < 0)
+		ray->draw_start = 0;
+	ray->draw_end = ray->line_height / 2 + SCREEN_HEIGHT / 2;
+	if (ray->draw_end >= SCREEN_HEIGHT)
+		ray->draw_end = SCREEN_HEIGHT - 1;
+	while (y < ray->draw_start)
+		my_mlx_pixel_put(game, x, y++, CEILING_COLOR);
+	while (y < SCREEN_HEIGHT)
+		my_mlx_pixel_put(game, x, y++, FLOOR_COLOR);
+	render_wall(game, x, ray);
+}
+
 // void	render_wall_and_floor(t_game *game, t_ray *ray, int x)
 // {
 // 	int	y;
@@ -113,25 +132,3 @@ void	perform_dda(t_game *game, t_ray *ray)
 // 	while (y < SCREEN_HEIGHT)
 // 		my_mlx_pixel_put(game, x, y++, FLOOR_COLOR);
 // }
-
-void	render_wall_and_floor(t_game *game, t_ray *ray, int x)
-{
-	int	y;
-	//int	wall_color;
-
-	y = 0;
-	ray->line_height = (int)(SCREEN_HEIGHT / ray->perp_wall_dist);
-	ray->draw_start = -ray->line_height / 2 + SCREEN_HEIGHT / 2;
-	if (ray->draw_start < 0)
-		ray->draw_start = 0;
-	ray->draw_end = ray->line_height / 2 + SCREEN_HEIGHT / 2;
-	if (ray->draw_end >= SCREEN_HEIGHT)
-		ray->draw_end = SCREEN_HEIGHT - 1;
-	// Draw ceiling
-	while (y < ray->draw_start)
-		my_mlx_pixel_put(game, x, y++, CEILING_COLOR);
-	// Draw floor
-	while (y < SCREEN_HEIGHT)
-		my_mlx_pixel_put(game, x, y++, FLOOR_COLOR);
-	render_wall(game, x, ray->draw_start, ray->draw_end, ray->side);
-}

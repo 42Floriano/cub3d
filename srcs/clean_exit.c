@@ -6,7 +6,7 @@
 /*   By: albertini <albertini@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/04 11:30:00 by falberti          #+#    #+#             */
-/*   Updated: 2024/09/26 11:06:06 by albertini        ###   ########.fr       */
+/*   Updated: 2024/09/26 11:36:42 by albertini        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,6 @@ int	end_game(t_game *game)
 {
 	mlx_destroy_window(game->mlx_connection, game->mlx_windows);
 	//mlx_destroy_display(game->mlx_connection);
-	//free(game->mlx_connection);
 	free_textures(game);
 	free(game->ray);
 	clean_pars(game);

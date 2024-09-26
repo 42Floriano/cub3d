@@ -6,7 +6,7 @@
 /*   By: albertini <albertini@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/20 15:24:44 by albertini         #+#    #+#             */
-/*   Updated: 2024/09/26 11:00:07 by albertini        ###   ########.fr       */
+/*   Updated: 2024/09/26 11:10:25 by albertini        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,21 +44,6 @@ void	my_mlx_pixel_put(t_game *g, int x, int y, int color)
 	dst = g->img.pixels_ptr + (y * g->img.line_len + x * (g->img.bpp / 8));
 	*(unsigned int *)dst = color;
 }
-
-
-
-// void	texture_pixel_put(t_texture *texture, int x, int y, int color)
-// {
-// 	int	*dst;
-
-// 	// Ensure x and y are within the bounds of the texture
-// 	if (x < 0 || x >= texture->width || y < 0 || y >= texture->height)
-// 		return;
-
-// 	// Calculate the position in the texture's pixel array
-// 	dst = texture->pixels + (y * texture->width + x);
-// 	*dst = color;
-// }
 
 void	raycasting(t_game *game)
 {
