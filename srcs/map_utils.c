@@ -6,7 +6,7 @@
 /*   By: aavduli <aavduli@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/19 12:23:46 by aavduli           #+#    #+#             */
-/*   Updated: 2024/09/26 12:36:10 by aavduli          ###   ########.fr       */
+/*   Updated: 2024/09/26 12:51:36 by aavduli          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,15 @@ int	is_player(char c)
 	else
 		return (0);
 }
+
+// int	is_valid(t_game *game, char c)
+// {
+// 	if (c != ' ' || c != '1' || c != 0 || c != 'N' || c != 'S'
+// 		|| c != 'W' || c != 'E')
+// 		exit_error(game,
+// 			"Map is not OK. Must have only ' ', 0, 1 or position's player.");
+// 	return (0);
+// }
 
 void	make_it_rectangle(t_game *game, int max_size)
 {
@@ -38,7 +47,8 @@ void	make_it_rectangle(t_game *game, int max_size)
 			else
 				game->dup_map[i][j] = '9';
 			if (game->dup_map[i][j] != '1' && game->dup_map[i][j] != '0'
-				&& !is_player(game->map[i][j]))
+				&& !is_player(game->map[i][j])
+					&& is_valid(game, game->dup_map[i][j]))
 				game->dup_map[i][j] = '9';
 			j++;
 		}
