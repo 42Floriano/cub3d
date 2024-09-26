@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   clean_exit.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: falberti <falberti@student.42.fr>          +#+  +:+       +#+        */
+/*   By: albertini <albertini@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/04 11:30:00 by falberti          #+#    #+#             */
-/*   Updated: 2024/09/24 15:45:34 by falberti         ###   ########.fr       */
+/*   Updated: 2024/09/26 11:06:06 by albertini        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,9 @@ int	end_game(t_game *game)
 {
 	mlx_destroy_window(game->mlx_connection, game->mlx_windows);
 	//mlx_destroy_display(game->mlx_connection);
-	free(game->mlx_connection);
+	//free(game->mlx_connection);
+	free_textures(game);
+	free(game->ray);
 	clean_pars(game);
 	exit(EXIT_SUCCESS);
 }
