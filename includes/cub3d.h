@@ -6,7 +6,7 @@
 /*   By: aavduli <aavduli@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/24 17:46:15 by aavduli           #+#    #+#             */
-/*   Updated: 2024/09/24 14:16:15 by aavduli          ###   ########.fr       */
+/*   Updated: 2024/09/26 12:54:24 by aavduli          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,7 +88,7 @@ enum e_type
 	typeOne,
 };
 
-typedef struct s_texture
+typedef struct s_path
 {
 	char	*no_path;
 	char	*so_path;
@@ -96,7 +96,7 @@ typedef struct s_texture
 	char	*ea_path;
 	char	*f_color;
 	char	*c_color;
-}			t_texture;
+}			t_path;
 
 typedef struct s_ray
 {
