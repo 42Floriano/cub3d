@@ -6,7 +6,7 @@
 /*   By: albertini <albertini@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/20 15:24:44 by albertini         #+#    #+#             */
-/*   Updated: 2024/09/25 15:51:03 by albertini        ###   ########.fr       */
+/*   Updated: 2024/09/26 11:00:07 by albertini        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,17 +63,16 @@ void	my_mlx_pixel_put(t_game *g, int x, int y, int color)
 void	raycasting(t_game *game)
 {
 	int		x;
-	t_ray	ray;
 
 	x = 0;
-	ray_init(&ray);
+	ray_init(game->ray);
 	while (x < SCREEN_WIDTH)
 	{
-		calculate_ray_position_and_direction(game, &ray, x);
-		calculate_initial_map_and_ray_lengths(game, &ray);
-		initialize_step_and_side_distances(game, &ray);
-		perform_dda(game, &ray);
-		render_wall_and_floor(game, &ray, x);
+		calculate_ray_position_and_direction(game, game->ray, x);
+		calculate_initial_map_and_ray_lengths(game, game->ray);
+		initialize_step_and_side_distances(game, game->ray);
+		perform_dda(game, game->ray);
+		render_wall_and_floor(game, game->ray, x);
 		x++;
 	}
 }
@@ -85,10 +84,6 @@ void	initialize_player(t_game *game)
 	int	j;
 
 	i = 0;
-	// game->dirx = 0;    // Initial direction x
-    // game->diry = -1;   // Initial direction y
-    // game->planex = 0.66; // Camera plane x
-    // game->planey = 0;   // Camera plane yß∂ß
 	while (game->map[i])
 	{
 		j = 0;

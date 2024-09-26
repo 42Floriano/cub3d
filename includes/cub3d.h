@@ -6,7 +6,7 @@
 /*   By: albertini <albertini@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/24 17:46:15 by aavduli           #+#    #+#             */
-/*   Updated: 2024/09/25 14:39:07 by albertini        ###   ########.fr       */
+/*   Updated: 2024/09/26 10:46:38 by albertini        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -144,7 +144,7 @@ typedef struct s_game
 	void			*mlx_connection;
 	void			*mlx_windows;
 	t_img			img;
-	t_ray			ray;
+	t_ray			*ray;
 	char			**map;
 	double			posx;
 	double			posy;

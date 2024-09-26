@@ -6,7 +6,7 @@
 /*   By: albertini <albertini@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/17 13:29:00 by falberti          #+#    #+#             */
-/*   Updated: 2024/09/25 15:53:45 by albertini        ###   ########.fr       */
+/*   Updated: 2024/09/26 11:00:20 by albertini        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,19 +14,19 @@
 
 static t_texture	*choose_text(t_game *game, int side)
 {
-		printf("TEST position Side: %d\n", side);
-	printf("TEST position Y: %f\n", game->ray.ray_dir_y);
-	printf("TEST position X: %f\n", game->ray.ray_dir_x);
+	// printf("TEST position Side: %d\n", side);
+	// printf("TEST position Y: %f\n", game->ray->ray_dir_y);
+	// printf("TEST position X: %f\n", game->ray->ray_dir_x);
 	if (side == 0)
 	{
-		if (game->ray.ray_dir_x > 0)
+		if (game->ray->ray_dir_x > 0)
 			return (game->textures_list[EAST]);
 		else
 			return (game->textures_list[WEST]);
 	}
 	else
 	{
-		if (game->ray.ray_dir_y > 0)
+		if (game->ray->ray_dir_y > 0)
 			return (game->textures_list[SOUTH]);
 		else
 			return (game->textures_list[NORTH]);
@@ -40,9 +40,9 @@ static double	calc_p_wall(t_game *game, int side)
 
 	wall_x = 0.0;
 	if (side == 0)
-		wall_x = game->posy + game->ray.perp_wall_dist * game->ray.ray_dir_y;
+		wall_x = game->posy + game->ray->perp_wall_dist * game->ray->ray_dir_y;
 	else
-		wall_x = game->posx + game->ray.perp_wall_dist * game->ray.ray_dir_x;
+		wall_x = game->posx + game->ray->perp_wall_dist * game->ray->ray_dir_x;
 	wall_x -= floor(wall_x);
 	return (wall_x);
 }
@@ -50,9 +50,9 @@ static double	calc_p_wall(t_game *game, int side)
 // X-coordinate on the texture
 static int	coordi_text(t_game *game, t_texture *texture, int tex_x, int side)
 {
-	if (side == 0 && game->ray.ray_dir_x > 0)
+	if (side == 0 && game->ray->ray_dir_x > 0)
 		tex_x = texture->width - tex_x - 1;
-	if (side == 1 && game->ray.ray_dir_y < 0)
+	if (side == 1 && game->ray->ray_dir_y < 0)
 		tex_x = texture->width - tex_x - 1;
 	return (tex_x);
 }
