@@ -6,7 +6,7 @@
 /*   By: aavduli <aavduli@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/19 12:18:34 by aavduli           #+#    #+#             */
-/*   Updated: 2024/09/26 12:02:49 by aavduli          ###   ########.fr       */
+/*   Updated: 2024/09/26 12:26:01 by aavduli          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,6 @@ int	validate_vertical(t_game *game)
 	int	j;
 
 	j = 0;
-	i = 0;
-	while (game->dup_map[i])
-	{	
-		printf("%s\n", game->dup_map[i]);
-		i++;
-	}
 	while (game->dup_map[0][j])
 	{
 		i = 0;
