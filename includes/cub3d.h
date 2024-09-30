@@ -6,7 +6,7 @@
 /*   By: albertini <albertini@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/24 17:46:15 by aavduli           #+#    #+#             */
-/*   Updated: 2024/09/26 13:09:29 by albertini        ###   ########.fr       */
+/*   Updated: 2024/09/30 14:58:50 by albertini        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@
 # define MAP_HEIGHT 5
 # define SCREEN_WIDTH 1280
 # define SCREEN_HEIGHT 1080
-# define FLOOR_COLOR 0x333333
+# define FLOOR_COLOR 0x00FF00
 # define CEILING_COLOR 0x87CEEB
 
 /* SELECTORS */
@@ -104,8 +104,8 @@ typedef struct s_path
 	char	*so_path;
 	char	*we_path;
 	char	*ea_path;
-	char	*f_color;
-	char	*c_color;
+	int		f_color;
+	int		c_color;
 }			t_path;
 
 typedef struct s_ray
