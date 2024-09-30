@@ -5,11 +5,10 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: albertini <albertini@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: Invalid date        by                   #+#    #+#             */
-/*   Updated: 2024/09/26 13:07:47 by albertini        ###   ########.fr       */
+/*   Created: 2024/09/19 12:23:46 by aavduli           #+#    #+#             */
+/*   Updated: 2024/09/30 16:05:37 by albertini        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 
 #include "../includes/cub3d.h"
 

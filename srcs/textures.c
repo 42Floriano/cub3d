@@ -6,7 +6,7 @@
 /*   By: albertini <albertini@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/17 13:23:17 by falberti          #+#    #+#             */
-/*   Updated: 2024/09/26 13:37:37 by albertini        ###   ########.fr       */
+/*   Updated: 2024/09/30 16:03:56 by albertini        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,12 +47,8 @@ void	load_texture_list(t_game *game)
 			exit_error(game, "Memory allocation failed for texture.");
 		i++;
 	}
-	// load_texture(game, SOUTH, "./textures/wall_south.xpm");
-	// load_texture(game, NORTH, "./textures/wall_north.xpm");
-	// load_texture(game, WEST, "./textures/wall_west.xpm");
-	// load_texture(game, EAST, "./textures/wall_east.xpm");
 	load_texture(game, SOUTH, game->paths.so_path);
-	load_texture(game, NORTH,  game->paths.no_path);
-	load_texture(game, WEST,  game->paths.we_path);
+	load_texture(game, NORTH, game->paths.no_path);
+	load_texture(game, WEST, game->paths.we_path);
 	load_texture(game, EAST, game->paths.ea_path);
 }

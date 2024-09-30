@@ -6,7 +6,7 @@
 /*   By: albertini <albertini@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/24 17:46:15 by aavduli           #+#    #+#             */
-/*   Updated: 2024/09/30 14:58:50 by albertini        ###   ########.fr       */
+/*   Updated: 2024/09/30 16:01:28 by albertini        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -183,8 +183,10 @@ void	ray_init(t_ray *ray);
 
 //init
 void	init_game(char *av, t_game *game);
-void	init_parsing(char *av, t_game *game);
 void	launch_mlx(t_game *game);
+
+//parsing
+void	init_parsing(char *av, t_game *game);
 
 //mapping
 void	malloc_mapy(t_game *game, char *line, int fd);

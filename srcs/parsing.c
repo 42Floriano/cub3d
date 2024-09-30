@@ -6,13 +6,13 @@
 /*   By: albertini <albertini@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/28 13:16:50 by aavduli           #+#    #+#             */
-/*   Updated: 2024/09/30 15:42:30 by albertini        ###   ########.fr       */
+/*   Updated: 2024/09/30 16:00:43 by albertini        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/cub3d.h"
 
-int	check_if_valid(char **tab)
+static int	check_if_valid(char **tab)
 {
 	int	i;
 
@@ -41,11 +41,11 @@ static int	rgb_to_hex(int red, int green, int blue)
 	return ((red << 16) | (green << 8) | blue);
 }
 
-void	set_color(char *line, t_game *game)
+static void	set_color(char *line, t_game *game)
 {
 	char	**tab;
 
-	if (line[0] == 'F')
+	if (line[0] == 'F' || line[0] == 'C')
 	{
 		tab = ft_split((line + 2), ',');
 		if (check_if_valid(tab) == 1)
@@ -53,43 +53,17 @@ void	set_color(char *line, t_game *game)
 			free_array(tab);
 			return ;
 		}
-		game->paths.f_color = rgb_to_hex(ft_atoi(tab[0]),
-				ft_atoi(tab[1]), ft_atoi(tab[2]));
-		free_array(tab);
-	}
-	if (line[0] == 'C')
-	{
-		tab = ft_split((line + 2), ',');
-		if (check_if_valid(tab) == 1)
-		{
-			free_array(tab);
-			return ;
-		}
-		game->paths.c_color = rgb_to_hex(ft_atoi(tab[0]),
-				ft_atoi(tab[1]), ft_atoi(tab[2]));
+		if (line[0] == 'F')
+			game->paths.f_color = rgb_to_hex(ft_atoi(tab[0]),
+					ft_atoi(tab[1]), ft_atoi(tab[2]));
+		else
+			game->paths.c_color = rgb_to_hex(ft_atoi(tab[0]),
+					ft_atoi(tab[1]), ft_atoi(tab[2]));
 		free_array(tab);
 	}
 }
 
-void	print_parsing(t_game *game)
-{
-	int	i;
-
-	i = 0;
-	printf("NO: %s\n", game->paths.no_path);
-	printf("SO: %s\n", game->paths.so_path);
-	printf("WE: %s\n", game->paths.we_path);
-	printf("EA: %s\n", game->paths.ea_path);
-	//printf("F: %s\n", game->paths.f_color);
-	//printf("C: %s\n", game->paths.c_color);
-	while (game->map[i] != NULL)
-	{
-		printf("%s\n", game->map[i]);
-		i++;
-	}
-}
-
-char	*ft_strdup_update(const char *s1)
+static char	*ft_strdup_update(const char *s1)
 {
 	char	*strr;
 	int		size;
