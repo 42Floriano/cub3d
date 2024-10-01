@@ -3,14 +3,27 @@
 /*                                                        :::      ::::::::   */
 /*   safe_function.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aavduli <aavduli@student.42.fr>            +#+  +:+       +#+        */
+/*   By: falberti <falberti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/12 13:36:34 by aavduli           #+#    #+#             */
-/*   Updated: 2024/09/24 14:16:57 by aavduli          ###   ########.fr       */
+/*   Updated: 2024/10/01 15:26:20 by falberti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/cub3d.h"
+
+void	*safe_malloc(size_t bytes)
+{
+	void	*ptr;
+
+	ptr = malloc(bytes);
+	if (!ptr)
+	{
+		printf("Malloc failed\n");
+		free(ptr);
+	}
+	return (ptr);
+}
 
 int	safe_open(t_game *game, char *av)
 {

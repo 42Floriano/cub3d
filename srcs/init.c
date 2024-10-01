@@ -6,7 +6,7 @@
 /*   By: falberti <falberti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/15 12:53:21 by albertini         #+#    #+#             */
-/*   Updated: 2024/10/01 14:37:44 by falberti         ###   ########.fr       */
+/*   Updated: 2024/10/01 15:24:35 by falberti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ void	data_init(t_game *game)
 	game->key_d = 0;
 	game->key_left = 0;
 	game->key_right = 0;
-	game->player_pos = false;
+	game->player = 0;
 	return ;
 }
 
