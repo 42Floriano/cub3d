@@ -6,38 +6,11 @@
 /*   By: aavduli <aavduli@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/28 13:55:47 by aavduli           #+#    #+#             */
-/*   Updated: 2024/10/01 15:32:24 by aavduli          ###   ########.fr       */
+/*   Updated: 2024/10/01 15:54:20 by aavduli          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/cub3d.h"
-
-int	is_digit(char **tab)
-{
-	int	i;
-	int	j;
-
-	i = 0;
-	while (tab[i])
-	{
-		j = 0;
-		while (tab[i][j])
-		{
-			while (tab[i][j] == ' ')
-				j++;
-			if (tab[i][j] == '\n')
-			{
-				tab[i][j] = '\0';
-				break ;
-			}
-			if (tab[i][j] < '0' || tab[i][j] > '9')
-				return (0);
-			j++;
-		}
-		i++;
-	}
-	return (1);
-}
 
 int	check_if_valid(char **tab)
 {
