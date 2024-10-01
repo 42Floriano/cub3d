@@ -6,7 +6,7 @@
 /*   By: falberti <falberti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/20 15:24:44 by albertini         #+#    #+#             */
-/*   Updated: 2024/10/01 12:50:25 by falberti         ###   ########.fr       */
+/*   Updated: 2024/10/01 14:31:02 by falberti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ void	raycasting(t_game *game)
 	int		x;
 
 	x = 0;
-	ray_init(game->ray);
+	ray_init(game);
 	while (x < SCREEN_WIDTH)
 	{
 		calculate_ray_position_and_direction(game, game->ray, x);

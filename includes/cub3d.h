@@ -6,7 +6,7 @@
 /*   By: falberti <falberti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/24 17:46:15 by aavduli           #+#    #+#             */
-/*   Updated: 2024/10/01 11:42:42 by falberti         ###   ########.fr       */
+/*   Updated: 2024/10/01 13:50:24 by falberti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -175,12 +175,12 @@ typedef struct s_game
 //init_structs
 void	data_init(t_game *game);
 void	game_init(t_game *game);
-void	ray_init(t_ray *ray);
+void	ray_init(t_game *game);
 
 //init_structs
 void	data_init(t_game *game);
 void	game_init(t_game *game);
-void	ray_init(t_ray *ray);
+void	ray_init(t_game *ray);
 
 //init
 void	init_game(char *av, t_game *game);
