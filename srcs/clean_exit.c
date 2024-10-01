@@ -6,7 +6,7 @@
 /*   By: falberti <falberti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/19 12:23:46 by aavduli           #+#    #+#             */
-/*   Updated: 2024/10/01 15:45:16 by falberti         ###   ########.fr       */
+/*   Updated: 2024/10/01 16:16:06 by falberti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,10 +42,14 @@ void	free_textures(t_game *game)
 
 void	free_paths(t_game *game)
 {
-	free(game->paths.ea_path);
-	free(game->paths.we_path);
-	free(game->paths.no_path);
-	free(game->paths.so_path);
+	if (game->paths.no_path)
+		free(game->paths.no_path);
+	if (game->paths.so_path)
+		free(game->paths.so_path);
+	if (game->paths.we_path)
+		free(game->paths.we_path);
+	if (game->paths.ea_path)
+		free(game->paths.ea_path);
 }
 
 int	end_game(t_game *game)

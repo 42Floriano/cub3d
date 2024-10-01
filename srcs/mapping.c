@@ -6,7 +6,7 @@
 /*   By: falberti <falberti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/28 13:55:47 by aavduli           #+#    #+#             */
-/*   Updated: 2024/10/01 15:52:16 by falberti         ###   ########.fr       */
+/*   Updated: 2024/10/01 16:31:45 by falberti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,12 +66,12 @@ void	copy_map(t_game *game, char *av)
 	}
 	while (line != NULL)
 	{
-		game->map[i] = ft_strdup(line);
-		i++;
+		game->map[i++] = ft_strdup(line);
+		free(line);
 		line = get_next_line(fd);
 	}
 	game->map[i] = NULL;
-	free(line);
 	close(fd);
+	free(line);
 	clean_map(game);
 }
