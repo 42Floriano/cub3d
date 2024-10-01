@@ -6,7 +6,7 @@
 /*   By: aavduli <aavduli@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/28 13:55:47 by aavduli           #+#    #+#             */
-/*   Updated: 2024/10/01 15:54:20 by aavduli          ###   ########.fr       */
+/*   Updated: 2024/10/01 17:31:30 by aavduli          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,6 +110,6 @@ void	init_parsing(char *av, t_game *game)
 		free(line);
 		line = get_next_line(fd);
 	}
+	printf("%s\n", game->map[0]);
 	close(fd);
-	copy_map(game, av);
 }
