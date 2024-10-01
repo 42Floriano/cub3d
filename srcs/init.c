@@ -6,10 +6,9 @@
 /*   By: aavduli <aavduli@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/15 12:53:21 by albertini         #+#    #+#             */
-/*   Updated: 2024/10/01 11:34:26 by aavduli          ###   ########.fr       */
+/*   Updated: 2024/10/01 15:07:12 by aavduli          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 
 #include "../includes/cub3d.h"
 
@@ -47,25 +46,32 @@ void	data_init(t_game *game)
 	return ;
 }
 
-void	ray_init(t_ray *ray)
+void	ray_init(t_game *game)
 {
-	ray->camera_x = 0.0;
-	ray->ray_dir_x = 0.0;
-	ray->ray_dir_y = 0.0;
-	ray->map_x = 0;
-	ray->map_y = 0;
-	ray->side_dist_x = 0.0;
-	ray->side_dist_y = 0.0;
-	ray->delta_dist_x = 0.0;
-	ray->delta_dist_y = 0.0;
-	ray->perp_wall_dist = 0.0;
-	ray->step_x = 0;
-	ray->step_y = 0;
-	ray->hit = 0;
-	ray->side = 0;
-	ray->line_height = 0;
-	ray->draw_start = 0;
-	ray->draw_end = 0;
+	game->ray = (t_ray *)malloc(sizeof(t_ray));
+	if (!game->ray)
+	{
+		fprintf(stderr, "Error: Memory allocation for ray failed\n");
+		end_game(game);
+		exit(EXIT_FAILURE);
+	}
+	game->ray->camera_x = 0.0;
+	game->ray->ray_dir_x = 0.0;
+	game->ray->ray_dir_y = 0.0;
+	game->ray->map_x = 0;
+	game->ray->map_y = 0;
+	game->ray->side_dist_x = 0.0;
+	game->ray->side_dist_y = 0.0;
+	game->ray->delta_dist_x = 0.0;
+	game->ray->delta_dist_y = 0.0;
+	game->ray->perp_wall_dist = 0.0;
+	game->ray->step_x = 0;
+	game->ray->step_y = 0;
+	game->ray->hit = 0;
+	game->ray->side = 0;
+	game->ray->line_height = 0;
+	game->ray->draw_start = 0;
+	game->ray->draw_end = 0;
 }
 
 //stupid norminette x)
@@ -77,16 +83,15 @@ static void	game_init_suite(t_game *game)
 	{
 		mlx_destroy_image(game->mlx_connection, game->img.img_ptr);
 		mlx_destroy_window(game->mlx_connection, game->mlx_windows);
-		//mlx_destroy_display(game->mlx_connection);
+		mlx_destroy_display(game->mlx_connection);
 		free(game->mlx_connection);
 		malloc_error();
 	}
-	game->ray = (t_ray *)malloc(sizeof(t_ray *) * 1);
 	if (game->ray == NULL)
 	{
 		mlx_destroy_image(game->mlx_connection, game->img.img_ptr);
 		mlx_destroy_window(game->mlx_connection, game->mlx_windows);
-		//mlx_destroy_display(game->mlx_connection);
+		mlx_destroy_display(game->mlx_connection);
 		free(game->img.pixels_ptr);
 		free(game->mlx_connection);
 		malloc_error();
@@ -104,7 +109,7 @@ void	game_init(t_game *game)
 			SCREEN_WIDTH, SCREEN_HEIGHT, game->name);
 	if (game->mlx_windows == NULL)
 	{
-		//mlx_destroy_display(game->mlx_connection);
+		mlx_destroy_display(game->mlx_connection);
 		free(game->mlx_connection);
 		malloc_error();
 	}
@@ -113,7 +118,7 @@ void	game_init(t_game *game)
 	if (game->img.img_ptr == NULL)
 	{
 		mlx_destroy_window(game->mlx_connection, game->mlx_windows);
-		//mlx_destroy_display(game->mlx_connection);
+		mlx_destroy_display(game->mlx_connection);
 		free(game->mlx_connection);
 		malloc_error();
 	}

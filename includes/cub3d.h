@@ -6,7 +6,7 @@
 /*   By: aavduli <aavduli@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/24 17:46:15 by aavduli           #+#    #+#             */
-/*   Updated: 2024/10/01 14:30:01 by aavduli          ###   ########.fr       */
+/*   Updated: 2024/10/01 15:06:25 by aavduli          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,6 +104,7 @@ typedef struct s_path
 	char	*so_path;
 	char	*we_path;
 	char	*ea_path;
+	char	*weapon;
 	int		f_color;
 	int		c_color;
 }			t_path;
@@ -174,12 +175,12 @@ typedef struct s_game
 //init_structs
 void	data_init(t_game *game);
 void	game_init(t_game *game);
-void	ray_init(t_ray *ray);
+void	ray_init(t_game *game);
 
 //init_structs
 void	data_init(t_game *game);
 void	game_init(t_game *game);
-void	ray_init(t_ray *ray);
+void	ray_init(t_game *ray);
 
 //init
 void	init_game(char *av, t_game *game);
@@ -250,5 +251,6 @@ void	load_texture_list(t_game *game);
 
 //display_textures
 void	render_wall(t_game *game, int x, t_ray *ray);
+void	render_weapon(t_game *game);
 
 #endif

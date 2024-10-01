@@ -6,7 +6,7 @@
 /*   By: aavduli <aavduli@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/17 13:23:17 by falberti          #+#    #+#             */
-/*   Updated: 2024/10/01 14:15:00 by aavduli          ###   ########.fr       */
+/*   Updated: 2024/10/01 15:07:31 by aavduli          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,12 +29,13 @@ void	load_texture(t_game *game, int i, char *path)
 }
 
 // Load all the textures during game initialization
+//load_texture(game, 4, "./textures/weapon_doom3.xpm");
 void	load_texture_list(t_game *game)
 {
 	int	i;
 
 	i = 0;
-	game->textures_list = (t_texture **) malloc(sizeof(t_texture *) * 4);
+	game->textures_list = (t_texture **) malloc(sizeof(t_texture *) * 5);
 	if (!game->textures_list)
 		exit_error(game, "Memory allocation failed for texture.");
 	while (i < 4)
