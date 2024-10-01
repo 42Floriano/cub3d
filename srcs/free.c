@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   free.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: falberti <falberti@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aavduli <aavduli@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/19 12:01:47 by aavduli           #+#    #+#             */
-/*   Updated: 2024/10/01 14:34:10 by falberti         ###   ########.fr       */
+/*   Updated: 2024/10/01 17:56:14 by aavduli          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,5 @@ void	free_array(char **map)
 		i++;
 	}
 	free(map);
-	map = NULL;
 	return ;
 }

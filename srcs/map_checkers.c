@@ -6,7 +6,7 @@
 /*   By: aavduli <aavduli@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/19 12:18:34 by aavduli           #+#    #+#             */
-/*   Updated: 2024/09/26 12:30:19 by aavduli          ###   ########.fr       */
+/*   Updated: 2024/10/01 17:52:08 by aavduli          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,5 +66,9 @@ void	check_map(t_game *game)
 	max_size = max_lenght(game);
 	make_it_rectangle(game, max_size);
 	if (!validate_horizontal(game) || !validate_vertical(game))
+	{
+		free_array(game->map);
+		free_array(game->dup_map);
 		exit_error(game, "Map isn't valid, pls correct it.");
+	}
 }
