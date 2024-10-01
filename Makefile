@@ -3,13 +3,11 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: aavduli <aavduli@student.42.fr>            +#+  +:+       +#+         #
+#    By: albertini <albertini@student.42.fr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/13 12:52:36 by falberti          #+#    #+#              #
-#    Updated: 2024/09/24 14:03:45 by aavduli          ###   ########.fr        #
+#    Updated: 2024/09/26 13:04:12 by albertini        ###   ########.fr        #
 #                                                                              #
-# **************************************************************************** #
-
 # **************************************************************************** #
 
 ## Répertoires
@@ -31,6 +29,8 @@ FILES = $(SOURCES_DIR)/cub3d\
 		$(SOURCES_DIR)/commands\
 		$(SOURCES_DIR)/commands_moves\
 		$(SOURCES_DIR)/fps_display\
+		$(SOURCES_DIR)/textures\
+		$(SOURCES_DIR)/display_textures\
 		$(SOURCES_DIR)/safe_function\
 		$(SOURCES_DIR)/free\
 		$(SOURCES_DIR)/map_checkers\

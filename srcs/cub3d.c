@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aavduli <aavduli@student.42.fr>            +#+  +:+       +#+        */
+/*   By: albertini <albertini@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/15 12:53:21 by albertini         #+#    #+#             */
-/*   Updated: 2024/09/24 14:39:29 by aavduli          ###   ########.fr       */
+/*   Updated: 2024/09/30 15:55:27 by albertini        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,9 +42,9 @@ static inline int	av_checker(char *str)
 
 static	int	main_loop(t_game *game)
 {
-	hdl_movement(game);
 	render_frame(game);
 	display_fps(game);
+	hdl_movement(game);
 	return (0);
 }
 
@@ -61,7 +61,7 @@ int	main(int ac, char **av)
 		check_map(&game);
 		commands(&game);
 		initialize_player(&game);
-		mlx_loop_hook(game.mlx_connection, main_loop, &game);
+		mlx_loop_hook(game.mlx_connection, &main_loop, &game);
 		mlx_loop(game.mlx_connection);
 	}
 	return (1);

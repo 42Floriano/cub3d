@@ -6,7 +6,7 @@
 /*   By: aavduli <aavduli@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/24 17:46:15 by aavduli           #+#    #+#             */
-/*   Updated: 2024/09/26 12:35:46 by aavduli          ###   ########.fr       */
+/*   Updated: 2024/10/01 11:00:44 by aavduli          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@
 # define MAP_HEIGHT 5
 # define SCREEN_WIDTH 1280
 # define SCREEN_HEIGHT 1080
-# define FLOOR_COLOR 0x333333
+# define FLOOR_COLOR 0x00FF00
 # define CEILING_COLOR 0x87CEEB
 
 /* SELECTORS */
@@ -43,9 +43,9 @@
 # define COLOR			2
 
 # define NORTH			1
-# define SOUTH			2
+# define SOUTH			0
 # define EAST			3
-# define WEST			4
+# define WEST			2
 # define FLOOR			5
 # define CEILING		6
 
@@ -88,15 +88,25 @@ enum e_type
 	typeOne,
 };
 
-typedef struct s_texture
+typedef struct s_texture {
+	void	*img_ptr;
+	int		*pixels;
+	int		width;
+	int		height;
+	int		bpp;
+	int		line_len;
+	int		endian;
+}	t_texture;
+
+typedef struct s_path
 {
 	char	*no_path;
 	char	*so_path;
 	char	*we_path;
 	char	*ea_path;
-	char	*f_color;
-	char	*c_color;
-}			t_texture;
+	int		f_color;
+	int		c_color;
+}			t_path;
 
 typedef struct s_ray
 {
@@ -134,7 +144,7 @@ typedef struct s_game
 	void			*mlx_connection;
 	void			*mlx_windows;
 	t_img			img;
-	t_ray			ray;
+	t_ray			*ray;
 	char			**map;
 	char			**dup_map;
 	int				array_size;
@@ -150,14 +160,15 @@ typedef struct s_game
 	double			oldtime;
 	struct timeval	fps_time;
 	struct timeval	fps_oldtime;
+	t_texture		**textures_list;
 	int				key_w;
 	int				key_s;
 	int				key_a;
 	int				key_d;
 	int				key_left;
 	int				key_right;
+	t_path			paths;
 	bool			player_pos;
-	t_texture		texture;
 }	t_game;
 
 //init_structs
@@ -172,8 +183,10 @@ void	ray_init(t_ray *ray);
 
 //init
 void	init_game(char *av, t_game *game);
-void	init_parsing(char *av, t_game *game);
 void	launch_mlx(t_game *game);
+
+//parsing
+void	init_parsing(char *av, t_game *game);
 
 //mapping
 void	malloc_mapy(t_game *game, char *line, int fd);
@@ -189,6 +202,7 @@ void	raycasting(t_game *game);
 void	render_frame(t_game *game);
 void	initialize_player(t_game *game);
 void	my_mlx_pixel_put(t_game *g, int x, int y, int color);
+void	my_mlx_pixel_put_text(t_texture *text, int x, int y, int color);
 
 //display_utils
 void	calculate_ray_position_and_direction(t_game *game, t_ray *ray, int x);
@@ -218,6 +232,7 @@ void	rotate(t_game *game, int dir);
 int		exit_error(t_game *game, char *msg);
 void	clean_pars(t_game *game);
 int		end_game(t_game *game);
+void	free_textures(t_game *game);
 //lst_utils
 
 //safe_function
@@ -228,5 +243,11 @@ void	*safe_malloc(size_t bytes);
 
 //fps_display
 void	display_fps(t_game *game);
+
+//textures
+void	load_texture_list(t_game *game);
+
+//display_textures
+void	render_wall(t_game *game, int x, t_ray *ray);
 
 #endif

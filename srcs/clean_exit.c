@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   clean_exit.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aavduli <aavduli@student.42.fr>            +#+  +:+       +#+        */
+/*   By: albertini <albertini@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/04 11:30:00 by falberti          #+#    #+#             */
-/*   Updated: 2024/09/24 13:59:06 by aavduli          ###   ########.fr       */
+/*   Created: 2024/09/19 12:23:46 by aavduli           #+#    #+#             */
+/*   Updated: 2024/09/30 16:05:37 by albertini        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,28 @@ void	clean_pars(t_game *game)
 int	end_game(t_game *game)
 {
 	mlx_destroy_window(game->mlx_connection, game->mlx_windows);
-	// mlx_destroy_display(game->mlx_connection);
-	free(game->mlx_connection);
+	//mlx_destroy_display(game->mlx_connection);
+	free_textures(game);
+	free(game->ray);
 	clean_pars(game);
 	exit(EXIT_SUCCESS);
+}
+
+void	free_textures(t_game *game)
+{
+	int	i;
+
+	i = 0;
+	while (i < 4)
+	{
+		if (game->textures_list[i])
+		{
+			if (game->textures_list[i]->img_ptr)
+				mlx_destroy_image(game->mlx_connection,
+					game->textures_list[i]->img_ptr);
+			free(game->textures_list[i]);
+		}
+		i++;
+	}
+	free(game->textures_list);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   display.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aavduli <aavduli@student.42.fr>            +#+  +:+       +#+        */
+/*   By: albertini <albertini@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/20 15:24:44 by albertini         #+#    #+#             */
-/*   Updated: 2024/09/17 15:12:14 by aavduli          ###   ########.fr       */
+/*   Updated: 2024/09/26 11:10:25 by albertini        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,17 +48,16 @@ void	my_mlx_pixel_put(t_game *g, int x, int y, int color)
 void	raycasting(t_game *game)
 {
 	int		x;
-	t_ray	ray;
 
 	x = 0;
-	ray_init(&ray);
+	ray_init(game->ray);
 	while (x < SCREEN_WIDTH)
 	{
-		calculate_ray_position_and_direction(game, &ray, x);
-		calculate_initial_map_and_ray_lengths(game, &ray);
-		initialize_step_and_side_distances(game, &ray);
-		perform_dda(game, &ray);
-		render_wall_and_floor(game, &ray, x);
+		calculate_ray_position_and_direction(game, game->ray, x);
+		calculate_initial_map_and_ray_lengths(game, game->ray);
+		initialize_step_and_side_distances(game, game->ray);
+		perform_dda(game, game->ray);
+		render_wall_and_floor(game, game->ray, x);
 		x++;
 	}
 }
