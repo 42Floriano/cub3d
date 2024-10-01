@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   display.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: falberti <falberti@student.42.fr>          +#+  +:+       +#+        */
+/*   By: albertini <albertini@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/20 15:24:44 by albertini         #+#    #+#             */
-/*   Updated: 2024/10/01 15:48:02 by falberti         ###   ########.fr       */
+/*   Updated: 2024/10/01 19:41:54 by albertini        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,22 +14,22 @@
 
 static void	init_play_orient(t_game *game, char **map, int i, int j)
 {
-	if (map[i][j] == 'N')
+	if (map[i][j] == 'W')
 	{
 		game->diry = -1;
 		game->planex = 0.66;
 	}
-	else if (map[i][j] == 'S')
+	else if (map[i][j] == 'E')
 	{
 		game->diry = 1;
 		game->planex = -0.66;
 	}
-	else if (map[i][j] == 'E')
+	else if (map[i][j] == 'S')
 	{
 		game->dirx = 1;
 		game->planey = 0.66;
 	}
-	else if (map[i][j] == 'W')
+	else if (map[i][j] == 'N')
 	{
 		game->dirx = -1;
 		game->planey = -0.66;

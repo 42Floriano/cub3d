@@ -6,7 +6,7 @@
 #    By: albertini <albertini@student.42.fr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/13 12:52:36 by falberti          #+#    #+#              #
-#    Updated: 2024/09/26 13:04:12 by albertini        ###   ########.fr        #
+#    Updated: 2024/10/01 19:34:05 by albertini        ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -43,7 +43,7 @@ OFILES = $(patsubst $(SOURCES_DIR)/%.c, $(OBJ_DIR)/%.o, $(CFILES))
 ####################################################################
 UNAME := $(shell uname)
 CC = gcc
-NAME = cub3d
+NAME = cub3D
 
 
 ifeq ($(UNAME), Darwin)
