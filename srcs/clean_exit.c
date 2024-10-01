@@ -6,7 +6,7 @@
 /*   By: aavduli <aavduli@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/19 12:23:46 by aavduli           #+#    #+#             */
-/*   Updated: 2024/10/01 15:31:59 by aavduli          ###   ########.fr       */
+/*   Updated: 2024/10/01 16:35:06 by aavduli          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,5 +61,6 @@ int	end_game(t_game *game)
 		free_array(game->dup_map);
 	if (game->ray != NULL)
 		free(game->ray);
+	game->ray = NULL;
 	exit(EXIT_SUCCESS);
 }
