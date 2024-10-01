@@ -6,7 +6,7 @@
 /*   By: falberti <falberti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/19 12:23:46 by aavduli           #+#    #+#             */
-/*   Updated: 2024/10/01 15:26:39 by falberti         ###   ########.fr       */
+/*   Updated: 2024/10/01 15:45:16 by falberti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,5 +60,6 @@ int	end_game(t_game *game)
 		free_array(game->dup_map);
 	if (game->ray != NULL)
 		free(game->ray);
+	game->ray = NULL;
 	exit(EXIT_SUCCESS);
 }

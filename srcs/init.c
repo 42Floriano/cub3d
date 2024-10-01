@@ -6,7 +6,7 @@
 /*   By: falberti <falberti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/15 12:53:21 by albertini         #+#    #+#             */
-/*   Updated: 2024/10/01 15:24:35 by falberti         ###   ########.fr       */
+/*   Updated: 2024/10/01 15:52:33 by falberti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,16 +87,8 @@ static void	game_init_suite(t_game *game)
 		free(game->mlx_connection);
 		malloc_error();
 	}
-	if (game->ray == NULL)
-	{
-		mlx_destroy_image(game->mlx_connection, game->img.img_ptr);
-		mlx_destroy_window(game->mlx_connection, game->mlx_windows);
-		mlx_destroy_display(game->mlx_connection);
-		free(game->img.pixels_ptr);
-		free(game->mlx_connection);
-		malloc_error();
-	}
 	load_texture_list(game);
+	ray_init(game);
 }
 
 void	game_init(t_game *game)

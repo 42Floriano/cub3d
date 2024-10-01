@@ -6,7 +6,7 @@
 /*   By: falberti <falberti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/28 13:55:47 by aavduli           #+#    #+#             */
-/*   Updated: 2024/10/01 15:13:55 by falberti         ###   ########.fr       */
+/*   Updated: 2024/10/01 15:52:16 by falberti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,6 +71,7 @@ void	copy_map(t_game *game, char *av)
 		line = get_next_line(fd);
 	}
 	game->map[i] = NULL;
+	free(line);
 	close(fd);
 	clean_map(game);
 }
