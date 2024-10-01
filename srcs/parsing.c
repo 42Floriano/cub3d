@@ -6,7 +6,7 @@
 /*   By: aavduli <aavduli@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/28 13:16:50 by aavduli           #+#    #+#             */
-/*   Updated: 2024/10/01 14:41:10 by aavduli          ###   ########.fr       */
+/*   Updated: 2024/10/01 14:43:55 by aavduli          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,10 @@ int	is_digit(char **tab)
 			while (tab[i][j] == ' ')
 				j++;
 			if (tab[i][j] == '\n')
+			{
+				tab[i][j] = '\0';
 				break ;
+			}
 			if (tab[i][j] < '0' || tab[i][j] > '9')
 				return (0);
 			j++;
