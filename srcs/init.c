@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: falberti <falberti@student.42.fr>          +#+  +:+       +#+        */
+/*   By: albertini <albertini@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/15 12:53:21 by albertini         #+#    #+#             */
-/*   Updated: 2024/10/01 15:52:33 by falberti         ###   ########.fr       */
+/*   Updated: 2024/10/01 18:43:37 by albertini        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,12 +83,10 @@ static void	game_init_suite(t_game *game)
 	{
 		mlx_destroy_image(game->mlx_connection, game->img.img_ptr);
 		mlx_destroy_window(game->mlx_connection, game->mlx_windows);
-		mlx_destroy_display(game->mlx_connection);
+		//mlx_destroy_display(game->mlx_connection);
 		free(game->mlx_connection);
 		malloc_error();
 	}
-	load_texture_list(game);
-	ray_init(game);
 }
 
 void	game_init(t_game *game)
@@ -101,7 +99,7 @@ void	game_init(t_game *game)
 			SCREEN_WIDTH, SCREEN_HEIGHT, game->name);
 	if (game->mlx_windows == NULL)
 	{
-		mlx_destroy_display(game->mlx_connection);
+		//mlx_destroy_display(game->mlx_connection);
 		free(game->mlx_connection);
 		malloc_error();
 	}
@@ -110,7 +108,7 @@ void	game_init(t_game *game)
 	if (game->img.img_ptr == NULL)
 	{
 		mlx_destroy_window(game->mlx_connection, game->mlx_windows);
-		mlx_destroy_display(game->mlx_connection);
+		//mlx_destroy_display(game->mlx_connection);
 		free(game->mlx_connection);
 		malloc_error();
 	}

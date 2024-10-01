@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   mapping.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: falberti <falberti@student.42.fr>          +#+  +:+       +#+        */
+/*   By: albertini <albertini@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/28 13:55:47 by aavduli           #+#    #+#             */
-/*   Updated: 2024/10/01 17:34:00 by falberti         ###   ########.fr       */
+/*   Updated: 2024/10/01 18:59:25 by albertini        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,8 +42,10 @@ void	clean_map(t_game *game)
 	while (game->map[len] != NULL)
 	{
 		buf = ft_strjoin(buf, game->map[len]);
+		free(game->map[len]);
 		len++;
 	}
+	free(game->map);
 	game->map = ft_split(buf, '\n');
 	free(buf);
 }

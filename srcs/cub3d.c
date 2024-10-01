@@ -6,7 +6,7 @@
 /*   By: albertini <albertini@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/15 12:53:21 by albertini         #+#    #+#             */
-/*   Updated: 2024/09/30 15:55:27 by albertini        ###   ########.fr       */
+/*   Updated: 2024/10/01 18:44:24 by albertini        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,22 +23,22 @@ static inline int	av_checker(char *str)
 	return (1);
 }
 
-// static void	print_map(char **map)
-// {
-// 	int	i;
+static void	print_map(char **map)
+{
+	int	i;
 
-// 	i = 0;
-// 	if (map == NULL)
-// 	{
-// 		printf("Map is NULL\n");
-// 		return ;
-// 	}
-// 	while (map[i] != NULL)
-// 	{
-// 		printf("%s\n", map[i]);
-// 		i++;
-// 	}
-// }
+	i = 0;
+	if (map == NULL)
+	{
+		printf("Map is NULL\n");
+		return ;
+	}
+	while (map[i] != NULL)
+	{
+		printf("%s\n", map[i]);
+		i++;
+	}
+}
 
 static	int	main_loop(t_game *game)
 {
@@ -56,9 +56,12 @@ int	main(int ac, char **av)
 		printf("Error\nInvalid Syntax\nPlease pass .cub file");
 	else
 	{
-		init_parsing(av[1], &game);
 		game_init(&game);
+		ray_init(&game);
+		init_parsing(av[1], &game);
+		load_texture_list(&game);
 		check_map(&game);
+		print_map(game.map);
 		commands(&game);
 		initialize_player(&game);
 		mlx_loop_hook(game.mlx_connection, &main_loop, &game);
