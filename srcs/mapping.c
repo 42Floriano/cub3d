@@ -6,7 +6,7 @@
 /*   By: falberti <falberti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/28 13:55:47 by aavduli           #+#    #+#             */
-/*   Updated: 2024/10/01 16:31:45 by falberti         ###   ########.fr       */
+/*   Updated: 2024/10/01 17:04:06 by falberti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ void	malloc_mapy(t_game *game, char *line, int fd)
 	{
 		count++;
 		line = get_next_line(fd);
+		free(line);
 	}
 	game->map = (char **)malloc(sizeof(char *) * count);
 	if (game->map == NULL)

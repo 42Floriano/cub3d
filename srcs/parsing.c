@@ -6,7 +6,7 @@
 /*   By: falberti <falberti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/28 13:55:47 by aavduli           #+#    #+#             */
-/*   Updated: 2024/10/01 16:21:58 by falberti         ###   ########.fr       */
+/*   Updated: 2024/10/01 17:02:35 by falberti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -123,15 +123,15 @@ void	init_parsing(char *av, t_game *game)
 	{
 		if (line[0] == 'N' && line[1] == 'O')
 			game->paths.no_path = ft_strdup_update(line + 3);
-		if (line[0] == 'S' && line[1] == 'O')
+		else if (line[0] == 'S' && line[1] == 'O')
 			game->paths.so_path = ft_strdup_update(line + 3);
-		if (line[0] == 'W' && line[1] == 'E')
+		else if (line[0] == 'W' && line[1] == 'E')
 			game->paths.we_path = ft_strdup_update(line + 3);
-		if (line[0] == 'E' && line[1] == 'A')
+		else if (line[0] == 'E' && line[1] == 'A')
 			game->paths.ea_path = ft_strdup_update(line + 3);
-		if (line[0] == 'F' || line[0] == 'C')
+		else if (line[0] == 'F' || line[0] == 'C')
 			set_color(line, game);
-		if (line[0] == ' ' || line[0] == '1'
+		else if (line[0] == ' ' || line[0] == '1'
 			|| line[0] == '0' || line[0] == '\t')
 			malloc_mapy(game, line, fd);
 		free(line);
