@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   display.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: albertini <albertini@student.42.fr>        +#+  +:+       +#+        */
+/*   By: falberti <falberti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/20 15:24:44 by albertini         #+#    #+#             */
-/*   Updated: 2024/09/26 11:10:25 by albertini        ###   ########.fr       */
+/*   Updated: 2024/10/01 12:50:25 by falberti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,6 +90,8 @@ void	initialize_player(t_game *game)
 
 // Clear previous frame (if needed)
 // Put the image to the window
+// render_weapon(game);
+
 void	render_frame(t_game *game)
 {
 	raycasting(game);

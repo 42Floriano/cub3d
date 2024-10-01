@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   display_textures.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: albertini <albertini@student.42.fr>        +#+  +:+       +#+        */
+/*   By: falberti <falberti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/17 13:29:00 by falberti          #+#    #+#             */
-/*   Updated: 2024/09/26 11:36:09 by albertini        ###   ########.fr       */
+/*   Updated: 2024/10/01 12:48:07 by falberti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,50 +93,13 @@ void	render_wall(t_game *game, int x, t_ray *ray)
 	}
 }
 
-// #include "../includes/cub3d.h"
-// // Define wall colors for different orientations
-// #define COLOR_NORTH 0xFF0000 // Red
-// #define COLOR_SOUTH 0x00FF00 // Green
-// #define COLOR_EAST  0x0000FF // Blue
-// #define COLOR_WEST  0xFFFF00 // Yellow
-
-// // Choose the color based on wall orientation and direction
-// static int choose_color(t_game *game, int side)
+// void	render_weapon(t_game *game)
 // {
-// 	printf("TEST position Side: %d\n", side);
-// 	printf("TEST position Y: %f\n", game->ray.ray_dir_y);
-// 	printf("TEST position X: %f\n", game->ray.ray_dir_x);
-//     // Horizontal walls
-//     if (side == 0)
-//     {
-//         if (game->ray.ray_dir_x > 0)
-//             return COLOR_EAST; // East-facing wall
-//         else
-//             return COLOR_WEST; // West-facing wall
-//     }
-//     // Vertical walls
-//     else
-//     {
-//         if (game->ray.ray_dir_y > 0)
-//             return COLOR_SOUTH; // South-facing wall
-//         else
-//             return COLOR_NORTH; // North-facing wall
-//     }
-// }
+// 	int	x;
+// 	int	y;
 
-// void render_wall(t_game *game, int x, int draw_start, int draw_end, int side)
-// {
-//     int color;
-//     int y;
-
-//     // Choose the color for the wall based on its orientation
-//     color = choose_color(game, side);
-
-//     // Render the wall with the chosen color
-//     y = draw_start;
-//     while (y < draw_end)
-//     {
-//         my_mlx_pixel_put(game, x, y, color);
-//         y++;
-//     }
+// 	x = (SCREEN_WIDTH - game->textures_list[4]->width) / 2;
+// 	y = SCREEN_HEIGHT - game->textures_list[4]->height ;
+// 	mlx_put_image_to_window(game->mlx_connection,
+//			game->mlx_windows, game->textures_list[4]->img_ptr, x, y);
 // }

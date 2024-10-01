@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: albertini <albertini@student.42.fr>        +#+  +:+       +#+        */
+/*   By: falberti <falberti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/24 17:46:15 by aavduli           #+#    #+#             */
-/*   Updated: 2024/09/30 16:01:28 by albertini        ###   ########.fr       */
+/*   Updated: 2024/10/01 11:42:42 by falberti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,6 +104,7 @@ typedef struct s_path
 	char	*so_path;
 	char	*we_path;
 	char	*ea_path;
+	char	*weapon;
 	int		f_color;
 	int		c_color;
 }			t_path;
@@ -248,5 +249,6 @@ void	load_texture_list(t_game *game);
 
 //display_textures
 void	render_wall(t_game *game, int x, t_ray *ray);
+void	render_weapon(t_game *game);
 
 #endif
