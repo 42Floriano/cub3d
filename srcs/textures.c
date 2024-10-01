@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   textures.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: albertini <albertini@student.42.fr>        +#+  +:+       +#+        */
+/*   By: aavduli <aavduli@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/17 13:23:17 by falberti          #+#    #+#             */
-/*   Updated: 2024/09/30 16:03:56 by albertini        ###   ########.fr       */
+/*   Updated: 2024/10/01 14:15:00 by aavduli          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,18 +15,15 @@
 // Function to allocate and load textures
 void	load_texture(t_game *game, int i, char *path)
 {
-	printf("Loading texture from path:%s\n", path);
 	game->textures_list[i]->img_ptr
 		= mlx_xpm_file_to_image(game->mlx_connection, path,
 			&game->textures_list[i]->width, &game->textures_list[i]->height);
-	printf("%p\n", game->textures_list[i]->img_ptr);
 	if (!game->textures_list[i]->img_ptr)
 		exit_error(game, "Failed to load game->texture_north.");
 	game->textures_list[i]->pixels
 		= (int *)mlx_get_data_addr(game->textures_list[i]->img_ptr,
 			&game->textures_list[i]->bpp,
 			&game->textures_list[i]->line_len, &game->textures_list[i]->endian);
-	printf("%p\n", game->textures_list[i]->pixels);
 	if (!game->textures_list[i]->pixels)
 		exit_error(game, "Failed to get texture data address.");
 }

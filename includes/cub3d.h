@@ -6,7 +6,7 @@
 /*   By: aavduli <aavduli@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/24 17:46:15 by aavduli           #+#    #+#             */
-/*   Updated: 2024/10/01 12:52:00 by aavduli          ###   ########.fr       */
+/*   Updated: 2024/10/01 14:30:01 by aavduli          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -238,7 +238,7 @@ void	free_textures(t_game *game);
 //safe_function
 int		safe_open(t_game *game, char *av);
 void	*safe_malloc(size_t bytes);
-int		is_digit(char *value);
+int		is_digit(char **tab);
 
 //exit
 

@@ -6,39 +6,43 @@
 /*   By: aavduli <aavduli@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/28 13:16:50 by aavduli           #+#    #+#             */
-/*   Updated: 2024/10/01 14:10:13 by aavduli          ###   ########.fr       */
+/*   Updated: 2024/10/01 14:41:10 by aavduli          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/cub3d.h"
 
-int	is_digit(char *value)
+int	is_digit(char **tab)
 {
 	int	i;
+	int	j;
 
 	i = 0;
-	while (value[i] == ' ')
-		i++;
-	while (value[i])
+	while (tab[i])
 	{
-		if (value[i] < '0' || value[i] > '9')
-			return (0);
+		j = 0;
+		while (tab[i][j])
+		{
+			while (tab[i][j] == ' ')
+				j++;
+			if (tab[i][j] == '\n')
+				break ;
+			if (tab[i][j] < '0' || tab[i][j] > '9')
+				return (0);
+			j++;
+		}
 		i++;
 	}
 	return (1);
 }
 
-static int	check_if_valid(char **tab)
+int	check_if_valid(char **tab)
 {
 	int	i;
 
 	i = 0;
 	while (tab[i])
-	{
-		if (!is_digit(tab[i]))
-			printf("tab=%sb\n", tab[i]);
 		i++;
-	}
 	if (i != 3)
 		return (0);
 	return (1);
@@ -68,7 +72,7 @@ static void	set_color(char *line, t_game *game)
 	if (line[0] == 'F' || line[0] == 'C')
 	{
 		tab = ft_split((line + 2), ',');
-		if (!check_if_valid(tab))
+		if (!check_if_valid(tab) || !is_digit(tab))
 		{
 			free_array(tab);
 			exit_error(game, "Please set valid RGB colors");
