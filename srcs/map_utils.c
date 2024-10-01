@@ -6,7 +6,7 @@
 /*   By: aavduli <aavduli@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/19 12:23:46 by aavduli           #+#    #+#             */
-/*   Updated: 2024/10/01 11:55:09 by aavduli          ###   ########.fr       */
+/*   Updated: 2024/10/01 16:31:24 by aavduli          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ void	make_it_rectangle(t_game *game, int max_size)
 	int	j;
 
 	i = 0;
-	game->dup_map = safe_malloc(sizeof(char *) * (max_size + 1));
+	game->dup_map = safe_malloc(sizeof(char *) * (max_size + 2));
 	while (game->map[i])
 	{
 		game->dup_map[i] = safe_malloc(sizeof(char) * (max_size + 2));
