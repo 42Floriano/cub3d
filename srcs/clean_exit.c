@@ -5,10 +5,11 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: falberti <falberti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/19 12:23:46 by aavduli           #+#    #+#             */
-/*   Updated: 2024/10/01 10:55:22 by falberti         ###   ########.fr       */
+/*   Created: Invalid date        by                   #+#    #+#             */
+/*   Updated: 2024/10/01 15:19:33 by falberti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 
 #include "../includes/cub3d.h"
 
@@ -30,7 +31,7 @@ void	clean_pars(t_game *game)
 int	end_game(t_game *game)
 {
 	mlx_destroy_window(game->mlx_connection, game->mlx_windows);
-	mlx_destroy_display(game->mlx_connection);
+	//mlx_destroy_display(game->mlx_connection);
 	free_textures(game);
 	free(game->ray);
 	clean_pars(game);

@@ -5,10 +5,11 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: falberti <falberti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/17 13:23:17 by falberti          #+#    #+#             */
-/*   Updated: 2024/10/01 12:51:52 by falberti         ###   ########.fr       */
+/*   Created: Invalid date        by                   #+#    #+#             */
+/*   Updated: 2024/10/01 15:20:10 by falberti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 
 #include "../includes/cub3d.h"
 

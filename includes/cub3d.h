@@ -5,10 +5,11 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: falberti <falberti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/24 17:46:15 by aavduli           #+#    #+#             */
-/*   Updated: 2024/10/01 11:42:42 by falberti         ###   ########.fr       */
+/*   Created: Invalid date        by                   #+#    #+#             */
+/*   Updated: 2024/10/01 15:21:11 by falberti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 
 #ifndef CUB3D_H
 # define CUB3D_H
@@ -169,7 +170,7 @@ typedef struct s_game
 	int				key_left;
 	int				key_right;
 	t_path			paths;
-	bool			player_pos;
+	int				player;
 }	t_game;
 
 //init_structs
@@ -236,8 +237,10 @@ int		end_game(t_game *game);
 void	free_textures(t_game *game);
 //lst_utils
 
-//sage_function
+//safe_function
 int		safe_open(t_game *game, char *av);
+void	*safe_malloc(size_t bytes);
+int		is_digit(char **tab);
 
 //exit
 
