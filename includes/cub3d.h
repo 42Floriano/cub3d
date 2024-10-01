@@ -6,7 +6,7 @@
 /*   By: aavduli <aavduli@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/24 17:46:15 by aavduli           #+#    #+#             */
-/*   Updated: 2024/10/01 11:00:44 by aavduli          ###   ########.fr       */
+/*   Updated: 2024/10/01 11:03:13 by aavduli          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -168,7 +168,7 @@ typedef struct s_game
 	int				key_left;
 	int				key_right;
 	t_path			paths;
-	bool			player_pos;
+	int				player;
 }	t_game;
 
 //init_structs

@@ -6,28 +6,26 @@
 /*   By: aavduli <aavduli@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/19 12:23:46 by aavduli           #+#    #+#             */
-/*   Updated: 2024/10/01 11:01:04 by aavduli          ###   ########.fr       */
+/*   Updated: 2024/10/01 11:44:44 by aavduli          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/cub3d.h"
 
-int	is_player(char c)
+int	is_valid(t_game *game, char c, int i, int j)
 {
-	if (c == 'S' || c == 'N' || c == 'E' || c == 'W')
+	if (c == 'W' || c == 'S' || c == 'N' || c == 'E' )
+	{
+		game->player += 1;
+		game->dup_map[i][j] = '0';
+		if (game->player > 1)
+			exit_error(game, "There should be only one player");
 		return (1);
-	else
-		return (0);
+	}
+	if (c == ' ' || c == '1' || c == '0' || c == '9')
+		return (1);
+	return (0);
 }
-
-// int	is_valid(t_game *game, char c)
-// {
-// 	if (c != ' ' || c != '1' || c != 0 || c != 'N' || c != 'S'
-// 		|| c != 'W' || c != 'E')
-// 		exit_error(game,
-// 			"Map is not OK. Must have only ' ', 0, 1 or position's player.");
-// 	return (0);
-// }
 
 void	make_it_rectangle(t_game *game, int max_size)
 {
@@ -46,9 +44,8 @@ void	make_it_rectangle(t_game *game, int max_size)
 				game->dup_map[i][j] = game->map[i][j];
 			else
 				game->dup_map[i][j] = '9';
-			if (game->dup_map[i][j] != '1' && game->dup_map[i][j] != '0'
-				&& !is_player(game->map[i][j])
-					&& is_valid(game, game->dup_map[i][j]))
+			if (is_valid(game, game->dup_map[i][j], i, j)
+				&& (game->dup_map[i][j] != '1' && game->dup_map[i][j] != '0'))
 				game->dup_map[i][j] = '9';
 			j++;
 		}
