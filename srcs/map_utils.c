@@ -6,13 +6,13 @@
 /*   By: aavduli <aavduli@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/19 12:23:46 by aavduli           #+#    #+#             */
-/*   Updated: 2024/10/01 11:44:44 by aavduli          ###   ########.fr       */
+/*   Updated: 2024/10/01 11:55:09 by aavduli          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/cub3d.h"
 
-int	is_valid(t_game *game, char c, int i, int j)
+static int	is_valid(t_game *game, char c, int i, int j)
 {
 	if (c == 'W' || c == 'S' || c == 'N' || c == 'E' )
 	{

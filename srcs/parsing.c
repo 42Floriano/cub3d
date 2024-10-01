@@ -3,14 +3,30 @@
 /*                                                        :::      ::::::::   */
 /*   parsing.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: albertini <albertini@student.42.fr>        +#+  +:+       +#+        */
+/*   By: aavduli <aavduli@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/28 13:16:50 by aavduli           #+#    #+#             */
-/*   Updated: 2024/09/30 16:00:43 by albertini        ###   ########.fr       */
+/*   Updated: 2024/10/01 14:10:13 by aavduli          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/cub3d.h"
+
+int	is_digit(char *value)
+{
+	int	i;
+
+	i = 0;
+	while (value[i] == ' ')
+		i++;
+	while (value[i])
+	{
+		if (value[i] < '0' || value[i] > '9')
+			return (0);
+		i++;
+	}
+	return (1);
+}
 
 static int	check_if_valid(char **tab)
 {
@@ -18,10 +34,14 @@ static int	check_if_valid(char **tab)
 
 	i = 0;
 	while (tab[i])
+	{
+		if (!is_digit(tab[i]))
+			printf("tab=%sb\n", tab[i]);
 		i++;
-	if (i > 3)
-		return (1);
-	return (0);
+	}
+	if (i != 3)
+		return (0);
+	return (1);
 }
 
 static int	rgb_to_hex(int red, int green, int blue)
@@ -48,10 +68,10 @@ static void	set_color(char *line, t_game *game)
 	if (line[0] == 'F' || line[0] == 'C')
 	{
 		tab = ft_split((line + 2), ',');
-		if (check_if_valid(tab) == 1)
+		if (!check_if_valid(tab))
 		{
 			free_array(tab);
-			return ;
+			exit_error(game, "Please set valid RGB colors");
 		}
 		if (line[0] == 'F')
 			game->paths.f_color = rgb_to_hex(ft_atoi(tab[0]),

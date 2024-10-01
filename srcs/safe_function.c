@@ -6,11 +6,12 @@
 /*   By: aavduli <aavduli@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/12 13:36:34 by aavduli           #+#    #+#             */
-/*   Updated: 2024/09/26 12:32:53 by aavduli          ###   ########.fr       */
+/*   Updated: 2024/10/01 13:10:48 by aavduli          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/cub3d.h"
+
 
 void	*safe_malloc(size_t bytes)
 {
