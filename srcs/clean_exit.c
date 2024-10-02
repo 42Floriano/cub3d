@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   clean_exit.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: falberti <falberti@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aavduli <aavduli@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/19 12:23:46 by aavduli           #+#    #+#             */
-/*   Updated: 2024/10/01 17:17:21 by falberti         ###   ########.fr       */
+/*   Updated: 2024/10/02 11:58:58 by aavduli          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,10 @@ void	free_textures(t_game *game)
 		if (game->textures_list[i])
 		{
 			if (game->textures_list[i]->img_ptr)
+			{
 				mlx_destroy_image(game->mlx_connection,
 					game->textures_list[i]->img_ptr);
+			}
 			free(game->textures_list[i]);
 		}
 		i++;

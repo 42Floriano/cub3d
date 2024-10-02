@@ -6,7 +6,7 @@
 /*   By: aavduli <aavduli@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/28 13:55:47 by aavduli           #+#    #+#             */
-/*   Updated: 2024/10/02 11:33:29 by aavduli          ###   ########.fr       */
+/*   Updated: 2024/10/02 12:03:33 by aavduli          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,8 @@ static void	set_color(char *line, t_game *game)
 		if (!check_if_valid(tab) || !is_digit(tab))
 		{
 			free_array(tab);
-			exit_error(game, "Please set valid RGB colors");
+			printf("Error\nPlease set colors\n");
+			exit(EXIT_FAILURE);
 		}
 		if (line[0] == 'F')
 			game->paths.f_color = rgb_to_hex(ft_atoi(tab[0]),
