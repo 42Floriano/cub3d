@@ -6,7 +6,7 @@
 /*   By: aavduli <aavduli@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/19 12:23:46 by aavduli           #+#    #+#             */
-/*   Updated: 2024/10/02 13:03:09 by aavduli          ###   ########.fr       */
+/*   Updated: 2024/10/02 13:10:43 by aavduli          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,8 +63,6 @@ int	end_game(t_game *game)
 		free_textures(game);
 	if (game->map != NULL)
 		free_array(game->map);
-	if (game->dup_map != NULL)
-		free_array(game->dup_map);
 	if (game->ray != NULL)
 		free(game->ray);
 	game->ray = NULL;
