@@ -6,7 +6,7 @@
 /*   By: aavduli <aavduli@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/12 13:36:34 by aavduli           #+#    #+#             */
-/*   Updated: 2024/10/02 16:10:30 by aavduli          ###   ########.fr       */
+/*   Updated: 2024/10/02 16:49:23 by aavduli          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,8 +84,8 @@ int	safe_open(t_game *game, char *av)
 	fd = open(av, O_RDONLY);
 	if (fd == -1)
 	{
-		perror("Error\n");
-		exit_error(game, "Can't open the file !");
+		printf("Error\nCan't open the file\n");
+		exit_parsing(game);
 	}
 	return (fd);
 }

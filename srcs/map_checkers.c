@@ -6,7 +6,7 @@
 /*   By: aavduli <aavduli@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/19 12:18:34 by aavduli           #+#    #+#             */
-/*   Updated: 2024/10/02 16:07:08 by aavduli          ###   ########.fr       */
+/*   Updated: 2024/10/02 16:46:02 by aavduli          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,6 +83,11 @@ void	check_map(t_game *game)
 {
 	int	max_size;
 
+	if (!game->map)
+	{
+		printf("Error\n Where is you map boy ?!\n");
+		exit_parsing(game);
+	}
 	max_size = max_lenght(game);
 	make_it_rectangle(game, max_size);
 	if (!validate_horizontal(game) || !validate_vertical(game)
