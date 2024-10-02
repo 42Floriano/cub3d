@@ -6,7 +6,7 @@
 /*   By: aavduli <aavduli@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/24 17:46:15 by aavduli           #+#    #+#             */
-/*   Updated: 2024/10/02 14:52:20 by aavduli          ###   ########.fr       */
+/*   Updated: 2024/10/02 16:04:34 by aavduli          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -237,12 +237,12 @@ int		exit_error(t_game *game, char *msg);
 void	clean_pars(t_game *game);
 int		end_game(t_game *game);
 void	free_textures(t_game *game);
-//lst_utils
 
 //safe_function
 int		safe_open(t_game *game, char *av);
 void	*safe_malloc(size_t bytes);
 int		is_digit(char **tab);
+int		check_params(t_game *game);
 
 //exit
 void	exit_parsing(t_game *game);
