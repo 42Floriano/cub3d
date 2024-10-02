@@ -6,7 +6,7 @@
 /*   By: aavduli <aavduli@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/28 13:55:47 by aavduli           #+#    #+#             */
-/*   Updated: 2024/10/02 13:20:31 by aavduli          ###   ########.fr       */
+/*   Updated: 2024/10/02 14:31:40 by aavduli          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,15 +95,15 @@ void	init_parsing(char *av, t_game *game)
 	line = get_next_line(fd);
 	while (line != NULL)
 	{
-		if (line[0] == 'N' && line[1] == 'O')
+		if (line[0] == 'N' && line[1] == 'O' && check_double(game, line))
 			game->paths.no_path = ft_strdup_update(line + 3);
-		else if (line[0] == 'S' && line[1] == 'O')
+		else if (line[0] == 'S' && line[1] == 'O' && check_double(game, line))
 			game->paths.so_path = ft_strdup_update(line + 3);
-		else if (line[0] == 'W' && line[1] == 'E')
+		else if (line[0] == 'W' && line[1] == 'E' && check_double(game, line))
 			game->paths.we_path = ft_strdup_update(line + 3);
-		else if (line[0] == 'E' && line[1] == 'A')
+		else if (line[0] == 'E' && line[1] == 'A' && check_double(game, line))
 			game->paths.ea_path = ft_strdup_update(line + 3);
-		else if (line[0] == 'F' || line[0] == 'C')
+		else if ((line[0] == 'F' || line[0] == 'C') && check_double(game, line))
 			set_color(line, game);
 		else if (line[0] == ' ' || line[0] == '1'
 			|| line[0] == '0' || line[0] == '\t')

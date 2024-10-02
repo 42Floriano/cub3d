@@ -6,13 +6,13 @@
 /*   By: aavduli <aavduli@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/19 12:23:46 by aavduli           #+#    #+#             */
-/*   Updated: 2024/10/01 16:31:24 by aavduli          ###   ########.fr       */
+/*   Updated: 2024/10/02 13:48:15 by aavduli          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/cub3d.h"
 
-static int	is_valid(t_game *game, char c, int i, int j)
+int	is_valid(t_game *game, char c, int i, int j)
 {
 	if (c == 'W' || c == 'S' || c == 'N' || c == 'E' )
 	{
@@ -33,14 +33,14 @@ void	make_it_rectangle(t_game *game, int max_size)
 	int	j;
 
 	i = 0;
-	game->dup_map = safe_malloc(sizeof(char *) * (max_size + 2));
+	game->dup_map = safe_malloc(sizeof(char *) * (game->array_size + 1));
 	while (game->map[i])
 	{
-		game->dup_map[i] = safe_malloc(sizeof(char) * (max_size + 2));
+		game->dup_map[i] = safe_malloc(sizeof(char) * (max_size + 1));
 		j = 0;
 		while (j < max_size)
 		{
-			if (j < (int)ft_strlen(game->map[i]) && game->dup_map[i][j] != '9')
+			if (j < (int)ft_strlen(game->map[i]))
 				game->dup_map[i][j] = game->map[i][j];
 			else
 				game->dup_map[i][j] = '9';

@@ -6,12 +6,38 @@
 /*   By: aavduli <aavduli@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/19 12:23:46 by aavduli           #+#    #+#             */
-/*   Updated: 2024/10/02 13:10:43 by aavduli          ###   ########.fr       */
+/*   Updated: 2024/10/02 15:34:55 by aavduli          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-
 #include "../includes/cub3d.h"
+
+void	exit_parsing(t_game *game)
+{
+	if (game->paths.no_path)
+	{
+		free(game->paths.no_path);
+		game->paths.no_path = NULL;
+	}
+	if (game->paths.so_path)
+	{
+		free(game->paths.so_path);
+		game->paths.so_path = NULL;
+	}
+	if (game->paths.we_path)
+	{
+		free(game->paths.we_path);
+		game->paths.we_path = NULL;
+	}
+	if (game->paths.ea_path)
+	{
+		free(game->paths.ea_path);
+		game->paths.ea_path = NULL;
+	}
+	if (game->map)
+		free_array(game->map);
+	exit(EXIT_FAILURE);
+}
 
 int	exit_error(t_game *game, char *msg)
 {

@@ -6,7 +6,7 @@
 /*   By: aavduli <aavduli@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/24 17:46:15 by aavduli           #+#    #+#             */
-/*   Updated: 2024/10/02 13:03:05 by aavduli          ###   ########.fr       */
+/*   Updated: 2024/10/02 14:52:20 by aavduli          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -179,6 +179,7 @@ void	ray_init(t_game *game);
 
 //init_structs
 void	data_init(t_game *game);
+void	data_init_bis(t_game *game);
 void	game_init(t_game *game);
 void	ray_init(t_game *ray);
 
@@ -188,6 +189,7 @@ void	launch_mlx(t_game *game);
 
 //parsing
 void	init_parsing(char *av, t_game *game);
+int		check_double(t_game *game, char *line);
 
 //mapping
 void	malloc_mapy(t_game *game, char *line, int fd);
@@ -197,6 +199,7 @@ void	copy_map(t_game *game, char *av);
 void	check_map(t_game *game);
 int		max_lenght(t_game *game);
 void	make_it_rectangle(t_game *game, int max_size);
+int		is_valid(t_game *game, char c, int i, int j);
 
 //display
 void	raycasting(t_game *game);
@@ -242,6 +245,7 @@ void	*safe_malloc(size_t bytes);
 int		is_digit(char **tab);
 
 //exit
+void	exit_parsing(t_game *game);
 
 //fps_display
 void	display_fps(t_game *game);

@@ -6,11 +6,31 @@
 /*   By: aavduli <aavduli@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/19 12:18:34 by aavduli           #+#    #+#             */
-/*   Updated: 2024/10/01 16:30:20 by aavduli          ###   ########.fr       */
+/*   Updated: 2024/10/02 13:51:30 by aavduli          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/cub3d.h"
+
+int	valid_carac(t_game *game)
+{
+	int	i;
+	int	j;
+
+	i = 0;
+	while (game->dup_map[i])
+	{
+		j = 0;
+		while (game->dup_map[i][j])
+		{
+			if (!is_valid(game, game->dup_map[i][j], i, j))
+				return (0);
+			j++;
+		}
+		i++;
+	}
+	return (1);
+}
 
 int	validate_vertical(t_game *game)
 {
@@ -65,10 +85,13 @@ void	check_map(t_game *game)
 
 	max_size = max_lenght(game);
 	make_it_rectangle(game, max_size);
-	if (!validate_horizontal(game) || !validate_vertical(game))
+	if (!validate_horizontal(game) || !validate_vertical(game)
+		|| !valid_carac(game))
 	{
-		end_game(game);
-		exit_error(game, "Map isn't valid, pls correct it.");
+		free_array(game->map);
+		free_array(game->dup_map);
+		printf("Error\nMap isn't valid!\n");
+		exit(EXIT_FAILURE);
 	}
 	free_array(game->dup_map);
 }
