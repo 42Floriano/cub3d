@@ -6,7 +6,7 @@
 /*   By: aavduli <aavduli@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/15 12:53:21 by albertini         #+#    #+#             */
-/*   Updated: 2024/10/02 13:03:13 by aavduli          ###   ########.fr       */
+/*   Updated: 2024/10/02 14:51:09 by aavduli          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,6 +91,7 @@ static void	game_init_suite(t_game *game)
 void	game_init(t_game *game)
 {
 	data_init(game);
+	data_init_bis(game);
 	game->mlx_connection = mlx_init();
 	if (game->mlx_connection == NULL)
 		malloc_error();

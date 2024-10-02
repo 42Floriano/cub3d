@@ -3,14 +3,25 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: albertini <albertini@student.42.fr>        +#+  +:+       +#+        */
+/*   By: aavduli <aavduli@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/15 12:53:21 by albertini         #+#    #+#             */
-/*   Updated: 2024/10/01 19:44:49 by albertini        ###   ########.fr       */
+/*   Updated: 2024/10/02 14:55:07 by aavduli          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/cub3d.h"
+
+void	data_init_bis(t_game *game)
+{
+	game->paths.no_path = NULL;
+	game->paths.so_path = NULL;
+	game->paths.we_path = NULL;
+	game->paths.ea_path = NULL;
+	game->map = NULL;
+	game->paths.c_color = 0;
+	game->paths.f_color = 0;
+}
 
 static inline int	av_checker(char *str)
 {
@@ -22,23 +33,6 @@ static inline int	av_checker(char *str)
 		return (0);
 	return (1);
 }
-
-// static void	print_map(char **map)
-// {
-// 	int	i;
-
-// 	i = 0;
-// 	if (map == NULL)
-// 	{
-// 		printf("Map is NULL\n");
-// 		return ;
-// 	}
-// 	while (map[i] != NULL)
-// 	{
-// 		printf("%s\n", map[i]);
-// 		i++;
-// 	}
-// }
 
 static	int	main_loop(t_game *game)
 {
