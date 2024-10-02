@@ -6,7 +6,7 @@
 /*   By: aavduli <aavduli@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/02 14:59:09 by aavduli           #+#    #+#             */
-/*   Updated: 2024/10/02 14:59:36 by aavduli          ###   ########.fr       */
+/*   Updated: 2024/10/02 15:35:04 by aavduli          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,4 +22,3 @@ void	data_init_bis(t_game *game)
 	game->paths.c_color = 0;
 	game->paths.f_color = 0;
 }
-
