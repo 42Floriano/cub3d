@@ -6,7 +6,7 @@
 /*   By: aavduli <aavduli@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/12 13:36:34 by aavduli           #+#    #+#             */
-/*   Updated: 2024/10/02 14:54:13 by aavduli          ###   ########.fr       */
+/*   Updated: 2024/10/02 16:10:30 by aavduli          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int	check_double(t_game *game, char *line)
 		duble = 1;
 	if (duble == 1)
 	{
-		printf("Error\nSomething wrong with your files");
+		printf("Error\nSomething wrong with your files\n");
 		exit_parsing(game);
 	}
 	return (1);
