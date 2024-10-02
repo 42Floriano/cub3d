@@ -6,7 +6,7 @@
 /*   By: falberti <falberti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/04 13:50:00 by falberti          #+#    #+#             */
-/*   Updated: 2024/10/02 15:49:40 by falberti         ###   ########.fr       */
+/*   Updated: 2024/10/02 15:52:38 by falberti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@ static int	key_press(int keycode, t_game *game)
 	{
 		end_game(game);
 	}
-	printf("Kypressed: %d\n", keycode);
 	if (keycode == 119 || keycode == 13)
 		game->key_w = 1;
 	if (keycode == 115 || keycode == 1)
