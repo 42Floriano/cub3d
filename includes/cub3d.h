@@ -6,7 +6,7 @@
 /*   By: aavduli <aavduli@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/24 17:46:15 by aavduli           #+#    #+#             */
-/*   Updated: 2024/10/02 13:03:05 by aavduli          ###   ########.fr       */
+/*   Updated: 2024/10/02 13:35:47 by aavduli          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -197,6 +197,7 @@ void	copy_map(t_game *game, char *av);
 void	check_map(t_game *game);
 int		max_lenght(t_game *game);
 void	make_it_rectangle(t_game *game, int max_size);
+int		is_valid(t_game *game, char c, int i, int j);
 
 //display
 void	raycasting(t_game *game);
