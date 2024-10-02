@@ -6,7 +6,7 @@
 /*   By: aavduli <aavduli@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/19 12:18:34 by aavduli           #+#    #+#             */
-/*   Updated: 2024/10/02 16:46:02 by aavduli          ###   ########.fr       */
+/*   Updated: 2024/10/02 19:27:22 by aavduli          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,7 +91,8 @@ void	check_map(t_game *game)
 	max_size = max_lenght(game);
 	make_it_rectangle(game, max_size);
 	if (!validate_horizontal(game) || !validate_vertical(game)
-		|| !valid_carac(game) || !check_params(game))
+		|| !valid_carac(game) || !check_params(game)
+		|| game->player == 0;)
 	{
 		free_array(game->map);
 		free_array(game->dup_map);
