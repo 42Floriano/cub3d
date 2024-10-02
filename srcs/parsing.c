@@ -6,7 +6,7 @@
 /*   By: aavduli <aavduli@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/28 13:55:47 by aavduli           #+#    #+#             */
-/*   Updated: 2024/10/02 13:04:57 by aavduli          ###   ########.fr       */
+/*   Updated: 2024/10/02 13:20:31 by aavduli          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,9 +108,9 @@ void	init_parsing(char *av, t_game *game)
 		else if (line[0] == ' ' || line[0] == '1'
 			|| line[0] == '0' || line[0] == '\t')
 			malloc_mapy(game, line, fd);
+		free(line);
 		line = get_next_line(fd);
 	}
-	free(line);
 	close(fd);
 	copy_map(game, av);
 }

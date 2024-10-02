@@ -6,7 +6,7 @@
 /*   By: aavduli <aavduli@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/28 13:55:47 by aavduli           #+#    #+#             */
-/*   Updated: 2024/10/02 13:08:22 by aavduli          ###   ########.fr       */
+/*   Updated: 2024/10/02 13:18:50 by aavduli          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,8 @@ void	malloc_mapy(t_game *game, char *line, int fd)
 		exit_error(game, "malloc failed !");
 	}
 	game->array_size = count;
-	free(line);
+	if (line)
+		free(line);
 }
 
 void	clean_map(t_game *game)
