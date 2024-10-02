@@ -6,7 +6,7 @@
 /*   By: aavduli <aavduli@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/12 13:36:34 by aavduli           #+#    #+#             */
-/*   Updated: 2024/10/02 16:49:23 by aavduli          ###   ########.fr       */
+/*   Updated: 2024/10/02 16:56:22 by aavduli          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,9 @@ int	check_double(t_game *game, char *line)
 		duble = 1;
 	if (ft_strncmp(line, "EA", 2) == 0 && game->paths.ea_path != NULL)
 		duble = 1;
-	if (ft_strncmp(line, "F", 1) == 0 && game->paths.f_color != 0)
+	if (ft_strncmp(line, "F", 1) == 0 && game->paths.f_color != -1)
 		duble = 1;
-	if (ft_strncmp(line, "C", 1) == 0 && game->paths.c_color != 0)
+	if (ft_strncmp(line, "C", 1) == 0 && game->paths.c_color != -1)
 		duble = 1;
 	if (duble == 1)
 	{

@@ -6,7 +6,7 @@
 /*   By: aavduli <aavduli@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/28 13:55:47 by aavduli           #+#    #+#             */
-/*   Updated: 2024/10/02 13:18:50 by aavduli          ###   ########.fr       */
+/*   Updated: 2024/10/02 17:08:21 by aavduli          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ void	copy_map(t_game *game, char *av)
 	while (line != NULL)
 	{
 		if (line[0] == ' ' || line[0] == '1'
-			|| line[0] == '0' || line[0] == '\t')
+			|| line[0] == '0')
 			break ;
 		free(line);
 		line = get_next_line(fd);

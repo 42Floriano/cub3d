@@ -6,7 +6,7 @@
 /*   By: aavduli <aavduli@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/24 17:46:15 by aavduli           #+#    #+#             */
-/*   Updated: 2024/10/02 16:04:34 by aavduli          ###   ########.fr       */
+/*   Updated: 2024/10/02 17:11:58 by aavduli          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -190,6 +190,7 @@ void	launch_mlx(t_game *game);
 //parsing
 void	init_parsing(char *av, t_game *game);
 int		check_double(t_game *game, char *line);
+void	parsing2(t_game *game, char *av);
 
 //mapping
 void	malloc_mapy(t_game *game, char *line, int fd);
