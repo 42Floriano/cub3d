@@ -6,7 +6,7 @@
 /*   By: aavduli <aavduli@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/15 12:53:21 by albertini         #+#    #+#             */
-/*   Updated: 2024/10/01 16:06:41 by aavduli          ###   ########.fr       */
+/*   Updated: 2024/10/02 13:03:13 by aavduli          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,6 @@ void	ray_init(t_game *game)
 	game->ray->draw_end = 0;
 }
 
-//stupid norminette x)
 static void	game_init_suite(t_game *game)
 {
 	game->img.pixels_ptr = mlx_get_data_addr(game->img.img_ptr,
@@ -87,8 +86,6 @@ static void	game_init_suite(t_game *game)
 		free(game->mlx_connection);
 		malloc_error();
 	}
-	load_texture_list(game);
-	ray_init(game);
 }
 
 void	game_init(t_game *game)

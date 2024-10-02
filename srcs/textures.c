@@ -6,7 +6,7 @@
 /*   By: aavduli <aavduli@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/28 13:55:47 by aavduli           #+#    #+#             */
-/*   Updated: 2024/10/01 15:32:34 by aavduli          ###   ########.fr       */
+/*   Updated: 2024/10/02 13:05:05 by aavduli          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,8 @@ void	load_texture(t_game *game, int i, char *path)
 		= mlx_xpm_file_to_image(game->mlx_connection, path,
 			&game->textures_list[i]->width, &game->textures_list[i]->height);
 	if (!game->textures_list[i]->img_ptr)
-		exit_error(game, "Failed to load game->texture_north.");
+		exit_error(game,
+			"Failed to load game texture\nPlease verify file paths");
 	game->textures_list[i]->pixels
 		= (int *)mlx_get_data_addr(game->textures_list[i]->img_ptr,
 			&game->textures_list[i]->bpp,
