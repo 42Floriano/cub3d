@@ -6,7 +6,7 @@
 /*   By: falberti <falberti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/17 13:29:00 by falberti          #+#    #+#             */
-/*   Updated: 2024/10/01 12:48:07 by falberti         ###   ########.fr       */
+/*   Updated: 2024/10/02 15:44:30 by falberti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ static double	calc_p_wall(t_game *game, int side)
 // X-coordinate on the texture
 static int	coordi_text(t_game *game, t_texture *texture, int tex_x, int side)
 {
-	if (side == 0 && game->ray->ray_dir_x > 0)
+	if (side == 0 && game->ray->ray_dir_x < 0)
 		tex_x = texture->width - tex_x - 1;
 	if (side == 1 && game->ray->ray_dir_y < 0)
 		tex_x = texture->width - tex_x - 1;
@@ -78,7 +78,7 @@ void	render_wall(t_game *game, int x, t_ray *ray)
 	texture = NULL;
 	texture = choose_text(game, ray->side);
 	tex_x = (int)(calc_p_wall(game, ray->side) * (double)texture->width);
-	coordi_text(game, texture, tex_x, ray->side);
+	tex_x = coordi_text(game, texture, tex_x, ray->side);
 	tex_pos = (ray->draw_start - SCREEN_HEIGHT / 2
 			+ (ray->draw_end - ray->draw_start)
 			/ 2) * step(texture, ray->draw_start, ray->draw_end);

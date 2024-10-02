@@ -6,7 +6,7 @@
 /*   By: falberti <falberti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/04 13:50:00 by falberti          #+#    #+#             */
-/*   Updated: 2024/10/01 10:57:31 by falberti         ###   ########.fr       */
+/*   Updated: 2024/10/02 15:49:40 by falberti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,9 +28,9 @@ static int	key_press(int keycode, t_game *game)
 	if (keycode == 100 || keycode == 2)
 		game->key_d = 1;
 	if (keycode == 65363 || keycode == 123)
-		game->key_left = 1;
-	if (keycode == 65361 || keycode == 124)
 		game->key_right = 1;
+	if (keycode == 65361 || keycode == 124)
+		game->key_left = 1;
 	return (0);
 }
 
@@ -45,9 +45,9 @@ static int	key_release(int keycode, t_game *game)
 	if (keycode == 100 || keycode == 2)
 		game->key_d = 0;
 	if (keycode == 65363 || keycode == 123)
-		game->key_left = 0;
-	if (keycode == 65361 || keycode == 124)
 		game->key_right = 0;
+	if (keycode == 65361 || keycode == 124)
+		game->key_left = 0;
 	return (0);
 }
 
