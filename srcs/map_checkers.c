@@ -6,7 +6,7 @@
 /*   By: aavduli <aavduli@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/19 12:18:34 by aavduli           #+#    #+#             */
-/*   Updated: 2024/10/02 13:49:54 by aavduli          ###   ########.fr       */
+/*   Updated: 2024/10/02 13:51:30 by aavduli          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,7 +90,7 @@ void	check_map(t_game *game)
 	{
 		free_array(game->map);
 		free_array(game->dup_map);
-		printf("Map isn't valid!\n");
+		printf("Error\nMap isn't valid!\n");
 		exit(EXIT_FAILURE);
 	}
 	free_array(game->dup_map);
