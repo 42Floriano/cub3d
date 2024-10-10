@@ -3,14 +3,24 @@
 /*                                                        :::      ::::::::   */
 /*   map_checkers.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aavduli <aavduli@student.42.fr>            +#+  +:+       +#+        */
+/*   By: albertini <albertini@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/19 12:18:34 by aavduli           #+#    #+#             */
-/*   Updated: 2024/10/02 19:27:22 by aavduli          ###   ########.fr       */
+/*   Updated: 2024/10/10 17:03:53 by albertini        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/cub3d.h"
+
+static int	map_width(t_game *game)
+{
+	int	i;
+
+	i = 0;
+	while (game->map[i])
+		i++;
+	return (i);
+}
 
 int	valid_carac(t_game *game)
 {
@@ -92,12 +102,14 @@ void	check_map(t_game *game)
 	make_it_rectangle(game, max_size);
 	if (!validate_horizontal(game) || !validate_vertical(game)
 		|| !valid_carac(game) || !check_params(game)
-		|| game->player == 0;)
+		|| game->player == 0)
 	{
 		free_array(game->map);
 		free_array(game->dup_map);
 		printf("Error\nPlease, check the file !\n");
 		exit(EXIT_FAILURE);
 	}
+	game->map_width = ft_strlen(game->map[0]);
+	game->map_height = map_width(game);
 	free_array(game->dup_map);
 }

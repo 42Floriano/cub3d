@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aavduli <aavduli@student.42.fr>            +#+  +:+       +#+        */
+/*   By: albertini <albertini@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/24 17:46:15 by aavduli           #+#    #+#             */
-/*   Updated: 2024/10/02 17:11:58 by aavduli          ###   ########.fr       */
+/*   Updated: 2024/10/10 17:07:43 by albertini        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,8 +52,8 @@
 # define RIGHT			1
 # define LEFT			0
 
-# define MOVE_SPEED 	0.05
-# define R_SPD 			0.02
+# define MOVE_SPEED 	0.1
+# define R_SPD 			0.1
 
 /* ERROR MESSAGES */
 # define ERR_ARGS		"Invalid number of arguments"
@@ -88,7 +88,8 @@ enum e_type
 	typeOne,
 };
 
-typedef struct s_texture {
+typedef struct s_texture 
+{
 	void	*img_ptr;
 	int		*pixels;
 	int		width;
@@ -149,6 +150,8 @@ typedef struct s_game
 	char			**map;
 	char			**dup_map;
 	int				array_size;
+	int				map_width;
+	int				map_height;
 	double			map_y;
 	double			map_x;
 	double			posx;

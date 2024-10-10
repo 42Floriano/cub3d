@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   display.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: falberti <falberti@student.42.fr>          +#+  +:+       +#+        */
+/*   By: albertini <albertini@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/20 15:24:44 by albertini         #+#    #+#             */
-/*   Updated: 2024/10/02 15:48:40 by falberti         ###   ########.fr       */
+/*   Updated: 2024/10/10 17:05:46 by albertini        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,10 @@ void	my_mlx_pixel_put(t_game *g, int x, int y, int color)
 {
 	char	*dst;
 
+	if (y > SCREEN_HEIGHT)
+		y = SCREEN_HEIGHT - 50;
+	if (x > SCREEN_WIDTH)
+		x = SCREEN_WIDTH - 50;
 	dst = g->img.pixels_ptr + (y * g->img.line_len + x * (g->img.bpp / 8));
 	*(unsigned int *)dst = color;
 }
