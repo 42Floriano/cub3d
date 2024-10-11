@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: aavduli <aavduli@student.42.fr>            +#+  +:+       +#+         #
+#    By: albertini <albertini@student.42.fr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/13 12:52:36 by falberti          #+#    #+#              #
-#    Updated: 2024/10/02 15:02:18 by aavduli          ###   ########.fr        #
+#    Updated: 2024/10/11 14:41:49 by albertini        ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,6 +28,7 @@ FILES = $(SOURCES_DIR)/cub3d\
 		$(SOURCES_DIR)/clean_exit\
 		$(SOURCES_DIR)/commands\
 		$(SOURCES_DIR)/commands_moves\
+		$(SOURCES_DIR)/commands_pathchecker\
 		$(SOURCES_DIR)/fps_display\
 		$(SOURCES_DIR)/textures\
 		$(SOURCES_DIR)/display_textures\

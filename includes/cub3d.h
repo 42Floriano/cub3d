@@ -6,7 +6,7 @@
 /*   By: albertini <albertini@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/24 17:46:15 by aavduli           #+#    #+#             */
-/*   Updated: 2024/10/10 17:07:43 by albertini        ###   ########.fr       */
+/*   Updated: 2024/10/11 15:08:00 by albertini        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@
 # define RIGHT			1
 # define LEFT			0
 
-# define MOVE_SPEED 	0.1
+# define MOVE_SPEED 	0.05
 # define R_SPD 			0.1
 
 /* ERROR MESSAGES */
@@ -88,7 +88,16 @@ enum e_type
 	typeOne,
 };
 
-typedef struct s_texture 
+typedef struct s_movement
+{
+	double	delta_x;
+	double	delta_y;
+	double	distance;
+	double	step_x;
+	double	step_y;
+}	t_movement;
+
+typedef struct s_texture
 {
 	void	*img_ptr;
 	int		*pixels;
@@ -235,6 +244,9 @@ void	move_back(t_game *game);
 void	move_left(t_game *game);
 void	move_right(t_game *game);
 void	rotate(t_game *game, int dir);
+
+//command_pathchecker.c
+bool	is_path_clear(t_game *game, double end_x, double end_y);
 
 //clean_exit
 int		exit_error(t_game *game, char *msg);
