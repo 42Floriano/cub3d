@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: albertini <albertini@student.42.fr>        +#+  +:+       +#+        */
+/*   By: falberti <falberti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/24 17:46:15 by aavduli           #+#    #+#             */
-/*   Updated: 2024/10/11 15:08:00 by albertini        ###   ########.fr       */
+/*   Updated: 2024/10/16 13:30:58 by falberti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,8 @@
 # include <stdbool.h>
 # include <sys/time.h>
 
-# define MAP_WIDTH 6
-# define MAP_HEIGHT 5
+# define MAP_WIDTH 29
+# define MAP_HEIGHT 13
 # define SCREEN_WIDTH 1280
 # define SCREEN_HEIGHT 1080
 # define FLOOR_COLOR 0x00FF00
@@ -184,7 +184,7 @@ typedef struct s_game
 	int				player;
 }	t_game;
 
-//init_structs
+//init_structs.c
 void	data_init(t_game *game);
 void	game_init(t_game *game);
 void	ray_init(t_game *game);
@@ -195,7 +195,7 @@ void	data_init_bis(t_game *game);
 void	game_init(t_game *game);
 void	ray_init(t_game *ray);
 
-//init
+//init.c
 void	init_game(char *av, t_game *game);
 void	launch_mlx(t_game *game);
 
@@ -214,14 +214,14 @@ int		max_lenght(t_game *game);
 void	make_it_rectangle(t_game *game, int max_size);
 int		is_valid(t_game *game, char c, int i, int j);
 
-//display
+//display.c
 void	raycasting(t_game *game);
 void	render_frame(t_game *game);
 void	initialize_player(t_game *game);
 void	my_mlx_pixel_put(t_game *g, int x, int y, int color);
 void	my_mlx_pixel_put_text(t_texture *text, int x, int y, int color);
 
-//display_utils
+//display_utils.c
 void	calculate_ray_position_and_direction(t_game *game, t_ray *ray, int x);
 void	calculate_initial_map_and_ray_lengths(t_game *game, t_ray *ray);
 void	initialize_step_and_side_distances(t_game *game, t_ray *ray);
@@ -234,11 +234,11 @@ void	free_array(char **map);
 //read_map
 char	**readmap(char *filename);
 
-//Commands
+//Commands.c
 void	commands(t_game *game);
 void	hdl_movement(t_game *game);
 
-//Commands_utils
+//Commands_moves.c
 void	move_forw(t_game *game);
 void	move_back(t_game *game);
 void	move_left(t_game *game);
@@ -248,7 +248,7 @@ void	rotate(t_game *game, int dir);
 //command_pathchecker.c
 bool	is_path_clear(t_game *game, double end_x, double end_y);
 
-//clean_exit
+//clean_exit.c
 int		exit_error(t_game *game, char *msg);
 void	clean_pars(t_game *game);
 int		end_game(t_game *game);
@@ -263,13 +263,13 @@ int		check_params(t_game *game);
 //exit
 void	exit_parsing(t_game *game);
 
-//fps_display
+//fps_display.c
 void	display_fps(t_game *game);
 
-//textures
+//textures.c
 void	load_texture_list(t_game *game);
 
-//display_textures
+//display_textures.c
 void	render_wall(t_game *game, int x, t_ray *ray);
 void	render_weapon(t_game *game);
 
