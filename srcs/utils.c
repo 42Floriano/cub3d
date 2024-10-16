@@ -6,7 +6,7 @@
 /*   By: aavduli <aavduli@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/02 14:59:09 by aavduli           #+#    #+#             */
-/*   Updated: 2024/10/16 15:28:46 by aavduli          ###   ########.fr       */
+/*   Updated: 2024/10/16 15:34:08 by aavduli          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,7 +82,7 @@ void	check_file(t_game *game, char *file)
 	fd = safe_open(game, file);
 	line = get_next_line(fd);
 	if (!check_line(line, fd))
-		exit(1);
+		exit(EXIT_FAILURE);
 	while (line != NULL)
 	{
 		line = get_next_line(fd);
