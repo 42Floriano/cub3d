@@ -6,7 +6,7 @@
 /*   By: aavduli <aavduli@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/28 13:55:47 by aavduli           #+#    #+#             */
-/*   Updated: 2024/10/16 11:45:43 by aavduli          ###   ########.fr       */
+/*   Updated: 2024/10/16 11:50:23 by aavduli          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,18 +71,18 @@ static char	*ft_strdup_update(const char *s1)
 	int		i;
 	int		j;
 
-	size = ft_strlen(s1);
+	i = 0;
+	while (s1[i] != '.')
+		i++;
+	size = ft_strlen(s1 + i);
 	strr = malloc((size + 1) * sizeof(char));
 	if (!strr)
 		return (strr);
 	if (!s1)
 		return (NULL);
-	i = 0;
 	j = 0;
 	while (s1[i] && s1[i] != '\n')
 	{
-		while (s1[i] != '.')
-			i++;
 		strr[j] = s1[i];
 		i++;
 		j++;
