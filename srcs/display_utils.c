@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   display_utils.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: albertini <albertini@student.42.fr>        +#+  +:+       +#+        */
+/*   By: falberti <falberti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/12 13:51:34 by falberti          #+#    #+#             */
-/*   Updated: 2024/10/11 14:54:08 by albertini        ###   ########.fr       */
+/*   Updated: 2024/10/16 12:48:41 by falberti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,10 +85,6 @@ void	perform_dda(t_game *game, t_ray *ray)
 				+ (1 - ray->step_y) / 2) / ray->ray_dir_y;
 }
 
-// while (y < ray->draw_start)
-	// 	my_mlx_pixel_put(game, x, y++, CEILING_COLOR);
-	// while (y < SCREEN_HEIGHT)
-	// 	my_mlx_pixel_put(game, x, y++, FLOOR_COLOR);
 void	render_wall_and_floor(t_game *game, t_ray *ray, int x)
 {
 	int	y;

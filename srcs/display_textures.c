@@ -6,7 +6,7 @@
 /*   By: falberti <falberti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/17 13:29:00 by falberti          #+#    #+#             */
-/*   Updated: 2024/10/02 15:44:30 by falberti         ###   ########.fr       */
+/*   Updated: 2024/10/16 12:48:33 by falberti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,14 +92,3 @@ void	render_wall(t_game *game, int x, t_ray *ray)
 		y++;
 	}
 }
-
-// void	render_weapon(t_game *game)
-// {
-// 	int	x;
-// 	int	y;
-
-// 	x = (SCREEN_WIDTH - game->textures_list[4]->width) / 2;
-// 	y = SCREEN_HEIGHT - game->textures_list[4]->height ;
-// 	mlx_put_image_to_window(game->mlx_connection,
-//			game->mlx_windows, game->textures_list[4]->img_ptr, x, y);
-// }
