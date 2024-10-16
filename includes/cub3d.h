@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aavduli <aavduli@student.42.fr>            +#+  +:+       +#+        */
+/*   By: falberti <falberti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/24 17:46:15 by aavduli           #+#    #+#             */
-/*   Updated: 2024/10/16 15:25:02 by aavduli          ###   ########.fr       */
+/*   Updated: 2024/10/16 15:39:43 by falberti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@
 # define LEFT			0
 
 # define MOVE_SPEED 	0.05
-# define R_SPD 			0.1
+# define R_SPD 			0.07
 
 /* ERROR MESSAGES */
 # define ERR_ARGS		"Invalid number of arguments"
