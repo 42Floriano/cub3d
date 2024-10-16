@@ -6,7 +6,7 @@
 /*   By: falberti <falberti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/24 17:46:15 by aavduli           #+#    #+#             */
-/*   Updated: 2024/10/16 15:58:48 by falberti         ###   ########.fr       */
+/*   Updated: 2024/10/16 17:15:48 by falberti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,8 @@
 # include <stdbool.h>
 # include <sys/time.h>
 
-# define MAP_WIDTH 29
-# define MAP_HEIGHT 13
+# define MAP_WIDTH 25
+# define MAP_HEIGHT 12
 # define SCREEN_WIDTH 1280
 # define SCREEN_HEIGHT 1080
 # define FLOOR_COLOR 0x00FF00

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aavduli <aavduli@student.42.fr>            +#+  +:+       +#+        */
+/*   By: falberti <falberti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/15 12:53:21 by albertini         #+#    #+#             */
-/*   Updated: 2024/10/16 14:20:04 by aavduli          ###   ########.fr       */
+/*   Updated: 2024/10/16 17:06:03 by falberti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,7 @@ int	main(int ac, char **av)
 		load_texture_list(&game);
 		check_map(&game);
 		commands(&game);
+		printf("Map widt: %d, height: %d\n", game.map_width, game.map_height);
 		initialize_player(&game);
 		mlx_loop_hook(game.mlx_connection, &main_loop, &game);
 		mlx_loop(game.mlx_connection);
