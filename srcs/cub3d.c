@@ -6,7 +6,7 @@
 /*   By: aavduli <aavduli@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/15 12:53:21 by albertini         #+#    #+#             */
-/*   Updated: 2024/10/02 14:59:55 by aavduli          ###   ########.fr       */
+/*   Updated: 2024/10/16 14:20:04 by aavduli          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,7 @@ int	main(int ac, char **av)
 	{
 		game_init(&game);
 		ray_init(&game);
+		check_file(&game, av[1]);
 		init_parsing(av[1], &game);
 		load_texture_list(&game);
 		check_map(&game);

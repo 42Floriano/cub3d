@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: falberti <falberti@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aavduli <aavduli@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/02 14:59:09 by aavduli           #+#    #+#             */
-/*   Updated: 2024/10/16 12:50:59 by falberti         ###   ########.fr       */
+/*   Updated: 2024/10/16 15:21:16 by aavduli          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,17 +51,42 @@ int	check_params(t_game *game)
 	return (1);
 }
 
-void	free_array(char **map)
+static int	check_line(char *line, int fd)
 {
-	int	i;
-
-	i = 0;
-	while (map[i])
+	while (line != NULL && line[0] != '1' && line[0] != '0')
 	{
-		free(map[i]);
-		i++;
+		if (ft_strncmp(line, "NO ", 3)
+			&& ft_strncmp(line, "SO ", 3)
+			&& ft_strncmp(line, "WE ", 3)
+			&& ft_strncmp(line, "EA ", 3)
+			&& ft_strncmp(line, "F ", 2)
+			&& ft_strncmp(line, "C ", 2)
+			&& line[0] != '\n')
+		{
+			printf("Error\nThis is not valid : %s", line);
+			close(fd);
+			return (0);
+		}
+		free(line);
+		line = get_next_line(fd);
 	}
-	free(map);
-	map = NULL;
+	return (1);
+}
+
+void	check_file(t_game *game, char *file)
+{
+	int		fd;
+	char	*line;
+
+	fd = safe_open(game, file);
+	line = get_next_line(fd);
+	if (!check_line(line, fd))
+		exit(1);
+	while (line != NULL)
+	{
+		line = get_next_line(fd);
+	}
+	free(line);
+	close(fd);
 	return ;
 }

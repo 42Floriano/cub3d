@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: falberti <falberti@student.42.fr>          +#+  +:+       +#+         #
+#    By: aavduli <aavduli@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/13 12:52:36 by falberti          #+#    #+#              #
-#    Updated: 2024/10/16 12:51:36 by falberti         ###   ########.fr        #
+#    Updated: 2024/10/16 15:13:53 by aavduli          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,6 +36,7 @@ FILES = $(SOURCES_DIR)/cub3d\
 		$(SOURCES_DIR)/map_checkers\
 		$(SOURCES_DIR)/map_utils\
 		$(SOURCES_DIR)/utils\
+		$(SOURCES_DIR)/free\
 
 ## Ajout de .c et modification pour stocker les .o dans OBJ_DIR
 CFILES = $(addsuffix .c, $(FILES))

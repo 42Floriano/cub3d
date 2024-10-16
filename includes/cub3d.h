@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: falberti <falberti@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aavduli <aavduli@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/24 17:46:15 by aavduli           #+#    #+#             */
-/*   Updated: 2024/10/16 13:30:58 by falberti         ###   ########.fr       */
+/*   Updated: 2024/10/16 14:34:19 by aavduli          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -247,6 +247,7 @@ void	rotate(t_game *game, int dir);
 
 //command_pathchecker.c
 bool	is_path_clear(t_game *game, double end_x, double end_y);
+void	check_file(t_game *game, char *file);
 
 //clean_exit.c
 int		exit_error(t_game *game, char *msg);
