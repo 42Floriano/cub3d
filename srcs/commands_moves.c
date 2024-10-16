@@ -6,7 +6,7 @@
 /*   By: falberti <falberti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/12 11:39:38 by falberti          #+#    #+#             */
-/*   Updated: 2024/10/16 17:15:38 by falberti         ###   ########.fr       */
+/*   Updated: 2024/10/16 17:35:35 by falberti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,18 @@ void	move_forw(t_game *game)
 {
 	double	next_posx;
 	double	next_posy;
-
+	
+	printf("Current position: (%f, %f), Direction: (%f, %f)\n", game->posx, game->posy, game->dirx, game->diry);
 	next_posx = game->posx + game->dirx * MOVE_SPEED;
 	next_posy = game->posy + game->diry * MOVE_SPEED;
+	if (game->map[(int)next_posx][(int)next_posy] == '1')
+	{
+		printf("Wall detected in front at (%d, %d)\n", (int)next_posx, (int)next_posy);
+	}
+	else
+	{
+		printf("No wall in front at (%d, %d)\n", (int)next_posx, (int)next_posy);
+	}
 	if (next_posx >= 1 && next_posx < game->map_width - 1
 		//&& is_path_clear(game, next_posx, game->posy)
 		&& game->map[(int)next_posx][(int)game->posy] == '0')
@@ -27,7 +36,10 @@ void	move_forw(t_game *game)
 		//&& is_path_clear(game, game->posx, next_posy)
 		&& game->map[(int)game->posx][(int)next_posy] == '0')
 		game->posy = next_posy;
-	printf("Next posx: %f, next posy: %f \n", next_posx, next_posy);
+
+
+printf("Next position forward: (%f, %f)\n", next_posx, next_posy);
+
 	return ;
 }
 
@@ -35,9 +47,17 @@ void	move_back(t_game *game)
 {
 	double	next_posx;
 	double	next_posy;
-
+	printf("Current position: (%f, %f), Direction: (%f, %f)\n", game->posx, game->posy, game->dirx, game->diry);
 	next_posx = game->posx - game->dirx * MOVE_SPEED;
 	next_posy = game->posy - game->diry * MOVE_SPEED;
+	if (game->map[(int)next_posx][(int)next_posy] == '1')
+	{
+		printf("Wall detected in front at (%d, %d)\n", (int)next_posx, (int)next_posy);
+	}
+	else
+	{
+		printf("No wall in front at (%d, %d)\n", (int)next_posx, (int)next_posy);
+	}
 	if (next_posx >= 1 && next_posx < game->map_width - 1
 		//&& is_path_clear(game, next_posx, game->posy)
 		&& game->map[(int)next_posx][(int)game->posy] == '0')
@@ -46,7 +66,9 @@ void	move_back(t_game *game)
 		//&& is_path_clear(game, game->posx, next_posy)
 		&& game->map[(int)game->posx][(int)next_posy] == '0')
 		game->posy = next_posy;
-	printf("Next posx: %f, next posy: %f \n", next_posx, next_posy);
+
+printf("Next position forward: (%f, %f)\n", next_posx, next_posy);
+
 	return ;
 }
 
@@ -55,8 +77,18 @@ void	move_left(t_game *game)
 	double	next_posx;
 	double	next_posy;
 
+printf("Current position: (%f, %f), Direction: (%f, %f)\n", game->posx, game->posy, game->dirx, game->diry);
+
 	next_posx = game->posx - game->planex * MOVE_SPEED;
 	next_posy = game->posy - game->planey * MOVE_SPEED;
+	if (game->map[(int)next_posx][(int)next_posy] == '1')
+	{
+		printf("Wall detected in front at (%d, %d)\n", (int)next_posx, (int)next_posy);
+	}
+	else
+	{
+		printf("No wall in front at (%d, %d)\n", (int)next_posx, (int)next_posy);
+	}
 	if (next_posx >= 1 && next_posx < game->map_width - 1
 		//&& is_path_clear(game, next_posx, game->posy)
 		&& game->map[(int)next_posx][(int)game->posy] == '0')
@@ -67,7 +99,8 @@ void	move_left(t_game *game)
 		//&& is_path_clear(game, game->posx, next_posy)
 		&& game->map[(int)game->posx][(int)next_posy] == '0')
 		game->posy = next_posy;
-	printf("Next posx: %f, next posy: %f \n", next_posx, next_posy);
+printf("Next position forward: (%f, %f)\n", next_posx, next_posy);
+
 	return ;
 }
 
@@ -76,8 +109,17 @@ void	move_right(t_game *game)
 	double	next_posx;
 	double	next_posy;
 
+printf("Current position: (%f, %f), Direction: (%f, %f)\n", game->posx, game->posy, game->dirx, game->diry);
 	next_posx = game->posx + game->planex * MOVE_SPEED;
 	next_posy = game->posy + game->planey * MOVE_SPEED;
+	if (game->map[(int)next_posx][(int)next_posy] == '1')
+	{
+		printf("Wall detected in front at (%d, %d)\n", (int)next_posx, (int)next_posy);
+	}
+	else
+	{
+		printf("No wall in front at (%d, %d)\n", (int)next_posx, (int)next_posy);
+	}
 	if (next_posx >= 1 && next_posx < game->map_width - 1
 		//&& is_path_clear(game, next_posx, game->posy)
 		&& game->map[(int)next_posx][(int)game->posy] == '0')
@@ -86,7 +128,9 @@ void	move_right(t_game *game)
 		//&& is_path_clear(game, game->posx, next_posy)
 		&& game->map[(int)game->posx][(int)next_posy] == '0')
 		game->posy = next_posy;
-	printf("Next posx: %f, next posy: %f \n", next_posx, next_posy);
+
+printf("Next position forward: (%f, %f)\n", next_posx, next_posy);
+
 	return ;
 }
 
