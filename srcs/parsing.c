@@ -6,7 +6,7 @@
 /*   By: aavduli <aavduli@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/28 13:55:47 by aavduli           #+#    #+#             */
-/*   Updated: 2024/10/02 17:11:49 by aavduli          ###   ########.fr       */
+/*   Updated: 2024/10/16 11:45:43 by aavduli          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,6 +69,7 @@ static char	*ft_strdup_update(const char *s1)
 	char	*strr;
 	int		size;
 	int		i;
+	int		j;
 
 	size = ft_strlen(s1);
 	strr = malloc((size + 1) * sizeof(char));
@@ -77,12 +78,16 @@ static char	*ft_strdup_update(const char *s1)
 	if (!s1)
 		return (NULL);
 	i = 0;
+	j = 0;
 	while (s1[i] && s1[i] != '\n')
 	{
-		strr[i] = s1[i];
+		while (s1[i] != '.')
+			i++;
+		strr[j] = s1[i];
 		i++;
+		j++;
 	}
-	strr[i] = '\0';
+	strr[j] = '\0';
 	return (strr);
 }
 
@@ -96,13 +101,13 @@ void	init_parsing(char *av, t_game *game)
 	while (line != NULL)
 	{
 		if (line[0] == 'N' && line[1] == 'O' && check_double(game, line))
-			game->paths.no_path = ft_strdup_update(line + 3);
+			game->paths.no_path = ft_strdup_update(line);
 		else if (line[0] == 'S' && line[1] == 'O' && check_double(game, line))
-			game->paths.so_path = ft_strdup_update(line + 3);
+			game->paths.so_path = ft_strdup_update(line);
 		else if (line[0] == 'W' && line[1] == 'E' && check_double(game, line))
-			game->paths.we_path = ft_strdup_update(line + 3);
+			game->paths.we_path = ft_strdup_update(line);
 		else if (line[0] == 'E' && line[1] == 'A' && check_double(game, line))
-			game->paths.ea_path = ft_strdup_update(line + 3);
+			game->paths.ea_path = ft_strdup_update(line);
 		else if ((line[0] == 'F' || line[0] == 'C') && check_double(game, line))
 			set_color(line, game);
 		else if (line[0] == ' ' || line[0] == '1'

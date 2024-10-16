@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map_checkers.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: albertini <albertini@student.42.fr>        +#+  +:+       +#+        */
+/*   By: aavduli <aavduli@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/19 12:18:34 by aavduli           #+#    #+#             */
-/*   Updated: 2024/10/10 17:03:53 by albertini        ###   ########.fr       */
+/*   Updated: 2024/10/16 11:35:32 by aavduli          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,7 +106,8 @@ void	check_map(t_game *game)
 	{
 		free_array(game->map);
 		free_array(game->dup_map);
-		printf("Error\nPlease, check the file !\n");
+		printf("Error\nPlease, your map must be surrounded by wall");
+		printf(" & must have only one player.\n");
 		exit(EXIT_FAILURE);
 	}
 	game->map_width = ft_strlen(game->map[0]);
