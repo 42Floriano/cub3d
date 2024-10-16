@@ -6,7 +6,7 @@
 /*   By: falberti <falberti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/17 13:29:00 by falberti          #+#    #+#             */
-/*   Updated: 2024/10/02 15:44:30 by falberti         ###   ########.fr       */
+/*   Updated: 2024/10/16 13:39:55 by falberti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,10 +72,8 @@ void	render_wall(t_game *game, int x, t_ray *ray)
 	double		tex_pos;
 	int			y;
 
-	tex_x = 0;
 	tex_y = 0;
 	tex_pos = 0.0;
-	texture = NULL;
 	texture = choose_text(game, ray->side);
 	tex_x = (int)(calc_p_wall(game, ray->side) * (double)texture->width);
 	tex_x = coordi_text(game, texture, tex_x, ray->side);
@@ -85,6 +83,8 @@ void	render_wall(t_game *game, int x, t_ray *ray)
 	y = ray->draw_start;
 	while (y < ray->draw_end)
 	{
+		if (y >= SCREEN_HEIGHT)
+			break ;
 		tex_y = (int)tex_pos & (texture->height - 1);
 		tex_pos += step(texture, ray->draw_start, ray->draw_end);
 		my_mlx_pixel_put(game, x, y,
@@ -92,14 +92,3 @@ void	render_wall(t_game *game, int x, t_ray *ray)
 		y++;
 	}
 }
-
-// void	render_weapon(t_game *game)
-// {
-// 	int	x;
-// 	int	y;
-
-// 	x = (SCREEN_WIDTH - game->textures_list[4]->width) / 2;
-// 	y = SCREEN_HEIGHT - game->textures_list[4]->height ;
-// 	mlx_put_image_to_window(game->mlx_connection,
-//			game->mlx_windows, game->textures_list[4]->img_ptr, x, y);
-// }

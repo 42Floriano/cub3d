@@ -6,7 +6,7 @@
 /*   By: aavduli <aavduli@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/28 13:55:47 by aavduli           #+#    #+#             */
-/*   Updated: 2024/10/16 11:50:23 by aavduli          ###   ########.fr       */
+/*   Updated: 2024/10/16 12:01:54 by aavduli          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,8 @@ static void	set_color(char *line, t_game *game)
 		if (!check_if_valid(tab) || !is_digit(tab))
 		{
 			free_array(tab);
-			printf("Error\nPlease set colors\n");
+			printf("Error\nColors are not good\n");
+			printf("It must be for ex '101,67,33'\n");
 			exit(EXIT_FAILURE);
 		}
 		if (line[0] == 'F')

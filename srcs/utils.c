@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aavduli <aavduli@student.42.fr>            +#+  +:+       +#+        */
+/*   By: falberti <falberti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/02 14:59:09 by aavduli           #+#    #+#             */
-/*   Updated: 2024/10/02 17:12:44 by aavduli          ###   ########.fr       */
+/*   Updated: 2024/10/16 12:50:59 by falberti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,4 +49,19 @@ int	check_params(t_game *game)
 	else if (game->paths.c_color == -1)
 		return (0);
 	return (1);
+}
+
+void	free_array(char **map)
+{
+	int	i;
+
+	i = 0;
+	while (map[i])
+	{
+		free(map[i]);
+		i++;
+	}
+	free(map);
+	map = NULL;
+	return ;
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   display.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: albertini <albertini@student.42.fr>        +#+  +:+       +#+        */
+/*   By: falberti <falberti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/20 15:24:44 by albertini         #+#    #+#             */
-/*   Updated: 2024/10/11 15:07:36 by albertini        ###   ########.fr       */
+/*   Updated: 2024/10/16 13:13:41 by falberti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,14 +37,16 @@ static void	init_play_orient(t_game *game, char **map, int i, int j)
 	map[i][j] = '0';
 }
 
+	// if (y > SCREEN_HEIGHT)
+	// 	y = SCREEN_HEIGHT - 50;
+	// if (x > SCREEN_WIDTH)
+	// 	x = SCREEN_WIDTH - 50;
 void	my_mlx_pixel_put(t_game *g, int x, int y, int color)
 {
 	char	*dst;
 
-	if (y > SCREEN_HEIGHT)
-		y = SCREEN_HEIGHT - 50;
-	if (x > SCREEN_WIDTH)
-		x = SCREEN_WIDTH - 50;
+	if (x < 0 || x >= SCREEN_WIDTH || y < 0 || y >= SCREEN_HEIGHT)
+		return ;
 	dst = g->img.pixels_ptr + (y * g->img.line_len + x * (g->img.bpp / 8));
 	*(unsigned int *)dst = color;
 }
@@ -94,7 +96,6 @@ void	initialize_player(t_game *game)
 // Clear previous frame (if needed)
 // Put the image to the window
 // render_weapon(game);
-
 void	render_frame(t_game *game)
 {
 	raycasting(game);
