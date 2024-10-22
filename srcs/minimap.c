@@ -6,13 +6,13 @@
 /*   By: aavduli <aavduli@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 12:04:48 by aavduli           #+#    #+#             */
-/*   Updated: 2024/10/22 12:05:14 by aavduli          ###   ########.fr       */
+/*   Updated: 2024/10/22 14:56:17 by aavduli          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/cub3d.h"
 
-#define MINIMAP_SCALE 10  // Chaque carré de la carte sera réduit par un facteur de 10
+#define MINIMAP_SCALE 20  // Chaque carré de la carte sera réduit par un facteur de 10
 
 void	render_minimap(t_game *game)
 {
@@ -45,8 +45,9 @@ void	render_minimap(t_game *game)
 				pixel_x = 0;
 				while (pixel_x < MINIMAP_SCALE)
 				{
+					// Inverser l'axe Y pour correspondre à la logique du jeu
 					my_mlx_pixel_put(game, map_x * MINIMAP_SCALE + pixel_x,
-						map_y * MINIMAP_SCALE + pixel_y, color);
+						(game->map_height - 1 - map_y) * MINIMAP_SCALE + pixel_y, color);
 					pixel_x++;
 				}
 				pixel_y++;
@@ -62,7 +63,7 @@ void	render_minimap(t_game *game)
 
 	// Dessiner la position du joueur sur la mini-carte
 	int player_map_x = (int)(game->posx * MINIMAP_SCALE);
-	int player_map_y = (int)(game->posy * MINIMAP_SCALE);
+	int player_map_y = (int)((game->map_height - 1 - game->posy) * MINIMAP_SCALE);
 
 	// Dessiner le joueur comme un petit carré rouge
 	pixel_y = -2;

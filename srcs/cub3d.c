@@ -6,7 +6,7 @@
 /*   By: aavduli <aavduli@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/15 12:53:21 by albertini         #+#    #+#             */
-/*   Updated: 2024/10/22 12:05:51 by aavduli          ###   ########.fr       */
+/*   Updated: 2024/10/22 12:08:33 by aavduli          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,6 @@ int	main(int ac, char **av)
 		check_map(&game);
 		commands(&game);
 		initialize_player(&game);
-		render_minimap(&game);
 		mlx_loop_hook(game.mlx_connection, &main_loop, &game);
 		mlx_loop(game.mlx_connection);
 	}

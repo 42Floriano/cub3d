@@ -6,7 +6,7 @@
 #    By: aavduli <aavduli@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/13 12:52:36 by falberti          #+#    #+#              #
-#    Updated: 2024/10/22 12:06:09 by aavduli          ###   ########.fr        #
+#    Updated: 2024/10/22 12:08:15 by aavduli          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -37,7 +37,7 @@ FILES = $(SOURCES_DIR)/cub3d\
 		$(SOURCES_DIR)/map_utils\
 		$(SOURCES_DIR)/utils\
 		$(SOURCES_DIR)/free\
-		$(SOURCE_DIR)/minimap\
+		$(SOURCES_DIR)/minimap\
 
 ## Ajout de .c et modification pour stocker les .o dans OBJ_DIR
 CFILES = $(addsuffix .c, $(FILES))
