@@ -6,7 +6,7 @@
 /*   By: aavduli <aavduli@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 12:04:48 by aavduli           #+#    #+#             */
-/*   Updated: 2024/10/22 15:15:46 by aavduli          ###   ########.fr       */
+/*   Updated: 2024/10/22 15:17:38 by aavduli          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ void	render_minimap(t_game *game)
 		pixel_x = -2;
 		while (pixel_x <= 2)
 		{
-			my_mlx_pixel_put(game, player_map_x + pixel_x, player_map_y + pixel_y, 0xFF0000);  // Rouge
+			my_mlx_pixel_put(game, player_map_x + pixel_x, player_map_y + pixel_y, 0xFF0000);
 			pixel_x++;
 		}
 		pixel_y++;
