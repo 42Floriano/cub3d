@@ -6,7 +6,7 @@
 /*   By: aavduli <aavduli@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/24 17:46:15 by aavduli           #+#    #+#             */
-/*   Updated: 2024/10/16 14:34:19 by aavduli          ###   ########.fr       */
+/*   Updated: 2024/10/22 12:05:29 by aavduli          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@
 # define RIGHT			1
 # define LEFT			0
 
-# define MOVE_SPEED 	0.05
+# define MOVE_SPEED 	0.04
 # define R_SPD 			0.1
 
 /* ERROR MESSAGES */
@@ -207,6 +207,9 @@ void	parsing2(t_game *game, char *av);
 //mapping
 void	malloc_mapy(t_game *game, char *line, int fd);
 void	copy_map(t_game *game, char *av);
+
+//minimnap
+void	render_minimap(t_game *game);
 
 //map_utils
 void	check_map(t_game *game);
