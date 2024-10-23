@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   commands_moves.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: albertini <albertini@student.42.fr>        +#+  +:+       +#+        */
+/*   By: falberti <falberti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/12 11:39:38 by falberti          #+#    #+#             */
-/*   Updated: 2024/10/11 14:59:04 by albertini        ###   ########.fr       */
+/*   Updated: 2024/10/23 11:44:51 by falberti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,15 +19,10 @@ void	move_forw(t_game *game)
 
 	next_posx = game->posx + game->dirx * MOVE_SPEED;
 	next_posy = game->posy + game->diry * MOVE_SPEED;
-	if (next_posx >= 1 && next_posx < game->map_width - 1
-		&& is_path_clear(game, next_posx, game->posy)
-		&& game->map[(int)next_posx][(int)game->posy] == '0')
+	if (game->map[(int)next_posx][(int)game->posy] == '0')
 		game->posx = next_posx;
-	if (next_posy >= 1 && next_posy < game->map_height - 1
-		&& is_path_clear(game, game->posx, next_posy)
-		&& game->map[(int)game->posx][(int)next_posy] == '0')
+	if (game->map[(int)game->posx][(int)next_posy] == '0')
 		game->posy = next_posy;
-	return ;
 }
 
 void	move_back(t_game *game)
@@ -37,15 +32,10 @@ void	move_back(t_game *game)
 
 	next_posx = game->posx - game->dirx * MOVE_SPEED;
 	next_posy = game->posy - game->diry * MOVE_SPEED;
-	if (next_posx >= 1 && next_posx < game->map_width - 1
-		&& is_path_clear(game, next_posx, game->posy)
-		&& game->map[(int)next_posx][(int)game->posy] == '0')
+	if (game->map[(int)next_posx][(int)game->posy] == '0')
 		game->posx = next_posx;
-	if (next_posy >= 1 && next_posy < game->map_height - 1
-		&& is_path_clear(game, game->posx, next_posy)
-		&& game->map[(int)game->posx][(int)next_posy] == '0')
+	if (game->map[(int)game->posx][(int)next_posy] == '0')
 		game->posy = next_posy;
-	return ;
 }
 
 void	move_left(t_game *game)
@@ -55,15 +45,10 @@ void	move_left(t_game *game)
 
 	next_posx = game->posx - game->planex * MOVE_SPEED;
 	next_posy = game->posy - game->planey * MOVE_SPEED;
-	if (next_posx >= 1 && next_posx < game->map_width - 1
-		&& is_path_clear(game, next_posx, game->posy)
-		&& game->map[(int)next_posx][(int)game->posy] == '0')
+	if (game->map[(int)next_posx][(int)game->posy] == '0')
 		game->posx = next_posx;
-	if (next_posy >= 1 && next_posy < game->map_height - 1
-		&& is_path_clear(game, game->posx, next_posy)
-		&& game->map[(int)game->posx][(int)next_posy] == '0')
+	if (game->map[(int)game->posx][(int)next_posy] == '0')
 		game->posy = next_posy;
-	return ;
 }
 
 void	move_right(t_game *game)
@@ -73,15 +58,10 @@ void	move_right(t_game *game)
 
 	next_posx = game->posx + game->planex * MOVE_SPEED;
 	next_posy = game->posy + game->planey * MOVE_SPEED;
-	if (next_posx >= 1 && next_posx < game->map_width - 1
-		&& is_path_clear(game, next_posx, game->posy)
-		&& game->map[(int)next_posx][(int)game->posy] == '0')
+	if (game->map[(int)next_posx][(int)game->posy] == '0')
 		game->posx = next_posx;
-	if (next_posy >= 1 && next_posy < game->map_height - 1
-		&& is_path_clear(game, game->posx, next_posy)
-		&& game->map[(int)game->posx][(int)next_posy] == '0')
+	if (game->map[(int)game->posx][(int)next_posy] == '0')
 		game->posy = next_posy;
-	return ;
 }
 
 void	rotate(t_game *game, int dir)

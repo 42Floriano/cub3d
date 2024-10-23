@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   display.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aavduli <aavduli@student.42.fr>            +#+  +:+       +#+        */
+/*   By: falberti <falberti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/20 15:24:44 by albertini         #+#    #+#             */
-/*   Updated: 2024/10/22 15:00:41 by aavduli          ###   ########.fr       */
+/*   Updated: 2024/10/23 11:38:24 by falberti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,5 +101,4 @@ void	render_frame(t_game *game)
 	raycasting(game);
 	mlx_put_image_to_window(game->mlx_connection,
 		game->mlx_windows, game->img.img_ptr, 0, 0);
-	render_minimap(game);
 }

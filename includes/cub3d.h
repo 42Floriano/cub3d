@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aavduli <aavduli@student.42.fr>            +#+  +:+       +#+        */
+/*   By: falberti <falberti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/24 17:46:15 by aavduli           #+#    #+#             */
-/*   Updated: 2024/10/22 12:05:29 by aavduli          ###   ########.fr       */
+/*   Updated: 2024/10/23 11:38:09 by falberti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -207,9 +207,6 @@ void	parsing2(t_game *game, char *av);
 //mapping
 void	malloc_mapy(t_game *game, char *line, int fd);
 void	copy_map(t_game *game, char *av);
-
-//minimnap
-void	render_minimap(t_game *game);
 
 //map_utils
 void	check_map(t_game *game);
