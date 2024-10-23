@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   display_textures.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aavduli <aavduli@student.42.fr>            +#+  +:+       +#+        */
+/*   By: falberti <falberti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/17 13:29:00 by falberti          #+#    #+#             */
-/*   Updated: 2024/10/22 12:01:01 by aavduli          ###   ########.fr       */
+/*   Updated: 2024/10/23 12:19:11 by falberti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,16 +17,16 @@ static t_texture	*choose_text(t_game *game, int side)
 	if (side == 0)
 	{
 		if (game->ray->ray_dir_x > 0)
-			return (game->textures_list[EAST]);
+			return (game->textures_list[SOUTH]);
 		else
-			return (game->textures_list[WEST]);
+			return (game->textures_list[NORTH]);
 	}
 	else
 	{
 		if (game->ray->ray_dir_y > 0)
-			return (game->textures_list[SOUTH]);
+			return (game->textures_list[EAST]);
 		else
-			return (game->textures_list[NORTH]);
+			return (game->textures_list[WEST]);
 	}
 }
 
