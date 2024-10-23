@@ -6,7 +6,7 @@
 /*   By: aavduli <aavduli@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/02 14:59:09 by aavduli           #+#    #+#             */
-/*   Updated: 2024/10/23 12:36:24 by aavduli          ###   ########.fr       */
+/*   Updated: 2024/10/23 14:34:10 by aavduli          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ static int	check_line(char *line, int fd)
 			&& ft_strncmp(line, "F ", 2)
 			&& ft_strncmp(line, "C ", 2)
 			&& line[0] != '\n'
-			&& line[0] != ' ')
+			&& line[0] != 32 && line[0] != '\t')
 		{
 			printf("Error\nThis is not valid : %s", line);
 			close(fd);

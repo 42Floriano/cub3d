@@ -6,7 +6,7 @@
 /*   By: aavduli <aavduli@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/28 13:55:47 by aavduli           #+#    #+#             */
-/*   Updated: 2024/10/23 14:29:57 by aavduli          ###   ########.fr       */
+/*   Updated: 2024/10/23 14:48:03 by aavduli          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ void	init_parsing(char *av, t_game *game)
 	char	*line;
 
 	fd = safe_open(game, av);
-	line = get_next_line(fd);
+	line = ft_strtrim(get_next_line(fd), "\t\n\r");
 	while (line != NULL)
 	{
 		if (line[0] == 'N' && line[1] == 'O' && check_double(game, line))
@@ -88,7 +88,7 @@ void	init_parsing(char *av, t_game *game)
 			|| line[0] == '0' || line[0] == '\t')
 			malloc_mapy(game, line, fd);
 		free(line);
-		line = get_next_line(fd);
+		line = ft_strtrim(get_next_line(fd), "\t\n\r");
 	}
 	close(fd);
 	parsing2(game, av, line);
