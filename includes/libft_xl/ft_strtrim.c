@@ -6,7 +6,7 @@
 /*   By: aavduli <aavduli@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 15:28:14 by falberti          #+#    #+#             */
-/*   Updated: 2024/10/23 14:55:50 by aavduli          ###   ########.fr       */
+/*   Updated: 2024/10/23 15:23:07 by aavduli          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ static int	check(char const *str, char set)
 	return (0);
 }
 
-char	*ft_strtrim(char *s1, char const *set)
+char	*ft_strtrim(char const *s1, char const *set)
 {
 	int		start;
 	int		end;

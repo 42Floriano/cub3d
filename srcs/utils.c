@@ -6,14 +6,15 @@
 /*   By: aavduli <aavduli@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/02 14:59:09 by aavduli           #+#    #+#             */
-/*   Updated: 2024/10/23 14:56:47 by aavduli          ###   ########.fr       */
+/*   Updated: 2024/10/23 15:22:42 by aavduli          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/cub3d.h"
 
-void	parsing2(t_game *game, char *av)
+void	parsing2(t_game *game, char *av, char *line)
 {
+	free(line);
 	if (game->map)
 		copy_map(game, av);
 	else
