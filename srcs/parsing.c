@@ -6,7 +6,7 @@
 /*   By: aavduli <aavduli@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/28 13:55:47 by aavduli           #+#    #+#             */
-/*   Updated: 2024/10/23 14:48:03 by aavduli          ###   ########.fr       */
+/*   Updated: 2024/10/23 14:53:21 by aavduli          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,31 +65,47 @@ static void	set_color(char *line, t_game *game)
 	}
 }
 
+void	ft_trimmed(char *trimmed, t_game *game)
+{
+	if (trimmed[0] == 'N' && trimmed[1] == 'O' && check_double(game, trimmed))
+		game->paths.no_path = ft_strtrim(trimmed + 2, "\t\n\r ");
+	else if (trimmed[0] == 'S' && trimmed[1] == 'O'
+		&& check_double(game, trimmed))
+		game->paths.so_path = ft_strtrim(trimmed + 2, "\t\n\r ");
+	else if (trimmed[0] == 'W' && trimmed[1] == 'E'
+		&& check_double(game, trimmed))
+		game->paths.we_path = ft_strtrim(trimmed + 2, "\t\n\r ");
+	else if (trimmed[0] == 'E' && trimmed[1] == 'A'
+		&& check_double(game, trimmed))
+		game->paths.ea_path = ft_strtrim(trimmed + 2, "\t\n\r ");
+	else if ((trimmed[0] == 'F' || trimmed[0] == 'C')
+		&& check_double(game, trimmed))
+		set_color(trimmed, game);
+}
+
 void	init_parsing(char *av, t_game *game)
 {
 	int		fd;
 	char	*line;
+	char	*trimmed_line;
 
 	fd = safe_open(game, av);
-	line = ft_strtrim(get_next_line(fd), "\t\n\r");
+	line = get_next_line(fd);
 	while (line != NULL)
 	{
-		if (line[0] == 'N' && line[1] == 'O' && check_double(game, line))
-			game->paths.no_path = ft_strtrim(line + 2, "\t\n\r ");
-		else if (line[0] == 'S' && line[1] == 'O' && check_double(game, line))
-			game->paths.so_path = ft_strtrim(line + 2, "\t\n\r ");
-		else if (line[0] == 'W' && line[1] == 'E' && check_double(game, line))
-			game->paths.we_path = ft_strtrim(line + 2, "\t\n\r ");
-		else if (line[0] == 'E' && line[1] == 'A' && check_double(game, line))
-			game->paths.ea_path = ft_strtrim(line + 2, "\t\n\r ");
-		else if ((line[0] == 'F' || line[0] == 'C') && check_double(game, line))
-			set_color(line, game);
-		else if (line[0] == ' ' || line[0] == '1'
-			|| line[0] == '0' || line[0] == '\t')
-			malloc_mapy(game, line, fd);
+		trimmed_line = ft_strtrim(line, "\t\n\r");
 		free(line);
-		line = ft_strtrim(get_next_line(fd), "\t\n\r");
+
+		if (trimmed_line != NULL && trimmed_line[0] != '\0')
+		{
+			ft_trimmed(trimmed_line, game);
+			if (trimmed_line[0] == ' ' || trimmed_line[0] == '1'
+				|| trimmed_line[0] == '0' || trimmed_line[0] == '\t')
+				malloc_mapy(game, trimmed_line, fd);
+		}
+		free(trimmed_line);
+		line = get_next_line(fd);
 	}
 	close(fd);
-	parsing2(game, av, line);
+	parsing2(game, av, NULL);
 }
