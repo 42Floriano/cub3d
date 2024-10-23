@@ -6,7 +6,7 @@
 /*   By: aavduli <aavduli@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/28 13:55:47 by aavduli           #+#    #+#             */
-/*   Updated: 2024/10/23 14:53:21 by aavduli          ###   ########.fr       */
+/*   Updated: 2024/10/23 15:05:20 by aavduli          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,9 +93,9 @@ void	init_parsing(char *av, t_game *game)
 	line = get_next_line(fd);
 	while (line != NULL)
 	{
-		trimmed_line = ft_strtrim(line, "\t\n\r");
+		trimmed_line = ft_strtrim(line, "\t\n\r ");
+		printf("trimmedline= '%s'\n", trimmed_line);
 		free(line);
-
 		if (trimmed_line != NULL && trimmed_line[0] != '\0')
 		{
 			ft_trimmed(trimmed_line, game);
@@ -107,5 +107,5 @@ void	init_parsing(char *av, t_game *game)
 		line = get_next_line(fd);
 	}
 	close(fd);
-	parsing2(game, av, NULL);
+	parsing2(game, av);
 }

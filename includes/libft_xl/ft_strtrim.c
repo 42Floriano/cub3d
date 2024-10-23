@@ -6,7 +6,7 @@
 /*   By: aavduli <aavduli@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 15:28:14 by falberti          #+#    #+#             */
-/*   Updated: 2024/10/23 14:46:21 by aavduli          ###   ########.fr       */
+/*   Updated: 2024/10/23 14:55:50 by aavduli          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,5 @@ char	*ft_strtrim(char *s1, char const *set)
 	while (start < end)
 		cpy[i++] = s1[start++];
 	cpy[i] = '\0';
-	free(s1);
 	return (cpy);
 }
