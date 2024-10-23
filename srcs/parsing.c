@@ -6,7 +6,7 @@
 /*   By: aavduli <aavduli@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/28 13:55:47 by aavduli           #+#    #+#             */
-/*   Updated: 2024/10/23 12:34:15 by aavduli          ###   ########.fr       */
+/*   Updated: 2024/10/23 13:19:36 by aavduli          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,7 +111,7 @@ void	init_parsing(char *av, t_game *game)
 			game->paths.ea_path = ft_strdup_update(line);
 		else if ((line[0] == 'F' || line[0] == 'C') && check_double(game, line))
 			set_color(line, game);
-		else if (line[0] == ' ' || line[0] == '1' 
+		else if (line[0] == ' ' || line[0] == '1'
 			|| line[0] == '0' || line[0] == '\t')
 			malloc_mapy(game, line, fd);
 		free(line);
