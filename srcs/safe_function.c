@@ -6,7 +6,7 @@
 /*   By: aavduli <aavduli@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/12 13:36:34 by aavduli           #+#    #+#             */
-/*   Updated: 2024/10/02 16:56:22 by aavduli          ###   ########.fr       */
+/*   Updated: 2024/10/23 14:19:06 by aavduli          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,26 +39,28 @@ int	check_double(t_game *game, char *line)
 
 int	is_digit(char **tab)
 {
-	int	i;
-	int	j;
+	int		i;
+	int		j;
+	char	*trimmed;
 
 	i = 0;
+	trimmed = NULL;
 	while (tab[i])
 	{
+		trimmed = ft_strtrim(tab[i], "\t\n\r ");
+		if (!trimmed)
+			return (0);
 		j = 0;
-		while (tab[i][j])
+		while (trimmed[j])
 		{
-			while (tab[i][j] == ' ')
-				j++;
-			if (tab[i][j] == '\n')
+			if (trimmed[j] < '0' || trimmed[j] > '9')
 			{
-				tab[i][j] = '\0';
-				break ;
-			}
-			if (tab[i][j] < '0' || tab[i][j] > '9')
+				free(trimmed);
 				return (0);
+			}
 			j++;
 		}
+		free(trimmed);
 		i++;
 	}
 	return (1);
