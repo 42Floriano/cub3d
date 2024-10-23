@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parsing.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aavduli <aavduli@student.42.fr>            +#+  +:+       +#+        */
+/*   By: falberti <falberti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/28 13:55:47 by aavduli           #+#    #+#             */
-/*   Updated: 2024/10/23 13:19:36 by aavduli          ###   ########.fr       */
+/*   Updated: 2024/10/23 15:59:28 by falberti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,7 @@ static void	set_color(char *line, t_game *game)
 static char	*ft_strdup_update(const char *s1)
 {
 	char	*strr;
+	char	*trimm;
 	int		size;
 	int		i;
 	int		j;
@@ -83,13 +84,11 @@ static char	*ft_strdup_update(const char *s1)
 		return (NULL);
 	j = 0;
 	while (s1[i] && s1[i] != '\n')
-	{
-		strr[j] = s1[i];
-		i++;
-		j++;
-	}
+		strr[j++] = s1[i++];
 	strr[j] = '\0';
-	return (strr);
+	trimm = ft_strtrim(strr, "\t\n\r ");
+	free(strr);
+	return (trimm);
 }
 
 void	init_parsing(char *av, t_game *game)
