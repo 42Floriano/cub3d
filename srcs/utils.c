@@ -6,14 +6,15 @@
 /*   By: aavduli <aavduli@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/02 14:59:09 by aavduli           #+#    #+#             */
-/*   Updated: 2024/10/16 15:34:08 by aavduli          ###   ########.fr       */
+/*   Updated: 2024/10/23 12:36:24 by aavduli          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/cub3d.h"
 
-void	parsing2(t_game *game, char *av)
+void	parsing2(t_game *game, char *av, char *line)
 {
+	free(line);
 	if (game->map)
 		copy_map(game, av);
 	else
@@ -71,6 +72,7 @@ static int	check_line(char *line, int fd)
 		free(line);
 		line = get_next_line(fd);
 	}
+	free(line);
 	return (1);
 }
 
@@ -86,6 +88,7 @@ void	check_file(t_game *game, char *file)
 	while (line != NULL)
 	{
 		line = get_next_line(fd);
+		free(line);
 	}
 	free(line);
 	close(fd);
