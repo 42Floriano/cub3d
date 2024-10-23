@@ -6,7 +6,7 @@
 /*   By: aavduli <aavduli@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/28 13:55:47 by aavduli           #+#    #+#             */
-/*   Updated: 2024/10/23 13:46:56 by aavduli          ###   ########.fr       */
+/*   Updated: 2024/10/23 14:29:57 by aavduli          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,33 +65,6 @@ static void	set_color(char *line, t_game *game)
 	}
 }
 
-static char	*ft_strdup_update(const char *s1)
-{
-	char	*strr;
-	int		size;
-	int		i;
-	int		j;
-
-	i = 0;
-	while (s1[i] != '.')
-		i++;
-	size = ft_strlen(s1 + i);
-	strr = malloc((size + 1) * sizeof(char));
-	if (!strr)
-		return (strr);
-	if (!s1)
-		return (NULL);
-	j = 0;
-	while (s1[i] && s1[i] != '\n')
-	{
-		strr[j] = s1[i];
-		i++;
-		j++;
-	}
-	strr[j] = '\0';
-	return (strr);
-}
-
 void	init_parsing(char *av, t_game *game)
 {
 	int		fd;
@@ -102,13 +75,13 @@ void	init_parsing(char *av, t_game *game)
 	while (line != NULL)
 	{
 		if (line[0] == 'N' && line[1] == 'O' && check_double(game, line))
-			game->paths.no_path = ft_strdup_update(line);
+			game->paths.no_path = ft_strtrim(line + 2, "\t\n\r ");
 		else if (line[0] == 'S' && line[1] == 'O' && check_double(game, line))
-			game->paths.so_path = ft_strdup_update(line);
+			game->paths.so_path = ft_strtrim(line + 2, "\t\n\r ");
 		else if (line[0] == 'W' && line[1] == 'E' && check_double(game, line))
-			game->paths.we_path = ft_strdup_update(line);
+			game->paths.we_path = ft_strtrim(line + 2, "\t\n\r ");
 		else if (line[0] == 'E' && line[1] == 'A' && check_double(game, line))
-			game->paths.ea_path = ft_strdup_update(line);
+			game->paths.ea_path = ft_strtrim(line + 2, "\t\n\r ");
 		else if ((line[0] == 'F' || line[0] == 'C') && check_double(game, line))
 			set_color(line, game);
 		else if (line[0] == ' ' || line[0] == '1'
