@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   safe_function.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: falberti <falberti@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aavduli <aavduli@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/12 13:36:34 by aavduli           #+#    #+#             */
-/*   Updated: 2024/10/24 13:53:58 by falberti         ###   ########.fr       */
+/*   Updated: 2024/10/24 14:36:20 by aavduli          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int	check_double(t_game *game, char *line)
 		duble = 1;
 	if (duble == 1)
 	{
-		printf("Error\nSomething wrong with your files\n");
+		printf("Error\nEach configuration key must be defined only once.\n");
 		exit_parsing(game);
 	}
 	return (1);
