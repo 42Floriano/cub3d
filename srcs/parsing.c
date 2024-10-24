@@ -6,7 +6,7 @@
 /*   By: falberti <falberti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/28 13:55:47 by aavduli           #+#    #+#             */
-/*   Updated: 2024/10/23 15:59:28 by falberti         ###   ########.fr       */
+/*   Updated: 2024/10/24 14:23:15 by falberti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,10 +44,12 @@ static int	rgb_to_hex(int red, int green, int blue)
 static void	set_color(char *line, t_game *game)
 {
 	char	**tab;
+	char	*trimmed;
 
 	if (line[0] == 'F' || line[0] == 'C')
 	{
-		tab = ft_split((line + 2), ',');
+		trimmed = ft_strtrim((line + 1), "\t\n\r ");
+		tab = ft_split(trimmed, ',');
 		if (!check_if_valid(tab) || !is_digit(tab))
 		{
 			free_array(tab);
@@ -62,6 +64,7 @@ static void	set_color(char *line, t_game *game)
 			game->paths.c_color = rgb_to_hex(ft_atoi(tab[0]),
 					ft_atoi(tab[1]), ft_atoi(tab[2]));
 		free_array(tab);
+		free(trimmed);
 	}
 }
 

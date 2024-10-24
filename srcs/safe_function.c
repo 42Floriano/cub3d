@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   safe_function.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aavduli <aavduli@student.42.fr>            +#+  +:+       +#+        */
+/*   By: falberti <falberti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/12 13:36:34 by aavduli           #+#    #+#             */
-/*   Updated: 2024/10/02 16:56:22 by aavduli          ###   ########.fr       */
+/*   Updated: 2024/10/24 13:53:58 by falberti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,8 +48,6 @@ int	is_digit(char **tab)
 		j = 0;
 		while (tab[i][j])
 		{
-			while (tab[i][j] == ' ')
-				j++;
 			if (tab[i][j] == '\n')
 			{
 				tab[i][j] = '\0';

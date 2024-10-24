@@ -6,12 +6,14 @@
 /*   By: falberti <falberti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/12 11:39:38 by falberti          #+#    #+#             */
-/*   Updated: 2024/10/23 11:44:51 by falberti         ###   ########.fr       */
+/*   Updated: 2024/10/24 13:20:18 by falberti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/cub3d.h"
 
+//Add is_path_clear(game, next_posx, game->posy) 
+//in case you want to change the speed
 void	move_forw(t_game *game)
 {
 	double	next_posx;
