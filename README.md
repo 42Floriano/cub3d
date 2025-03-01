@@ -13,7 +13,7 @@ Cub3D is a 42 project inspired by the classic Wolfenstein 3D. It is a simple 3D 
 
 ---
 
-## 📁 Repository Structure
+## 💃 Repository Structure
 
 ```
 ├── includes/          # Header files
@@ -67,14 +67,14 @@ Run the game with a `.cub` map file:
 ./cub3D maps/example.cub
 ```
 
-### 🕹️ Controls
+### 🤹️ Controls
 - `W/A/S/D` → Move player
 - `←` `→` → Rotate view
 - `ESC` → Exit game
 
 ---
 
-## 📜 Map Format
+## 🌜 Map Format
 A valid `.cub` file consists of:
 - **Textures:** `NO`, `SO`, `WE`, `EA` (Paths to texture files)
 - **Colors:** `F` (Floor color), `C` (Ceiling color)
@@ -107,13 +107,20 @@ C 225,30,0
 ✅ Wall textures based on direction  
 ✅ Floor and ceiling coloring  
 ✅ Basic error handling  
-❌ **Bonus features not implemented** (Minimap, Doors, Mouse control, etc.)  
+✅ **FPS Counter Implementation**  
 
 ---
 
 ## 🛑 Known Issues
 - Some edge cases in map parsing may cause unexpected behavior.
 - No sound or advanced graphical features.
+
+---
+
+## 📌 Screenshot
+Below is an in-game screenshot showcasing the game and the implemented **FPS counter**:
+
+![Cub3D Screenshot](Screenshot%202025-03-01%20at%2012.31.57.png)
 
 ---
 
