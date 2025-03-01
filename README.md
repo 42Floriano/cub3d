@@ -120,7 +120,8 @@ C 225,30,0
 ## 📌 Screenshot
 Below is an in-game screenshot showcasing the game and the implemented **FPS counter**:
 
-![Cub3D Screenshot](Screenshot%202025-03-01%20at%2012.31.57.png)
+![Screenshot 2025-03-01 at 12 31 57](https://github.com/user-attachments/assets/44178b1f-af78-45a0-8003-4c70bfc58496)
+
 
 ---
 
